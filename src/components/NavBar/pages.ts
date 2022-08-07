@@ -1,19 +1,28 @@
-const pages = [
+type Page = {
+  name: string;
+  sections: string[];
+};
+
+const pages: Page[] = [
   {
     name: "Home",
-    route: "home",
-    sections: [],
+    sections: ["About", "Contact"],
   },
   {
     name: "Skills",
-    route: "skills",
-    sections: [],
+    sections: ["Cookery", "Photography", "Programming"],
   },
   {
     name: "Projects",
-    route: "projects",
-    sections: [],
+    sections: ["Personal", "Workspace "],
   },
 ];
 
-export default pages;
+const mySocialMedia = {
+  LinkedIn: "https://www.linkedin.com/in/andykmh/",
+  Instagram: "https://www.instagram.com/andykwan4598/",
+  GitHub: "https://github.com/ak4598",
+};
+
+export { pages, mySocialMedia };
+export type { Page };
