@@ -18,35 +18,45 @@ const NavBar = () => {
   return (
     <div>
       <AppBar position="sticky">
-        <Toolbar>
-          <Stack className={classes.stack} direction="row" spacing={2}>
-            <Link target="_blank" href={mySocialMedia.Instagram}>
-              <Button
-                startIcon={<Instagram className={classes.icon} />}
-              ></Button>
-            </Link>
-            <Link target="_blank" href={mySocialMedia.LinkedIn}>
-              <Button
-                startIcon={<LinkedIn className={classes.icon} />}
-              ></Button>
-            </Link>
-            <Link target="_blank" href={mySocialMedia.GitHub}>
-              <Button startIcon={<GitHub className={classes.icon} />}></Button>
-            </Link>
-            {pages.map((page) => (
-              <MenuButton
-                name={page.name}
-                sections={page.sections}
-                variant="contained"
-                key={page.name}
-              >
-                <Typography className={classes.typography} variant="button">
-                  {page.name}
-                </Typography>
-              </MenuButton>
-            ))}
-          </Stack>
-        </Toolbar>
+        <Stack direction="row">
+          <Link href={"/"}>
+            <Button>
+              <Typography className={classes.typography}>Logo</Typography>
+            </Button>
+          </Link>
+
+          <Toolbar className={classes.stack}>
+            <Stack className={classes.stack} direction="row" spacing={2}>
+              <Link target="_blank" href={mySocialMedia.Instagram}>
+                <Button
+                  startIcon={<Instagram className={classes.icon} />}
+                ></Button>
+              </Link>
+              <Link target="_blank" href={mySocialMedia.LinkedIn}>
+                <Button
+                  startIcon={<LinkedIn className={classes.icon} />}
+                ></Button>
+              </Link>
+              <Link target="_blank" href={mySocialMedia.GitHub}>
+                <Button
+                  startIcon={<GitHub className={classes.icon} />}
+                ></Button>
+              </Link>
+              {pages.map((page) => (
+                <MenuButton
+                  name={page.name}
+                  sections={page.sections}
+                  variant="contained"
+                  key={page.name}
+                >
+                  <Typography className={classes.typography} variant="button">
+                    {page.name}
+                  </Typography>
+                </MenuButton>
+              ))}
+            </Stack>
+          </Toolbar>
+        </Stack>
       </AppBar>
     </div>
   );

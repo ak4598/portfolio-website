@@ -9,15 +9,14 @@ import * as Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 
 import NavBar from "./components/NavBar/NavBar";
-import CarouselSlider from "./components/CarouselSlider/CarouselSlider";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <CarouselSlider />
         <Routes>
+          <Route path="/" />
           <Route path="home">
             <Route path="about" element={<Home.About />} />
             <Route path="contact" element={<Home.Contact />} />
