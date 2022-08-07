@@ -2,22 +2,24 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   carousel: {
-    overflowX: "hidden",
+    width: "80%",
+    height: "400px",
+    margin: "0 auto",
   },
 
   paper: {
     display: "flex",
     justifyContent: "center",
-    width: "200px",
-    height: "150px",
+    width: "350px",
+    height: "250px",
     margin: "10px",
   },
 
   svg: {
     margin: "2px",
     padding: "3px",
-    maxWidth: "100%",
-    maxHeight: "100%",
+    maxWidth: "95%",
+    maxHeight: "95%",
   },
 });
 
