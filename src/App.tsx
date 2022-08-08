@@ -2,21 +2,33 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { createTheme, ThemeProvider } from "@mui/material";
+
 import * as Home from "./pages/Home";
 import * as Skills from "./pages/Skills";
 import * as Projects from "./pages/Projects";
-
-import NotFound from "./pages/NotFound";
+import * as Others from "./pages/Others";
 
 import NavBar from "./components/NavBar/NavBar";
 
+const theme = createTheme({
+  typography: {
+    fontFamily: "League Spartan",
+    fontSize: 16,
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+  },
+});
+
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" />
+          <Route path="/" element={<Others.Root />} />
           <Route path="home">
             <Route path="about" element={<Home.About />} />
             <Route path="contact" element={<Home.Contact />} />
@@ -30,10 +42,10 @@ function App() {
             <Route path="personal" element={<Projects.Personal />} />
             <Route path="workspace" element={<Projects.Workspace />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Others.NotFound />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </ThemeProvider>
   );
 }
 

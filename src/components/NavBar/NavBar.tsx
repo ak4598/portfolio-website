@@ -17,27 +17,40 @@ const NavBar = () => {
 
   return (
     <div>
-      <AppBar position="sticky">
-        <Stack direction="row">
-          <Link href={"/"}>
-            <Button>
-              <Typography className={classes.typography}>Logo</Typography>
-            </Button>
-          </Link>
-
-          <Toolbar className={classes.stack}>
-            <Stack className={classes.stack} direction="row" spacing={2}>
-              <Link target="_blank" href={mySocialMedia.Instagram}>
+      <AppBar className={classes.appBar}>
+        <Stack className={classes.stack} direction="row">
+          <Toolbar className={classes.toolbar}>
+            <Link href={"/"}>
+              <Button>
+                <Typography className={classes.typography}>Logo</Typography>
+              </Button>
+            </Link>
+          </Toolbar>
+          <Toolbar className={classes.toolbarRight}>
+            <Stack className={classes.stackRight} direction="row" spacing={2}>
+              <Link
+                target="_blank"
+                href={mySocialMedia.Instagram}
+                rel="noopener noreferrer"
+              >
                 <Button
                   startIcon={<Instagram className={classes.icon} />}
                 ></Button>
               </Link>
-              <Link target="_blank" href={mySocialMedia.LinkedIn}>
+              <Link
+                target="_blank"
+                href={mySocialMedia.LinkedIn}
+                rel="noopener noreferrer"
+              >
                 <Button
                   startIcon={<LinkedIn className={classes.icon} />}
                 ></Button>
               </Link>
-              <Link target="_blank" href={mySocialMedia.GitHub}>
+              <Link
+                target="_blank"
+                href={mySocialMedia.GitHub}
+                rel="noopener noreferrer"
+              >
                 <Button
                   startIcon={<GitHub className={classes.icon} />}
                 ></Button>
