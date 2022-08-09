@@ -21,7 +21,7 @@ const NavBar = () => {
         <Toolbar className={classes.toolbar}>
           <Link href={"/"}>
             <Button>
-              <Typography className={classes.typography}>Logo</Typography>
+              <Typography color="textPrimary">Logo</Typography>
             </Button>
           </Link>
         </Toolbar>
@@ -59,7 +59,7 @@ const NavBar = () => {
                 variant="contained"
                 key={page.name}
               >
-                <Typography className={classes.typography} variant="button">
+                <Typography color="textPrimary" variant="button">
                   {page.name}
                 </Typography>
               </MenuButton>

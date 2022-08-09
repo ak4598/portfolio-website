@@ -24,7 +24,7 @@ const MenuButton = (props: any) => {
   return (
     <Box>
       <Button key={props.name} onClick={handleClick}>
-        <Typography className={classes.typography} variant="caption">
+        <Typography color="textPrimary" variant="caption">
           {props.name}
         </Typography>
       </Button>
@@ -36,7 +36,9 @@ const MenuButton = (props: any) => {
             component={Link}
             to={"/" + camelize(props.name) + "/" + camelize(section)}
           >
-            <Typography variant="body2">{section}</Typography>
+            <Typography color="textPrimary" variant="body2">
+              {section}
+            </Typography>
           </MenuItem>
         ))}
       </Menu>

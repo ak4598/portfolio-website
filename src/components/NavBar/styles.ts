@@ -15,10 +15,6 @@ const useStyles = makeStyles({
 
   stackRight: { marginLeft: "auto", background: "transparent" },
   toolbarRight: { marginLeft: "auto", background: "transparent" },
-
-  typography: {
-    color: "white",
-  },
 });
 
 export default useStyles;

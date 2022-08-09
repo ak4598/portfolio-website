@@ -4,7 +4,7 @@ import backgroundImage from "../../assets/background/iceland.jpg";
 const useStyles = makeStyles({
   mask: {
     background:
-      "linear-gradient(55deg, rgba(242,252,254,1) 0%, rgba(28,146,210,1) 100%)",
+      "linear-gradient(145deg, rgba(218,248,255,1) 0%, rgba(152,209,240,1) 45%, rgba(69,134,208,1) 83%, rgba(32,100,194,1) 100%)",
     opacity: "75%",
     zIndex: "1",
     display: "block",
@@ -15,8 +15,16 @@ const useStyles = makeStyles({
 
     position: "fixed",
     top: "0",
+    bottom: "0",
     // left: "0",
     // right: "0",
+  },
+  titleOverlay: {
+    zIndex: "1",
+    display: "block",
+    width: "100%",
+    position: "fixed",
+    top: "0",
     bottom: "0",
   },
   image: {
@@ -30,8 +38,13 @@ const useStyles = makeStyles({
     /* Set up positioning */
     position: "fixed",
     top: "0",
-    // left: "0",
     bottom: "0",
+    // left: "0",
+  },
+
+  introBox: {
+    marginTop: "min(400px, 20%)",
+    marginLeft: "15%",
   },
 });
 

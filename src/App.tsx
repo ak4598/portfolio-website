@@ -12,6 +12,12 @@ import * as Others from "./pages/Others";
 import NavBar from "./components/NavBar/NavBar";
 
 const theme = createTheme({
+  palette: {
+    text: {
+      primary: "rgba(248, 249, 249, 1)",
+      secondary: "rgba(23, 32, 42, 1)",
+    },
+  },
   typography: {
     fontFamily: "League Spartan",
     fontSize: 16,
