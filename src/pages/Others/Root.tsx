@@ -7,6 +7,7 @@ const Root = () => {
   const classes = useStyles();
   return (
     <div>
+      <div className={classes.mask}></div>
       <img className={classes.image} src={backgroundImage}></img>
     </div>
   );
