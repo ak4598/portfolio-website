@@ -2,11 +2,8 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   appBar: {
-    background:
-      "linear-gradient(145deg, rgba(242,252,254,1) 0%, rgba(28,146,210,1) 100%)",
-    boxShadow: "none",
-    // background: "transparent",
-    // opacity: "50%",
+    // background:
+    //   "linear-gradient(145deg, rgba(242,252,254,1) 0%, rgba(28,146,210,1) 100%)",
   },
 
   icon: {
