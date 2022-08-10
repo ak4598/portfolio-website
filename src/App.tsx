@@ -42,7 +42,7 @@ function App() {
           <Route path="skills">
             <Route path="cookery" element={<Skills.Cookery />} />
             <Route path="photography" element={<Skills.Photography />} />
-            <Route path="programming" element={<Skills.Programming />} />
+            <Route path="engineering" element={<Skills.Engineering />} />
           </Route>
           <Route path="projects">
             <Route path="personal" element={<Projects.Personal />} />

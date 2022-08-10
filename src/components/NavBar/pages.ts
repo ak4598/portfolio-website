@@ -10,7 +10,7 @@ const pages: Page[] = [
   },
   {
     name: "Skills",
-    sections: ["Cookery", "Photography", "Programming"],
+    sections: ["Cookery", "Photography", "Engineering"],
   },
   {
     name: "Projects",
