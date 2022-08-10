@@ -24,11 +24,16 @@ const MenuButton = (props: any) => {
   return (
     <Box>
       <Button key={props.name} onClick={handleClick}>
-        <Typography color="textPrimary" variant="caption">
+        <Typography color="textPrimary" variant="body1">
           {props.name}
         </Typography>
       </Button>
-      <Menu anchorEl={anchorElm} open={open} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorElm}
+        open={open}
+        onClose={handleClose}
+        elevation={0}
+      >
         {props.sections.map((section: string) => (
           <MenuItem
             key={section}
@@ -36,7 +41,7 @@ const MenuButton = (props: any) => {
             component={Link}
             to={"/" + camelize(props.name) + "/" + camelize(section)}
           >
-            <Typography color="textPrimary" variant="body2">
+            <Typography color="textPrimary" variant="body1">
               {section}
             </Typography>
           </MenuItem>

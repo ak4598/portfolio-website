@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { LinkedIn, GitHub, Instagram } from "@mui/icons-material";
 import MenuButton from "./MenuButton";
+import SocialMediaButton from "./SocialMediaButton";
 import { pages, mySocialMedia } from "./pages";
 import useStyles from "./styles";
 
@@ -21,47 +22,26 @@ const NavBar = () => {
         <Toolbar className={classes.toolbar}>
           <Link href={"/"} underline="none">
             <Button>
-              <Typography color="textPrimary">Logo</Typography>
+              <Typography color="textPrimary" variant="h3">
+                Logo
+              </Typography>
             </Button>
           </Link>
         </Toolbar>
         <Toolbar className={classes.toolbarRight}>
-          <Stack className={classes.stackRight} direction="row" spacing={2}>
-            <Link
-              target="_blank"
+          <Stack className={classes.stackRight} direction="row" spacing={4}>
+            {/* <SocialMediaButton
               href={mySocialMedia.Instagram}
-              rel="noopener noreferrer"
-            >
-              <Button
-                startIcon={<Instagram className={classes.icon} />}
-              ></Button>
-            </Link>
-            <Link
-              target="_blank"
-              href={mySocialMedia.LinkedIn}
-              rel="noopener noreferrer"
-            >
-              <Button
-                startIcon={<LinkedIn className={classes.icon} />}
-              ></Button>
-            </Link>
-            <Link
-              target="_blank"
-              href={mySocialMedia.GitHub}
-              rel="noopener noreferrer"
-            >
-              <Button startIcon={<GitHub className={classes.icon} />}></Button>
-            </Link>
+              Icon={Instagram}
+            />
+            <SocialMediaButton href={mySocialMedia.LinkedIn} Icon={LinkedIn} />
+            <SocialMediaButton href={mySocialMedia.GitHub} Icon={GitHub} /> */}
             {pages.map((page) => (
               <MenuButton
                 name={page.name}
                 sections={page.sections}
                 key={page.name}
-              >
-                <Typography color="textPrimary" variant="button">
-                  {page.name}
-                </Typography>
-              </MenuButton>
+              ></MenuButton>
             ))}
           </Stack>
         </Toolbar>

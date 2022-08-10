@@ -7,7 +7,7 @@ const useStyles = makeStyles({
   },
 
   icon: {
-    color: "white",
+    color: "rgba(248, 249, 249, 1)",
   },
 
   stack: { background: "transparent" },
@@ -15,6 +15,10 @@ const useStyles = makeStyles({
 
   stackRight: { marginLeft: "auto", background: "transparent" },
   toolbarRight: { marginLeft: "auto", background: "transparent" },
+
+  opacity: {
+    opacity: "100% !important",
+  },
 });
 
 export default useStyles;

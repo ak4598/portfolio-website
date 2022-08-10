@@ -37,6 +37,6 @@
   }
 }
 
-/* .MuiPopover-root .MuiMenu-paper {
-  opacity: 0 !important;
-} */
+.MuiMenu-paper {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
