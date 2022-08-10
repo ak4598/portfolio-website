@@ -19,7 +19,7 @@ const NavBar = () => {
     <AppBar className={classes.appBar} color="transparent" elevation={0}>
       <Stack className={classes.stack} direction="row">
         <Toolbar className={classes.toolbar}>
-          <Link href={"/"}>
+          <Link href={"/"} underline="none">
             <Button>
               <Typography color="textPrimary">Logo</Typography>
             </Button>
@@ -56,7 +56,6 @@ const NavBar = () => {
               <MenuButton
                 name={page.name}
                 sections={page.sections}
-                variant="contained"
                 key={page.name}
               >
                 <Typography color="textPrimary" variant="button">
