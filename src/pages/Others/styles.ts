@@ -1,5 +1,4 @@
 import { makeStyles } from "@mui/styles";
-import backgroundImage from "../../assets/background/iceland.jpg";
 
 const useStyles = makeStyles({
   mask: {

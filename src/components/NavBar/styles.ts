@@ -13,7 +13,11 @@ const useStyles = makeStyles({
   stack: { background: "transparent" },
   toolbar: { background: "transparent" },
 
-  stackRight: { marginLeft: "auto", background: "transparent" },
+  stackRight: {
+    marginLeft: "auto",
+    paddingRight: "15px",
+    background: "transparent",
+  },
   toolbarRight: { marginLeft: "auto", background: "transparent" },
 
   opacity: {
