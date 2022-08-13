@@ -3,6 +3,7 @@ import CarouselSlider from "../../../components/CarouselSlider/CarouselSlider";
 import useStyles from "./styles";
 import { v4 as uuidv4 } from "uuid";
 import ProgLogos from "../../../assets/ProgLogos";
+import Contents from "./Contents";
 import { config } from "react-spring";
 
 const Engineering = () => {
@@ -19,11 +20,14 @@ const Engineering = () => {
     onClick: () => {
       setMaskColour(Prog.colour);
       setGoToSlide(index);
+      setContent(Contents[index]);
     },
   }));
 
   const [goToSlide, setGoToSlide] = useState(0);
   const [maskColour, setMaskColour] = useState(ProgLogos[0].colour);
+  const [Content, setContent] = useState(Contents[0]);
+
   const [offsetRadius, setOffsetRadius] = useState(2);
   const [showArrows, setShowArrows] = useState(false);
   const [slides] = useState(progSlides);
@@ -31,7 +35,6 @@ const Engineering = () => {
   return (
     <div>
       <div className={classes.mask} style={{ background: maskColour }}></div>
-
       <CarouselSlider
         slides={slides}
         goToSlide={goToSlide}
@@ -39,6 +42,7 @@ const Engineering = () => {
         showNavigation={showArrows}
         animationConfig={config.gentle}
       />
+      {Content}
     </div>
   );
 };

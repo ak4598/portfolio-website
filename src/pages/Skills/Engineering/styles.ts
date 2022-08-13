@@ -15,12 +15,6 @@ const useStyles = makeStyles({
     bottom: "0",
   },
 
-  carousel: {
-    width: "100%",
-    height: "400px",
-    marginTop: "10%",
-  },
-
   paper: {
     display: "flex",
     justifyContent: "center",
