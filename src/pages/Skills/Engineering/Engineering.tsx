@@ -42,7 +42,7 @@ const Engineering = () => {
         showNavigation={showArrows}
         animationConfig={config.gentle}
       />
-      {Content}
+      <div className={classes.overlay}>{Content}</div>
     </div>
   );
 };

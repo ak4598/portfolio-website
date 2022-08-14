@@ -29,6 +29,14 @@ const useStyles = makeStyles({
     maxWidth: "95%",
     maxHeight: "95%",
   },
+
+  overlay: {
+    zIndex: "2 ",
+    position: "absolute",
+    textAlign: "center",
+    width: "100%",
+    // height: "100%",
+  },
 });
 
 export default useStyles;

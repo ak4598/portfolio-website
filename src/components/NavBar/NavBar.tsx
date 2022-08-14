@@ -17,7 +17,12 @@ const NavBar = () => {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.appBar} color="transparent" elevation={0}>
+    <AppBar
+      className={classes.appBar}
+      color="transparent"
+      elevation={0}
+      position="sticky"
+    >
       <Stack className={classes.stack} direction="row">
         <Toolbar className={classes.toolbar}>
           <Link href={"/"} underline="none">

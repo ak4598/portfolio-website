@@ -8,37 +8,30 @@ const useStyles = makeStyles({
     zIndex: "1",
     display: "block",
 
-    /* Set up proportionate scaling */
     width: "100%",
     height: "auto",
 
-    position: "fixed",
+    position: "absolute",
     top: "0",
     bottom: "0",
-    // left: "0",
-    // right: "0",
   },
   titleOverlay: {
-    zIndex: "1",
-    display: "block",
+    zIndex: "2",
+    position: "absolute",
     width: "100%",
-    position: "fixed",
-    top: "0",
-    bottom: "0",
   },
   image: {
-    minHeight: "100%",
-    minWidth: "1024px",
+    objectFit: "cover",
 
-    /* Set up proportionate scaling */
+    minHeight: "min(100%, 1024px)",
+    minWidth: "min(100%, 1024px)",
+
     width: "100%",
     height: "auto",
 
-    /* Set up positioning */
-    position: "fixed",
+    position: "absolute",
     top: "0",
     bottom: "0",
-    // left: "0",
   },
 
   introBox: {
