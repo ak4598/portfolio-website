@@ -3,13 +3,14 @@ import CarouselSlider from "../../../components/CarouselSlider/CarouselSlider";
 import useStyles from "./styles";
 import { v4 as uuidv4 } from "uuid";
 import ProgLogos from "../../../assets/ProgLogos";
+import TechLogos from "../../../assets/TechLogos";
 import Contents from "./Contents";
 import { config } from "react-spring";
 
 const Engineering = () => {
   const classes = useStyles();
 
-  const progSlides = ProgLogos.map((Prog, index) => ({
+  const progSlides = TechLogos.map((Prog, index) => ({
     key: uuidv4(),
     content: (
       <div className={classes.paper}>
@@ -18,7 +19,7 @@ const Engineering = () => {
     ),
 
     onClick: () => {
-      setMaskColour(Prog.colour);
+      // setMaskColour(Prog.colour);
       setGoToSlide(index);
       setContent(Contents[index]);
     },
@@ -34,7 +35,8 @@ const Engineering = () => {
 
   return (
     <div>
-      <div className={classes.mask} style={{ background: maskColour }}></div>
+      {/* <div className={classes.mask} style={{ background: maskColour }}></div> */}
+      <div className={classes.mask} style={{ background: "white" }}></div>
       <CarouselSlider
         slides={slides}
         goToSlide={goToSlide}

@@ -34,6 +34,8 @@ const useStyles = makeStyles({
     zIndex: "2 ",
     position: "absolute",
     textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
     width: "100%",
     // height: "100%",
   },
