@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   mask: {
-    opacity: "75%",
+    // opacity: "100%",
     zIndex: "1",
     display: "block",
 

@@ -18,7 +18,7 @@ const Engineering = () => {
     ),
 
     onClick: () => {
-      // setMaskColour(Prog.colour);
+      setMaskColour(Tech.colour);
       setGoToSlide(index);
       setContent(Contents[index]);
     },
