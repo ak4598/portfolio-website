@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import CarouselSlider from "../../../components/CarouselSlider/CarouselSlider";
 import useStyles from "./styles";
 import { v4 as uuidv4 } from "uuid";
-import ProgLogos from "../../../assets/ProgLogos";
-import TechLogos from "../../../assets/TechLogos";
-import Contents from "./Contents";
+
+import Contents, { TechLogos } from "./Contents";
 import { config } from "react-spring";
 
 const Engineering = () => {
   const classes = useStyles();
 
-  const progSlides = TechLogos.map((Prog, index) => ({
+  const progSlides = TechLogos.map((Tech, index) => ({
     key: uuidv4(),
     content: (
       <div className={classes.paper}>
-        <Prog.logo className={classes.svg} />
+        <Tech.logo className={classes.svg} />
       </div>
     ),
 
@@ -26,7 +25,7 @@ const Engineering = () => {
   }));
 
   const [goToSlide, setGoToSlide] = useState(0);
-  const [maskColour, setMaskColour] = useState(ProgLogos[0].colour);
+  const [maskColour, setMaskColour] = useState(TechLogos[0].colour);
   const [Content, setContent] = useState(Contents[0]);
 
   const [offsetRadius, setOffsetRadius] = useState(2);
@@ -36,7 +35,7 @@ const Engineering = () => {
   return (
     <div>
       {/* <div className={classes.mask} style={{ background: maskColour }}></div> */}
-      <div className={classes.mask} style={{ background: "white" }}></div>
+      <div className={classes.mask} style={{ background: maskColour }}></div>
       <CarouselSlider
         slides={slides}
         goToSlide={goToSlide}
