@@ -4,7 +4,21 @@ const useStyles = makeStyles({
   mask: {
     background:
       "linear-gradient(145deg, rgba(218,248,255,1) 0%, rgba(152,209,240,1) 45%, rgba(69,134,208,1) 83%, rgba(32,100,194,1) 100%)",
-    opacity: "75%",
+    opacity: "40%",
+    zIndex: "1",
+    display: "block",
+
+    width: "100%",
+    height: "auto",
+
+    position: "absolute",
+    top: "0",
+    bottom: "0",
+  },
+  mask404: {
+    background:
+      "linear-gradient(145deg, rgba(246,144,147,1) 0%, rgba(247,226,239,1) 100%)",
+    opacity: "100%",
     zIndex: "1",
     display: "block",
 
