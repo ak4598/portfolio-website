@@ -8,7 +8,7 @@ const NotFound = () => {
     <div>
       <div className={classes.mask404}></div>
       <div className={classes.titleOverlay}>
-        <Box className={classes.introBox}>
+        <Box>
           <Typography variant="h1" color="textPrimary">
             404 Not Found
           </Typography>
@@ -17,7 +17,7 @@ const NotFound = () => {
             variant="h4"
             color="textPrimary"
           >
-            👆🏻Please browse through the navigation bar above👆🏻
+            Please browse through the navigation bar above
           </Typography>
         </Box>
       </div>

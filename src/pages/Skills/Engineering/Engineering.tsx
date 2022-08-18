@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CarouselSlider from "../../../components/CarouselSlider/CarouselSlider";
 import useStyles from "./styles";
 import { v4 as uuidv4 } from "uuid";
+import { Typography, Box, Grid } from "@mui/material";
 
 import Contents, { TechLogos } from "./Contents";
 import { config } from "react-spring";
@@ -12,8 +13,15 @@ const Engineering = () => {
   const progSlides = TechLogos.map((Tech, index) => ({
     key: uuidv4(),
     content: (
-      <div className={classes.paper}>
-        <Tech.logo className={classes.svg} />
+      <div className={classes.container}>
+        <div className={classes.logo}>
+          <Tech.logo className={classes.svg} />
+        </div>
+        <div className={classes.label}>
+          <Typography color="textPrimary" variant="h4">
+            {Tech.text}
+          </Typography>
+        </div>
       </div>
     ),
 
@@ -34,7 +42,6 @@ const Engineering = () => {
 
   return (
     <div>
-      {/* <div className={classes.mask} style={{ background: maskColour }}></div> */}
       <div className={classes.mask} style={{ background: maskColour }}></div>
       <CarouselSlider
         slides={slides}

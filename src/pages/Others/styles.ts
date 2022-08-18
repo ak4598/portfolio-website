@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     display: "block",
 
     width: "100%",
-    height: "auto",
+    height: "100%",
 
     position: "absolute",
     top: "0",
@@ -32,7 +32,12 @@ const useStyles = makeStyles({
   titleOverlay: {
     zIndex: "2",
     position: "absolute",
-    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    width: "70%",
+    height: "70%",
+
+    marginLeft: "15%",
   },
   image: {
     objectFit: "cover",
@@ -41,16 +46,11 @@ const useStyles = makeStyles({
     minWidth: "min(100%, 1024px)",
 
     width: "100%",
-    height: "auto",
+    height: "100%",
 
     position: "absolute",
     top: "0",
     bottom: "0",
-  },
-
-  introBox: {
-    marginTop: "min(400px, 20%)",
-    marginLeft: "15%",
   },
 });
 

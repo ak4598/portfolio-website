@@ -11,7 +11,7 @@ const Root = () => {
       <img className={classes.image} src={backgroundImage}></img>
       <div className={classes.mask}></div>
       <div className={classes.titleOverlay}>
-        <Box className={classes.introBox}>
+        <Box>
           <Typography variant="h1" color="textPrimary">
             Andy Kwan
           </Typography>

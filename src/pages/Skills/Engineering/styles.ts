@@ -15,19 +15,32 @@ const useStyles = makeStyles({
     bottom: "0",
   },
 
-  paper: {
-    display: "flex",
-    justifyContent: "center",
-    width: "350px",
+  container: {
+    width: "400px",
     height: "250px",
     margin: "10px",
+    display: "flex",
+  },
+
+  logo: {
+    width: "70%",
+    display: "flex",
+    justifyContent: "center",
+  },
+
+  label: {
+    width: "30%",
+    display: "flex",
+    textAlign: "center",
+    alignItems: "center",
+    margin: "8%",
   },
 
   svg: {
     margin: "2px",
     padding: "3px",
-    maxWidth: "95%",
-    maxHeight: "95%",
+    maxWidth: "100%",
+    maxHeight: "100%",
   },
 
   overlay: {
