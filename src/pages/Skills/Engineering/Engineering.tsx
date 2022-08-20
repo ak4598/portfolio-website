@@ -10,7 +10,7 @@ import { config } from "react-spring";
 const Engineering = () => {
   const classes = useStyles();
 
-  const progSlides = TechLogos.map((Tech, index) => ({
+  const techSlides = TechLogos.map((Tech, index) => ({
     key: uuidv4(),
     content: (
       <div className={classes.container}>
@@ -38,7 +38,7 @@ const Engineering = () => {
 
   const [offsetRadius, setOffsetRadius] = useState(2);
   const [showArrows, setShowArrows] = useState(false);
-  const [slides] = useState(progSlides);
+  const [slides] = useState(techSlides);
 
   return (
     <div>
