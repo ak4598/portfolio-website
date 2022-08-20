@@ -19,6 +19,7 @@ const pages: Page[] = [
 ];
 
 const mySocialMedia = {
+  Facebook: "https://www.facebook.com/ak4598/",
   LinkedIn: "https://www.linkedin.com/in/andykmh/",
   Instagram: "https://www.instagram.com/andykwan4598/",
   GitHub: "https://github.com/ak4598",

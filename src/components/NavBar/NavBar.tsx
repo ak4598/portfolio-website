@@ -7,10 +7,8 @@ import {
   Stack,
   Link,
 } from "@mui/material";
-import { LinkedIn, GitHub, Instagram } from "@mui/icons-material";
 import MenuButton from "./MenuButton";
-import SocialMediaButton from "./SocialMediaButton";
-import { pages, mySocialMedia } from "./pages";
+import { pages } from "./pages";
 import useStyles from "./styles";
 
 const NavBar = () => {
@@ -35,12 +33,6 @@ const NavBar = () => {
         </Toolbar>
         <Toolbar className={classes.toolbarRight}>
           <Stack className={classes.stackRight} direction="row" spacing={4}>
-            {/* <SocialMediaButton
-              href={mySocialMedia.Instagram}
-              Icon={Instagram}
-            />
-            <SocialMediaButton href={mySocialMedia.LinkedIn} Icon={LinkedIn} />
-            <SocialMediaButton href={mySocialMedia.GitHub} Icon={GitHub} /> */}
             {pages.map((page) => (
               <MenuButton
                 name={page.name}
