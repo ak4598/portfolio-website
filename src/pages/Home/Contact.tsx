@@ -6,7 +6,6 @@ import { Facebook, LinkedIn, GitHub, Instagram } from "@mui/icons-material";
 const Contact = () => {
   return (
     <div className="background">
-      {/* <div className="background"></div> */}
       <div className="content">
         <ul>
           <li>
