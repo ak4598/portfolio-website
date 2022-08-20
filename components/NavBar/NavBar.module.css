@@ -1,0 +1,73 @@
+.header {
+  position: fixed;
+  height: 10vh;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.navbar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 2%;
+}
+
+.logo {
+  padding: 0 50px;
+
+  font-size: 48px;
+  color: #f8f9f9;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar ul li {
+  position: relative;
+  float: left;
+}
+
+.navbar ul li div {
+  font-size: 18px;
+  padding: 20px 30px;
+  color: #f8f9f9;
+}
+
+.navbar ul li ul {
+  position: absolute;
+  font-size: 16px;
+  padding-left: 0;
+  color: #f8f9f9;
+  width: 140px;
+  display: none;
+  background: rgba(248, 249, 249, 0.1);
+  left: 20px;
+}
+
+.navbar ul li ul li {
+  position: relative;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.navbar ul li ul li a {
+  padding: 0 10px;
+}
+
+.navbar ul li ul li:hover {
+  background: rgba(248, 249, 249, 0.2);
+}
+
+.navbar ul li:focus-within > ul,
+.navbar ul li:hover > ul {
+  display: inherit;
+}
+
+@media (min-width: 768px) {
+}

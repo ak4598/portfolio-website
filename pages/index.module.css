@@ -1,0 +1,73 @@
+.image {
+  object-fit: cover;
+
+  min-height: min(100%, 1024px);
+  min-width: min(100%, 1024px);
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.mask {
+  background: linear-gradient(
+    145deg,
+    rgba(218, 248, 255, 1) 0%,
+    rgba(152, 209, 240, 1) 45%,
+    rgba(69, 134, 208, 1) 83%,
+    rgba(32, 100, 194, 1) 100%
+  );
+  opacity: 40%;
+  z-index: 1;
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.mask404 {
+  background: linear-gradient(
+    145deg,
+    rgba(246, 144, 147, 1) 0%,
+    rgba(247, 226, 239, 1) 100%
+  );
+
+  z-index: 1;
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.titleOverlay {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-left: 15%;
+  color: #f8f9f9;
+}
+
+.titleOverlay .title {
+  font-size: 110px;
+}
+
+.titleOverlay .subtitle {
+  font-size: 40px;
+  font-weight: lighter;
+}
