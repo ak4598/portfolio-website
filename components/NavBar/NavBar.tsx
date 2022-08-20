@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./NavBar.module.css";
+import { pages } from "./pages";
 
 const NavBar = () => {
   return (
@@ -10,42 +11,25 @@ const NavBar = () => {
 
       <nav className={styles.navbar}>
         <ul>
-          <li>
-            <div>HOME</div>
-            <ul>
-              <li>
-                <a>ABOUT</a>
-              </li>
-              <li>
-                <a>CONTACT</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div>SKILLS</div>
-            <ul>
-              <li>
-                <a>COOKERY</a>
-              </li>
-              <li>
-                <a>PHOTOGRAPHY</a>
-              </li>
-              <li>
-                <a>ENGINEERING</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div>PROJECTS</div>
-            <ul>
-              <li>
-                <a>PERSONAL</a>
-              </li>
-              <li>
-                <a>WORKSPACE</a>
-              </li>
-            </ul>
-          </li>
+          {pages.map((page) => (
+            <li>
+              <div>{page.name}</div>
+              <ul>
+                {page.sections.map((section) => (
+                  <a
+                    href={
+                      "/" +
+                      page.name.toLowerCase() +
+                      "/" +
+                      section.toLowerCase()
+                    }
+                  >
+                    <li>{section}</li>
+                  </a>
+                ))}
+              </ul>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
