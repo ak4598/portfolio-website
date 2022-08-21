@@ -12,11 +12,12 @@ const NavBar = () => {
       <nav className={styles.navbar}>
         <ul>
           {pages.map((page) => (
-            <li>
+            <li key={page.name}>
               <div>{page.name}</div>
               <ul>
                 {page.sections.map((section) => (
                   <a
+                    key={section}
                     href={
                       "/" +
                       page.name.toLowerCase() +

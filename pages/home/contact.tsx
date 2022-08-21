@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import styles from "./contact.module.css";
+import styles from "./styles/contact.module.css";
 import {
   Facebook,
   Instagram,
@@ -15,50 +15,15 @@ const Contact = () => {
     <div className={styles.background}>
       <div className={styles.content}>
         <ul>
-          <li>
-            <a
-              href={mySocialMedia.Facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <img src={Facebook.src} />
-              </div>
-            </a>
-          </li>
-          <li>
-            <a
-              href={mySocialMedia.Instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <img src={Instagram.src} />
-              </div>
-            </a>
-          </li>
-          <li>
-            <a
-              href={mySocialMedia.LinkedIn}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <img src={LinkedIn.src} />
-              </div>
-            </a>
-          </li>
-          <li>
-            <a
-              href={mySocialMedia.GitHub}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div>
-                <img src={GitHub.src} />
-              </div>
-            </a>
-          </li>
+          {mySocialMedia.map((page) => (
+            <li>
+              <a href={page.link} target="_blank" rel="noopener noreferrer">
+                <div>
+                  <img src={page.logo} />
+                </div>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
