@@ -1,7 +1,6 @@
 import React from "react";
-import styles from "./Carousel.module.css";
+import styles from "./PopupCards.module.css";
 import { AI, Blockchain, Web, DevOps } from "../../assets/TechLogos";
-import VanillaTilt from "./vanilla-tilt";
 
 const Carousel = () => {
   return (

@@ -14,6 +14,7 @@ const Contact = () => {
   return (
     <div className={styles.background}>
       <div className={styles.content}>
+        <div className={styles.title}>Connect with me!</div>
         <ul>
           {mySocialMedia.map((page) => (
             <li>
