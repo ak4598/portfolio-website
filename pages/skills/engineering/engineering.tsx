@@ -21,7 +21,7 @@ const Engineering = () => {
           </div>
         </div>
       </div>
-      <div className={styles.background2} id="ai">
+      {/* <div className={styles.background2} id="ai">
         <div className={styles.content}>
           <ul className={styles.grid} id="ai">
             <li>
@@ -138,17 +138,17 @@ const Engineering = () => {
             <li>
               <ul>
                 <li>
-                  <img src={framework.Express.src} />
+                  <img src={lib.MUI.src} />
+                </li>
+                <li>
+                  <img src={lib.Tailwind.src} />
                 </li>
               </ul>
             </li>
             <li>
               <ul>
                 <li>
-                  <img src={lib.MUI.src} />
-                </li>
-                <li>
-                  <img src={lib.Tailwind.src} />
+                  <img src={framework.Express.src} />
                 </li>
               </ul>
             </li>
@@ -159,17 +159,30 @@ const Engineering = () => {
         <div className={styles.content}>
           <ul className={styles.grid} id="devops">
             <li>
-              <img src={other.Docker.src} />
+              <ul>
+                <li>
+                  <img src={other.Linux.src} />
+                </li>
+                <li>
+                  <img src={other.Bash.src} />
+                </li>
+              </ul>
             </li>
             <li>
-              <img src={other.Git.src} />
+              <ul>
+                <li>
+                  <img src={other.Git.src} />
+                </li>
+              </ul>
             </li>
             <li>
-              <img src={other.Linux.src} />
+              <ul>
+                <li>
+                  <img src={other.Docker.src} />
+                </li>
+              </ul>
             </li>
-            <li>
-              <img src={other.Bash.src} />
-            </li>
+
             <li>
               <ul>
                 <li>
@@ -188,7 +201,7 @@ const Engineering = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

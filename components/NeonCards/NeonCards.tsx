@@ -5,7 +5,7 @@ import { AI, Blockchain, Web, DevOps } from "../../assets/TechLogos";
 const NeonCards = () => {
   return (
     <div className={styles.container}>
-      <a className={styles.box} href="#ai">
+      <a className={styles.box} href="/skills/engineering/ai">
         <div className={styles.image}>
           <img src={AI.src} />
         </div>
@@ -13,7 +13,7 @@ const NeonCards = () => {
           <h2>Artificial Intelligence</h2>
         </div>
       </a>
-      <a className={styles.box} href="#blockchain">
+      <a className={styles.box} href="/skills/engineering/blockchain">
         <div className={styles.image}>
           <img src={Blockchain.src} />
         </div>
@@ -21,7 +21,7 @@ const NeonCards = () => {
           <h2>Blockchain</h2>
         </div>
       </a>
-      <a className={styles.box} href="#web">
+      <a className={styles.box} href="/skills/engineering/web">
         <div className={styles.image}>
           <img src={Web.src} />
         </div>
@@ -29,7 +29,7 @@ const NeonCards = () => {
           <h2>Web Development</h2>
         </div>
       </a>
-      <a className={styles.box} href="#devops">
+      <a className={styles.box} href="/skills/engineering/devops">
         <div className={styles.image}>
           <img src={DevOps.src} />
         </div>
