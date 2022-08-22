@@ -7,5 +7,19 @@ import Redis from "./redis.svg";
 import MySQL from "./mysql.svg";
 import PostgreSQL from "./psql.svg";
 import MongoDB from "./mongodb.svg";
+import Moralis from "./moralis.svg";
+import TheGraph from "./thegraph.svg";
 
-export { Docker, Linux, Git, FFmpeg, Bash, Redis, MySQL, PostgreSQL, MongoDB };
+export {
+  Docker,
+  Linux,
+  Git,
+  FFmpeg,
+  Bash,
+  Redis,
+  MySQL,
+  PostgreSQL,
+  MongoDB,
+  Moralis,
+  TheGraph,
+};
