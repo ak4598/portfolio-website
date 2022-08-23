@@ -5,7 +5,6 @@ import styles from "./index.module.css";
 import backgroundImage from "../assets/background/iceland.jpg";
 
 const Home: NextPage = () => {
-  console.log(backgroundImage);
   return (
     <div>
       <img className={styles.image} src={backgroundImage.src}></img>

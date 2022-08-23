@@ -10,7 +10,6 @@ const AI = () => {
   return (
     <div className={styles.background}>
       <div className={styles.content}>
-        {/* <div className={styles.title}>Artificial Intelligence</div> */}
         <div className={styles.grid}>
           <div className={styles.gridBox} id="lang">
             <div className={styles.category}>Language</div>
