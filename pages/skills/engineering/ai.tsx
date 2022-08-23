@@ -9,12 +9,15 @@ const AI = () => {
   return (
     <div className={styles.background}>
       <div className={styles.content}>
-        <div className={styles.title}>Artificial Intelligence</div>
+        {/* <div className={styles.title}>Artificial Intelligence</div> */}
         <div className={styles.grid}>
           <div className={styles.gridBox} id="lang">
             <div className={styles.category}>Language</div>
             <div className={styles.gridItem}>
               <img src={pro.Python.src} />
+            </div>
+            <div className={styles.gridItem}>
+              <img src={pro.Cpp.src} />
             </div>
           </div>
           <div className={styles.gridBox} id="dl">
@@ -51,9 +54,21 @@ const AI = () => {
             </div>
           </div>
           <div className={styles.gridBox} id="back">
-            <div className={styles.category}>Back</div>
+            <div className={styles.arrow}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+              >
+                <path
+                  d="M30.83 32.67l-9.17-9.17 9.17-9.17-2.83-2.83-12 12 12 12z"
+                  fill="#f8f9f9"
+                />
+              </svg>
+            </div>
             <a className={styles.gridItem} href="/skills/engineering">
-              {"<"}
+              Back
             </a>
           </div>
         </div>
