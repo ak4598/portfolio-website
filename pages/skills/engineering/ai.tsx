@@ -4,6 +4,7 @@ import * as lib from "../../../assets/LibLogos";
 import * as pro from "../../../assets/ProgLogos";
 import * as framework from "../../../assets/FrameworkLogos";
 import * as other from "../../../assets/OtherLogos";
+import { AI as AI_ } from "../../../assets/TechLogos";
 
 const AI = () => {
   return (
@@ -54,21 +55,8 @@ const AI = () => {
             </div>
           </div>
           <div className={styles.gridBox} id="back">
-            <div className={styles.arrow}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-              >
-                <path
-                  d="M30.83 32.67l-9.17-9.17 9.17-9.17-2.83-2.83-12 12 12 12z"
-                  fill="#f8f9f9"
-                />
-              </svg>
-            </div>
-            <a className={styles.gridItem} href="/skills/engineering">
-              Back
+            <a className={styles.back} href="/skills/engineering">
+              <img src={AI_.src} />
             </a>
           </div>
         </div>
