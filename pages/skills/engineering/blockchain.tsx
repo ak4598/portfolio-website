@@ -17,7 +17,7 @@ const Blockchain = () => {
               <img src={pro.Solidity.src} />
             </div>
           </div>
-          <div className={styles.gridBox} id="dl">
+          <div className={styles.gridBox} id="fw">
             <div className={styles.category}>Framework</div>
             <div className={styles.gridItem}>
               <img src={framework.Hardhat.src} />
@@ -26,7 +26,7 @@ const Blockchain = () => {
               <img src={framework.Hyperledger.src} />
             </div>
           </div>
-          <div className={styles.gridBox} id="da">
+          <div className={styles.gridBox} id="pc">
             <div className={styles.category}>Protocol</div>
             <div className={styles.gridItem}>
               <img src={other.Moralis.src} />
@@ -35,7 +35,6 @@ const Blockchain = () => {
               <img src={other.TheGraph.src} />
             </div>
           </div>
-
           <div className={styles.gridBox} id="back">
             <a className={styles.back} href="/skills/engineering">
               <img src={Blockchain_.src} />

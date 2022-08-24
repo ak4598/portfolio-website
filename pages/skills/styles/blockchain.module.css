@@ -40,16 +40,12 @@
   grid-area: lang;
 }
 
-.grid .gridBox[id="dl"] {
-  grid-area: dl;
+.grid .gridBox[id="fw"] {
+  grid-area: fw;
 }
 
-.grid .gridBox[id="da"] {
-  grid-area: da;
-}
-
-.grid .gridBox[id="cv"] {
-  grid-area: cv;
+.grid .gridBox[id="pc"] {
+  grid-area: pc;
 }
 
 .grid .gridBox[id="back"] {
@@ -62,11 +58,9 @@
   gap: 10px;
 
   grid-template-areas:
-    "lang lang lang dl dl dl dl"
-    "lang lang lang dl dl dl dl"
-    "lang lang lang back cv cv cv"
-    "da da da da cv cv cv"
-    "da da da da cv cv cv";
+    "lang fw fw"
+    "lang fw fw"
+    "lang pc back ";
 
   height: 80%;
   width: 90%;
