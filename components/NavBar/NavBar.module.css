@@ -69,9 +69,15 @@
 }
 
 @media (max-width: 768px) {
+  .logo {
+    padding: 0 10px;
+  }
+
   .navbar ul li div {
-    /* font-size: 18px;
-    padding: 20px 30px;
-    color: #f8f9f9; */
+    padding: 20px 10px;
+  }
+
+  .navbar ul li ul {
+    left: 0px;
   }
 }
