@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./NavBar.module.css";
 import { pages } from "./pages";
+import { Menu } from "../../assets/OtherLogos";
 
 const NavBar = () => {
   return (
@@ -9,8 +10,14 @@ const NavBar = () => {
         <div>LOGO</div>
       </a>
 
-      <nav className={styles.navbar}>
-        <ul>
+      <button className={styles.mobileNavToggle}>
+        <span className={styles.smallOnly}>
+          <img src={Menu.src} />
+        </span>
+      </button>
+
+      <nav>
+        <ul id="nav" className={styles.navbar}>
           {pages.map((page) => (
             <li key={page.name}>
               <div>{page.name}</div>

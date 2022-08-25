@@ -13,7 +13,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 2%;
+  list-style: none;
 }
 
 .logo {
@@ -22,62 +22,108 @@
   color: #f8f9f9;
 }
 
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.navbar ul li {
+.navbar li {
   position: relative;
   float: left;
 }
 
-.navbar ul li div {
+.navbar li div {
   font-size: 18px;
   text-transform: uppercase;
-  padding: 20px 30px;
+  padding: 20px 50px;
   color: #f8f9f9;
 }
 
-.navbar ul li ul {
+.navbar li ul {
   position: absolute;
   text-transform: uppercase;
+  list-style: none;
   font-size: 18px;
   padding-left: 0;
   color: #f8f9f9;
-  width: 140px;
+  width: 135px;
   display: none;
   background: rgba(248, 249, 249, 0.1);
-  left: 20px;
+  left: 40px;
 }
 
-.navbar ul li ul li {
+.navbar li ul li {
   position: relative;
   padding: 20px 0;
   text-indent: 10px;
   width: 100%;
 }
 
-.navbar ul li ul li:hover {
+.navbar li ul li:hover {
   background: rgba(248, 249, 249, 0.2);
 }
 
-.navbar ul li:focus-within > ul,
-.navbar ul li:hover > ul {
+.mobileNavToggle {
+  display: none;
+}
+
+.navbar li:focus-within > ul,
+.navbar li:hover > ul {
   display: inherit;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 35em) {
   .logo {
     padding: 0 10px;
   }
 
-  .navbar ul li div {
-    padding: 20px 10px;
+  .navbar {
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0 4%;
+    inset: 0 0 0 60%;
+    background: rgba(248, 249, 249, 0.2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+
+    transform: translateX(100%);
+    transition: 0.5s;
   }
 
-  .navbar ul li ul {
-    left: 0px;
+  .navbar li {
+    position: relative;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .navbar li div {
+    padding: 20px 0;
+  }
+
+  .navbar li ul {
+    position: relative;
+
+    left: -10px;
+  }
+
+  .navbar li:focus-within > ul,
+  .navbar li:active > ul {
+    display: inherit;
+    backdrop-filter: blur(20px);
+  }
+
+  .mobileNavToggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: inherit;
+    font-size: 18px;
+    width: 10%;
+    aspect-ratio: 1 / 1;
+
+    margin-left: auto;
+    margin-right: 5%;
+
+    border: 0;
+    color: #f8f9f9;
+
+    z-index: 1;
   }
 }

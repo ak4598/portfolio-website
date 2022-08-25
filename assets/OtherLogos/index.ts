@@ -10,6 +10,8 @@ import MongoDB from "./mongodb.svg";
 import Moralis from "./moralis.svg";
 import TheGraph from "./thegraph.svg";
 
+import Menu from "./menu.svg";
+
 export {
   Docker,
   Linux,
@@ -22,4 +24,5 @@ export {
   MongoDB,
   Moralis,
   TheGraph,
+  Menu,
 };
