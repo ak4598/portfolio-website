@@ -72,8 +72,28 @@
   font-weight: lighter;
 }
 
+.titleOverlay .subtitleSmall {
+  display: none;
+}
+
 @media (max-width: 35em) {
   .titleOverlay {
     gap: 5%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .titleOverlay .subtitle {
+    display: none;
+  }
+
+  .titleOverlay .subtitleSmall {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    font-size: 40px;
+    font-weight: lighter;
+    padding: 2%;
   }
 }

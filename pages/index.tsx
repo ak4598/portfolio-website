@@ -11,9 +11,14 @@ const Home: NextPage = () => {
       <div className={styles.mask}></div>
 
       <div className={styles.titleOverlay}>
-        <div className={styles.title}>Andy Kwan&nbsp;</div>
+        <div className={styles.title}>Andy Kwan</div>
         <div className={styles.subtitle}>
           Cookery · Photography · Engineering
+        </div>
+        <div className={styles.subtitleSmall}>
+          <div>Cookery</div>
+          <div>Photography</div>
+          <div>Engineering</div>
         </div>
       </div>
     </div>
