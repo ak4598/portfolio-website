@@ -1,8 +1,9 @@
 .header {
   position: fixed;
   height: 10vh;
-  left: 0;
-  right: 0;
+  width: 100%;
+  /* left: 0;
+  right: 0; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,6 +12,7 @@
 
 .navbar {
   height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   list-style: none;
@@ -67,7 +69,7 @@
   display: inherit;
 }
 
-@media (max-width: 35em) {
+@media (max-width: 560px) {
   .logo {
     padding: 0 10px;
   }
@@ -77,40 +79,67 @@
     flex-direction: column;
     justify-content: center;
     margin: 0;
-    padding: 0 4%;
+    padding: 0 0%;
     inset: 0 0 0 60%;
     background: rgba(248, 249, 249, 0.2);
     backdrop-filter: blur(30px);
     box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
 
     transform: translateX(100%);
+    gap: 20px;
     transition: 0.5s;
   }
 
   .navbar li {
     position: relative;
     margin-left: 0;
+
     margin-right: auto;
   }
 
   .navbar li div {
-    padding: 20px 0;
+    padding: 10px 20px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
   }
 
   .navbar li ul {
     position: relative;
-
+    display: initial;
     left: -10px;
   }
 
+  .navbar li ul li {
+    padding: 10px 20px;
+    width: 100%;
+  }
+
   .navbar li:focus-within > ul,
-  .navbar li:active > ul {
+  .navbar li:hover > ul {
+    width: 120%;
     display: inherit;
-    backdrop-filter: blur(20px);
   }
 
   .mobileNavToggle {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background: inherit;
+    font-size: 18px;
+    width: 10%;
+    aspect-ratio: 1 / 1;
+
+    margin-left: auto;
+    margin-right: 5%;
+
+    border: 0;
+    color: #f8f9f9;
+
+    z-index: 1;
+  }
+
+  .mobileNavClose {
+    display: none;
     justify-content: center;
     align-items: center;
     background: inherit;

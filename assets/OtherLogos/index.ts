@@ -11,6 +11,7 @@ import Moralis from "./moralis.svg";
 import TheGraph from "./thegraph.svg";
 
 import Menu from "./menu.svg";
+import Close from "./close.svg";
 
 export {
   Docker,
@@ -25,4 +26,5 @@ export {
   Moralis,
   TheGraph,
   Menu,
+  Close,
 };
