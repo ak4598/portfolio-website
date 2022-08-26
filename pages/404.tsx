@@ -11,7 +11,7 @@ const Custom404 = () => {
           Please browse through the navigation bar above
         </div>
         <div className={styles.subtitleSmall}>
-          Please browse through the navigation bar above
+          Please browse through the menu above
         </div>
       </div>
     </div>
