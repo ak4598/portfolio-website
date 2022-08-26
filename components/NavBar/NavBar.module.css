@@ -2,12 +2,15 @@
   position: fixed;
   height: 10vh;
   width: 100%;
-  /* left: 0;
-  right: 0; */
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+}
+
+.small {
+  display: none;
 }
 
 .navbar {
@@ -72,6 +75,14 @@
 @media (max-width: 560px) {
   .logo {
     padding: 0 10px;
+  }
+
+  .full {
+    display: none;
+  }
+
+  .small {
+    display: initial;
   }
 
   .navbar {

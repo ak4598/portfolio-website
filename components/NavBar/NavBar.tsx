@@ -31,7 +31,32 @@ const NavBar = () => {
         </span>
       </button>
 
-      <nav>
+      <nav className={styles.full}>
+        <ul id="nav" className={styles.navbar} data-visible="true">
+          {pages.map((page) => (
+            <li key={page.name}>
+              <div>{page.name}</div>
+              <ul>
+                {page.sections.map((section) => (
+                  <a
+                    key={section}
+                    href={
+                      "/" +
+                      page.name.toLowerCase() +
+                      "/" +
+                      section.toLowerCase()
+                    }
+                  >
+                    <li>{section}</li>
+                  </a>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav className={styles.small}>
         <ul id="nav" className={styles.navbar} ref={ref} data-visible="true">
           {pages.map((page) => (
             <li key={page.name}>
