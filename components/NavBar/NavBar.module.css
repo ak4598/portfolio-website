@@ -80,13 +80,14 @@
     justify-content: center;
     margin: 0;
     padding: 0 0%;
-    inset: 0 0 0 60%;
+    inset: 0 0 0 55%;
     background: rgba(248, 249, 249, 0.2);
     backdrop-filter: blur(30px);
     box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
 
     transform: translateX(100%);
     gap: 20px;
+    overflow: hidden;
     transition: 0.5s;
   }
 
@@ -99,7 +100,7 @@
 
   .navbar li div {
     padding: 10px 20px;
-    width: 100%;
+
     background: rgba(0, 0, 0, 0.1);
   }
 
@@ -111,13 +112,11 @@
 
   .navbar li ul li {
     padding: 10px 20px;
-    width: 100%;
   }
 
   .navbar li:focus-within > ul,
   .navbar li:hover > ul {
-    width: 120%;
-    display: inherit;
+    width: 100%;
   }
 
   .mobileNavToggle {
