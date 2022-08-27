@@ -4,59 +4,53 @@ import * as lib from "../../../assets/LibLogos";
 import * as pro from "../../../assets/ProgLogos";
 import * as framework from "../../../assets/FrameworkLogos";
 import * as other from "../../../assets/OtherLogos";
-import { AI as AI_ } from "../../../assets/TechLogos";
 
 const AI = () => {
   return (
-    <div className={styles.background}>
-      <div className={styles.content}>
-        <div className={styles.grid}>
-          <div className={styles.gridBox} id="lang">
-            <div className={styles.category}>Language</div>
-            <div className={styles.gridItem}>
+    <div className={styles.box}>
+      <div className={styles.container}>
+        <ul className={styles.menu}>
+          <li>Language</li>
+          <li>Data Analytic</li>
+          <li>Deep Learning</li>
+          <li>Computer Vision</li>
+          <li>Natural Language Processing</li>
+        </ul>
+        <div className={styles.card}>
+          <div className={styles.items}>
+            <div>
               <img src={pro.Python.src} />
             </div>
-            <div className={styles.gridItem}>
-              <img src={pro.Cpp.src} />
-            </div>
           </div>
-          <div className={styles.gridBox} id="dl">
-            <div className={styles.category}>Deep Learning</div>
-            <div className={styles.gridItem}>
-              <img src={lib.TensorFlow.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={lib.PyTorch.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={lib.Keras.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="da">
-            <div className={styles.category}>Data Analytics</div>
-            <div className={styles.gridItem}>
+          <div className={styles.items}>
+            <div>
               <img src={lib.Pandas.src} />
             </div>
-            <div className={styles.gridItem}>
+            <div>
               <img src={lib.NumPy.src} />
             </div>
-            <div className={styles.gridItem}>
+            <div>
               <img src={lib.Sklearn.src} />
             </div>
           </div>
-          <div className={styles.gridBox} id="cv">
-            <div className={styles.category}>Computer Vision</div>
-            <div className={styles.gridItem}>
-              <img src={lib.OpenCV.src} />
+          <div className={styles.items}>
+            <div>
+              <img src={lib.TensorFlow.src} />
             </div>
-            <div className={styles.gridItem}>
-              <img src={other.FFmpeg.src} />
+            <div>
+              <img src={lib.PyTorch.src} />
+            </div>
+            <div>
+              <img src={lib.Keras.src} />
             </div>
           </div>
-          <div className={styles.gridBox} id="back">
-            <a className={styles.back} href="/skills/engineering">
-              <img src={AI_.src} />
-            </a>
+          <div className={styles.items}>
+            <div style={{ width: "100px", height: "100px" }}>
+              <img src={lib.OpenCV.src} />
+            </div>
+            <div>
+              <img src={other.FFmpeg.src} />
+            </div>
           </div>
         </div>
       </div>

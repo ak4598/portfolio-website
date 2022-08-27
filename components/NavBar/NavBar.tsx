@@ -32,7 +32,7 @@ const NavBar = () => {
       </button>
 
       <nav className={styles.full}>
-        <ul id="nav" className={styles.navbar} data-visible="true">
+        <ul id="nav" className={styles.navbar}>
           {pages.map((page) => (
             <li key={page.name}>
               <div>{page.name}</div>

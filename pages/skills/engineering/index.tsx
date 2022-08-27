@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/engineering.module.css";
 import { AI, Blockchain, Web, DevOps } from "../../../assets/TechLogos";
 
-const tmp = () => {
+const Engineering = () => {
   return (
     <div className={styles.box}>
       <div className={styles.title}>
@@ -76,4 +76,4 @@ const tmp = () => {
   );
 };
 
-export default tmp;
+export default Engineering;

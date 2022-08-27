@@ -72,7 +72,7 @@
   display: inherit;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 560px) {
   .logo {
     padding: 0 10px;
   }

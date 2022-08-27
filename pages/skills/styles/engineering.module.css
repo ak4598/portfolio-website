@@ -1,5 +1,4 @@
 .box {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -38,7 +37,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-wrap: wrap; */
 
   width: 100%;
 
@@ -55,7 +53,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 150px 30px;
+  margin: 40px 30px;
 
   border-radius: 15px;
   border: 1px solid rgba(248, 249, 249, 0.4);
@@ -67,141 +65,6 @@
 
   transition: 0.5s;
 }
-
-/* .container .card .span1 {
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  pointer-events: none;
-}
-
-.container .card .span1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: 0.5s;
-  animation: animate 2s ease-in-out infinite;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
-}
-
-.container .card:hover .span1::before {
-  top: -20px;
-  left: 260px;
-
-  width: 70px;
-  height: 60px;
-
-  opacity: 1;
-}
-
-.container .card .span1::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(30px);
-  opacity: 0;
-  transition: 0.5s;
-  animation: animate 2s ease-in-out infinite;
-  animation-delay: -1s;
-
-  border-radius: 15px;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
-  z-index: -1;
-}
-
-.container .card:hover .span1::after {
-  bottom: -60px;
-  right: -50px;
-
-  width: 80px;
-  height: 80px;
-
-  opacity: 1;
-}
-
-.container .card .span2::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: 0.5s;
-  animation: animate 2s ease-in-out infinite;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
-  animation-delay: -0.5s;
-  z-index: -1;
-}
-
-.container .card:hover .span2::before {
-  top: -60px;
-  left: -40px;
-
-  width: 100px;
-  height: 100px;
-
-  opacity: 1;
-}
-
-.container .card .span2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(30px);
-  opacity: 0;
-  transition: 0.5s;
-  animation: animate 2s ease-in-out infinite;
-  animation-delay: -1s;
-
-  border-radius: 15px;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
-  animation-delay: -1.5s;
-}
-
-.container .card:hover .span2::after {
-  bottom: -30px;
-  left: -40px;
-
-  width: 100px;
-  height: 70px;
-
-  opacity: 1;
-} */
 
 @keyframes animate {
   0%,
@@ -323,15 +186,26 @@
 
 @media (max-width: 768px) {
   .box {
-    height: 3300px;
+    height: 150%;
   }
   .container {
     flex-wrap: wrap;
+  }
+
+  .container .card {
+    margin: 10px 10px;
   }
 
   .title {
     white-space: normal;
     padding: 0px 30px;
     padding-top: 150px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 639px) {
+  .box {
+    height: 400%;
   }
 }
