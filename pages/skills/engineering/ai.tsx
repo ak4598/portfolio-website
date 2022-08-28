@@ -42,7 +42,7 @@ const useMediaQuery = (width) => {
 };
 
 const AI = () => {
-  const isBreakpoint = useMediaQuery(560);
+  const isBreakpoint = useMediaQuery(1024);
   const start = useRef();
   const lang = useRef();
   const da = useRef();

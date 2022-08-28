@@ -4,16 +4,13 @@ import {
   Git,
   Ubuntu,
   Debian,
-  Docker,
   Bash,
   MongoDB,
   MySQL,
   Redis,
   PostgreSQL,
-  K8S,
   Regex,
   Vim,
-  Tmux,
   K8Ss,
   Dockers,
 } from "../../../assets/OtherLogos";
@@ -45,7 +42,7 @@ const useMediaQuery = (width) => {
 };
 
 const DevOps = () => {
-  const isBreakpoint = useMediaQuery(560);
+  const isBreakpoint = useMediaQuery(768);
   const start = useRef();
   const os = useRef();
   const ms = useRef();
@@ -115,14 +112,10 @@ const DevOps = () => {
           </div>
           <div className={styles.items} id="ms" ref={ms}>
             <div>
-              {isBreakpoint ? (
-                <img src={Dockers.src} />
-              ) : (
-                <img src={Docker.src} />
-              )}
+              <img src={Dockers.src} />
             </div>
             <div>
-              {isBreakpoint ? <img src={K8Ss.src} /> : <img src={K8S.src} />}
+              <img src={K8Ss.src} />
             </div>
           </div>
           <div className={styles.items} id="db" ref={db}>
@@ -151,9 +144,6 @@ const DevOps = () => {
             </div>
             <div>
               <img src={Vim.src} />
-            </div>
-            <div>
-              <img src={Tmux.src} />
             </div>
           </div>
         </div>

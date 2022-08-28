@@ -218,6 +218,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .container .card {
+    right: 0;
+  }
+}
+
 @media (max-width: 560px) {
   .container .card {
     width: 50%;

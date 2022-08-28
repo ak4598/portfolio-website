@@ -116,13 +116,13 @@
 }
 
 .container .card .items[id="os"] div:nth-child(1) {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
 }
 
 .container .card .items[id="os"] div:nth-child(2) {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   animation-delay: -0.5s;
 }
 
@@ -131,10 +131,10 @@
 }
 
 .container .card .items[id="ms"] div:nth-child(1) {
-  width: 400px;
+  width: 350px;
 }
 .container .card .items[id="ms"] div:nth-child(2) {
-  width: 400px;
+  width: 350px;
   animation-delay: -0.5s;
 }
 
@@ -143,20 +143,20 @@
 }
 
 .container .card .items[id="db"] div:nth-child(1) {
-  width: 300px;
+  width: 250px;
 }
 .container .card .items[id="db"] div:nth-child(2) {
-  width: 300px;
+  width: 250px;
 
   animation-delay: -0.5s;
 }
 .container .card .items[id="db"] div:nth-child(3) {
-  width: 300px;
+  width: 250px;
 
   animation-delay: -1s;
 }
 .container .card .items[id="db"] div:nth-child(4) {
-  width: 300px;
+  width: 250px;
 
   animation-delay: -1.5s;
 }
@@ -166,16 +166,16 @@
 }
 
 .container .card .items[id="others"] div:nth-child(1) {
-  width: 300px;
+  width: 200px;
 }
 .container .card .items[id="others"] div:nth-child(2) {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+
   animation-delay: -0.5s;
 }
 
 .container .card .items[id="others"] div:nth-child(3) {
-  width: 300px;
+  width: 150px;
   animation-delay: -1s;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .container .card .items[id="others"] div:nth-child(5) {
-  width: 300px;
+  width: 180px;
   animation-delay: -2s;
 }
 
@@ -208,6 +208,12 @@
 @media (max-width: 1024px) {
   .container .menu {
     left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container .card {
+    right: 0;
   }
 }
 
@@ -244,11 +250,11 @@
   }
 
   .container .card .items[id="ms"] div:nth-child(1) {
-    width: 400px;
+    width: 200px;
   }
 
   .container .card .items[id="ms"] div:nth-child(2) {
-    width: 400px;
+    width: 200px;
     animation-delay: -0.5s;
   }
   .container .card .items[id="db"] div:nth-child(1) {
