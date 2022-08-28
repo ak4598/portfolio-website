@@ -10,6 +10,11 @@ import MongoDB from "./mongodb.svg";
 import Moralis from "./moralis.svg";
 import TheGraph from "./thegraph.svg";
 import K8S from "./k8s.svg";
+import Regex from "./regex.svg";
+import Vim from "./vim.svg";
+import Tmux from "./tmux.svg";
+import Ubuntu from "./ubuntu.svg";
+import Debian from "./debian.svg";
 
 import Menu from "./menu.svg";
 import Close from "./close.svg";
@@ -27,6 +32,11 @@ export {
   Moralis,
   TheGraph,
   K8S,
+  Regex,
+  Vim,
+  Tmux,
+  Ubuntu,
+  Debian,
   Menu,
   Close,
 };

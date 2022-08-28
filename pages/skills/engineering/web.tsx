@@ -66,16 +66,16 @@ const Web = () => {
           </div>
           <div className={styles.items} id="lang" ref={lang}>
             <div>
-              <img src={Html.src} />
-            </div>
-            <div>
-              <img src={Css.src} />
+              <img src={TypeScript.src} />
             </div>
             <div>
               <img src={JavaScript.src} />
             </div>
             <div>
-              <img src={TypeScript.src} />
+              <img src={Html.src} />
+            </div>
+            <div>
+              <img src={Css.src} />
             </div>
           </div>
           <div className={styles.items} id="fw" ref={fw}>

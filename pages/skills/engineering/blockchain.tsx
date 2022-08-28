@@ -66,10 +66,10 @@ const Blockchain = () => {
           </div>
           <div className={styles.items} id="s" ref={s}>
             <div>
-              <img src={Moralis.src} />
+              <img src={TheGraph.src} />
             </div>
             <div>
-              <img src={TheGraph.src} />
+              <img src={Moralis.src} />
             </div>
           </div>
         </div>

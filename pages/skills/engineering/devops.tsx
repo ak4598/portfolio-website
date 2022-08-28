@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import styles from "../styles/devops.module.css";
 import {
   Git,
-  Linux,
+  Ubuntu,
+  Debian,
   Docker,
   Bash,
   MongoDB,
@@ -10,6 +11,9 @@ import {
   Redis,
   PostgreSQL,
   K8S,
+  Regex,
+  Vim,
+  Tmux,
 } from "../../../assets/OtherLogos";
 
 const DevOps = () => {
@@ -74,7 +78,10 @@ const DevOps = () => {
           </div>
           <div className={styles.items} id="os" ref={os}>
             <div>
-              <img src={Linux.src} />
+              <img src={Ubuntu.src} />
+            </div>
+            <div>
+              <img src={Debian.src} />
             </div>
           </div>
           <div className={styles.items} id="ms" ref={ms}>
@@ -105,6 +112,15 @@ const DevOps = () => {
             </div>
             <div>
               <img src={Git.src} />
+            </div>
+            <div>
+              <img src={Regex.src} />
+            </div>
+            <div>
+              <img src={Vim.src} />
+            </div>
+            <div>
+              <img src={Tmux.src} />
             </div>
           </div>
         </div>

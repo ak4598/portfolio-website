@@ -94,10 +94,10 @@ const AI = () => {
               <img src={Pandas.src} />
             </div>
             <div>
-              <img src={NumPy.src} />
+              <img src={Sklearn.src} />
             </div>
             <div>
-              <img src={Sklearn.src} />
+              <img src={NumPy.src} />
             </div>
           </div>
           <div className={styles.items} id="dl" ref={dl}>
