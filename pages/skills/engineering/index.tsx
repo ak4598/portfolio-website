@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "../styles/engineering.module.css";
 import { AI, Blockchain, Web, DevOps } from "../../../assets/TechLogos";
 
@@ -21,9 +22,9 @@ const Engineering = () => {
               Extensive knowledge on the end-to-end delivery on solutions in
               both CV and NLP.
             </p>
-            <a href="/skills/engineering/ai">
+            <Link href="/skills/engineering/ai">
               <button>My Tech Stack</button>
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.card}>
@@ -36,9 +37,9 @@ const Engineering = () => {
               Knowledge of both public chain and private chain. Blockchain is
               more than cryptocurrency.
             </p>
-            <a href="/skills/engineering/blockchain">
+            <Link href="/skills/engineering/blockchain">
               <button>My Tech Stack</button>
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.card}>
@@ -51,9 +52,9 @@ const Engineering = () => {
               JavaScript is everywhere now. Building websites is just a way for
               me to survive as an engineer :{"("}
             </p>
-            <a href="/skills/engineering/web">
+            <Link href="/skills/engineering/web">
               <button>My Tech Stack</button>
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.card}>
@@ -66,9 +67,9 @@ const Engineering = () => {
               Experienced in containerizing applications. And yes, I know
               regular expression :{")"}
             </p>
-            <a href="/skills/engineering/devops">
+            <Link href="/skills/engineering/devops">
               <button>My Tech Stack</button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,29 +1,41 @@
 import React, { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import styles from "./NavBar.module.css";
 import { pages } from "./pages";
 import { Menu, Close } from "../../assets/OtherLogos";
 
 const NavBar = () => {
-  const ref = useRef();
+  const ref = useRef<HTMLUListElement>(null);
   const [toggleIcon, setToggleIcon] = useState(Menu.src);
 
   const openMenu = () => {
     if (window.innerWidth <= 560) {
-      if (ref.current.style.transform === "translateX(0%)") {
+      if (null !== ref.current) {
+        if (ref.current.style.transform === "translateX(0%)") {
+          setToggleIcon(Menu.src);
+          ref.current.style.transform = "translateX(100%)";
+        } else {
+          setToggleIcon(Close.src);
+          ref.current.style.transform = "translateX(0%)";
+        }
+      }
+    }
+  };
+
+  const closeMenu = () => {
+    if (window.innerWidth <= 560) {
+      if (null !== ref.current) {
         setToggleIcon(Menu.src);
         ref.current.style.transform = "translateX(100%)";
-      } else {
-        setToggleIcon(Close.src);
-        ref.current.style.transform = "translateX(0%)";
       }
     }
   };
 
   return (
     <header className={styles.header}>
-      <a href="/" className={styles.logo}>
-        <div>LOGO</div>
-      </a>
+      <Link href="/">
+        <a className={styles.logo}>LOGO</a>
+      </Link>
 
       <button className={styles.mobileNavToggle} onClick={openMenu}>
         <span className={styles.smallOnly}>
@@ -38,7 +50,7 @@ const NavBar = () => {
               <div>{page.name}</div>
               <ul>
                 {page.sections.map((section) => (
-                  <a
+                  <Link
                     key={section}
                     href={
                       "/" +
@@ -47,8 +59,10 @@ const NavBar = () => {
                       section.toLowerCase()
                     }
                   >
-                    <li>{section}</li>
-                  </a>
+                    <button>
+                      <li>{section}</li>
+                    </button>
+                  </Link>
                 ))}
               </ul>
             </li>
@@ -63,7 +77,7 @@ const NavBar = () => {
               <div>{page.name}</div>
               <ul>
                 {page.sections.map((section) => (
-                  <a
+                  <Link
                     key={section}
                     href={
                       "/" +
@@ -72,8 +86,10 @@ const NavBar = () => {
                       section.toLowerCase()
                     }
                   >
-                    <li>{section}</li>
-                  </a>
+                    <button onClick={closeMenu}>
+                      <li>{section}</li>
+                    </button>
+                  </Link>
                 ))}
               </ul>
             </li>

@@ -7,7 +7,10 @@ import backgroundImage from "../assets/background/iceland.jpg";
 const Home: NextPage = () => {
   return (
     <div>
-      <img className={styles.image} src={backgroundImage.src}></img>
+      <Head>
+        <title>Andy Kwan</title>
+      </Head>
+      <Image layout="fill" className={styles.image} src={backgroundImage.src} />
       <div className={styles.mask}></div>
 
       <div className={styles.titleOverlay}>

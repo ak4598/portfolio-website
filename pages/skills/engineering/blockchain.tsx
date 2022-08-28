@@ -1,22 +1,25 @@
 import React, { useRef } from "react";
+import Link from "next/link";
 import styles from "../styles/blockchain.module.css";
 import { Hardhat, Hyperledger } from "../../../assets/FrameworkLogos";
 import { Solidity } from "../../../assets/ProgLogos";
 import { Moralis, TheGraph } from "../../../assets/OtherLogos";
 
 const Blockchain = () => {
-  const start = useRef();
-  const lang = useRef();
-  const fw = useRef();
-  const s = useRef();
+  const start = useRef<HTMLDivElement | null>(null);
+  const lang = useRef<HTMLDivElement | null>(null);
+  const fw = useRef<HTMLDivElement | null>(null);
+  const s = useRef<HTMLDivElement | null>(null);
 
-  const handleClick = (e) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const refs = [start.current, lang.current, fw.current, s.current];
     refs.map((ref) => {
-      if (ref.id === e.target.id) {
-        ref.style.display = "flex";
-      } else {
-        ref.style.display = "none";
+      if (null !== ref) {
+        if (ref.id === (event.target as HTMLDListElement).id) {
+          ref.style.display = "flex";
+        } else {
+          ref.style.display = "none";
+        }
       }
     });
   };
@@ -41,9 +44,9 @@ const Blockchain = () => {
             </button>
           </li>
           <li>
-            <a href="/skills/engineering">
+            <Link href="/skills/engineering">
               <button>Back</button>
-            </a>
+            </Link>
           </li>
         </ul>
 

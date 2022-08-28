@@ -17,7 +17,7 @@ const Contact = () => {
         <div className={styles.title}>Connect with me!</div>
         <ul>
           {mySocialMedia.map((page) => (
-            <li>
+            <li key={page.name}>
               <a href={page.link} target="_blank" rel="noopener noreferrer">
                 <div>
                   <img src={page.logo} />

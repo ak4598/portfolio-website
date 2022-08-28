@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Link from "next/link";
 import styles from "../styles/web.module.css";
 import { Tailwind, MUI } from "../../../assets/LibLogos";
 import { React_, Nextjs, Express } from "../../../assets/FrameworkLogos";
@@ -6,13 +7,13 @@ import { Html, Css, JavaScript, TypeScript } from "../../../assets/ProgLogos";
 import { FFmpeg } from "../../../assets/OtherLogos";
 
 const Web = () => {
-  const start = useRef();
-  const lang = useRef();
-  const fw = useRef();
-  const ui = useRef();
-  const b = useRef();
+  const start = useRef<HTMLDivElement | null>(null);
+  const lang = useRef<HTMLDivElement | null>(null);
+  const fw = useRef<HTMLDivElement | null>(null);
+  const ui = useRef<HTMLDivElement | null>(null);
+  const b = useRef<HTMLDivElement | null>(null);
 
-  const handleClick = (e) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const refs = [
       start.current,
       lang.current,
@@ -21,10 +22,12 @@ const Web = () => {
       b.current,
     ];
     refs.map((ref) => {
-      if (ref.id === e.target.id) {
-        ref.style.display = "flex";
-      } else {
-        ref.style.display = "none";
+      if (ref !== null) {
+        if (ref.id === (event.target as HTMLElement).id) {
+          ref.style.display = "flex";
+        } else {
+          ref.style.display = "none";
+        }
       }
     });
   };
@@ -54,9 +57,9 @@ const Web = () => {
             </button>
           </li>
           <li>
-            <a href="/skills/engineering">
+            <Link href="/skills/engineering">
               <button>Back</button>
-            </a>
+            </Link>
           </li>
         </ul>
 

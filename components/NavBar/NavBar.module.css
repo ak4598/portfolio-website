@@ -52,14 +52,27 @@
   left: 40px;
 }
 
-.navbar li ul li {
+.navbar li ul button {
+  background: transparent;
+  font-family: "League Spartan";
+  color: #f8f9f9;
+
+  text-transform: uppercase;
+  font-size: 18px;
+  border: 0;
+  cursor: pointer;
   position: relative;
   padding: 20px 0;
   text-indent: 10px;
   width: 100%;
+  text-align: left;
 }
 
-.navbar li ul li:hover {
+.navbar li ul button li {
+  padding: 0;
+}
+
+.navbar li ul button:hover {
   background: rgba(248, 249, 249, 0.2);
 }
 
@@ -111,7 +124,6 @@
 
   .navbar li div {
     padding: 10px 20px;
-
     background: rgba(0, 0, 0, 0.1);
   }
 
@@ -121,8 +133,11 @@
     left: -10px;
   }
 
-  .navbar li ul li {
+  .navbar li ul button {
     padding: 10px 20px;
+  }
+
+  .navbar li ul button li {
   }
 
   .navbar li:focus-within > ul,

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import styles from "../styles/devops.module.css";
 import {
   Git,
@@ -15,11 +16,11 @@ import {
   Dockers,
 } from "../../../assets/OtherLogos";
 
-const useMediaQuery = (width) => {
+const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = useState(false);
 
-  const updateTarget = useCallback((e) => {
-    if (e.matches) {
+  const updateTarget = useCallback((event: any) => {
+    if (event.matches) {
       setTargetReached(true);
     } else {
       setTargetReached(false);
@@ -43,13 +44,13 @@ const useMediaQuery = (width) => {
 
 const DevOps = () => {
   const isBreakpoint = useMediaQuery(768);
-  const start = useRef();
-  const os = useRef();
-  const ms = useRef();
-  const db = useRef();
-  const others = useRef();
+  const start = useRef<HTMLDivElement | null>(null);
+  const os = useRef<HTMLDivElement | null>(null);
+  const ms = useRef<HTMLDivElement | null>(null);
+  const db = useRef<HTMLDivElement | null>(null);
+  const others = useRef<HTMLDivElement | null>(null);
 
-  const handleClick = (e) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const refs = [
       start.current,
       os.current,
@@ -58,10 +59,12 @@ const DevOps = () => {
       others.current,
     ];
     refs.map((ref) => {
-      if (ref.id === e.target.id) {
-        ref.style.display = "flex";
-      } else {
-        ref.style.display = "none";
+      if (ref !== null) {
+        if (ref.id === (event.target as HTMLElement).id) {
+          ref.style.display = "flex";
+        } else {
+          ref.style.display = "none";
+        }
       }
     });
   };
@@ -92,9 +95,9 @@ const DevOps = () => {
           </li>
 
           <li>
-            <a href="/skills/engineering">
+            <Link href="/skills/engineering">
               <button>Back</button>
-            </a>
+            </Link>
           </li>
         </ul>
 

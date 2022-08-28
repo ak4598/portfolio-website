@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import styles from "../styles/ai.module.css";
 import {
   Pandas,
@@ -15,11 +16,12 @@ import {
 import { Python, Cpp } from "../../../assets/ProgLogos";
 import { FFmpeg } from "../../../assets/OtherLogos";
 
-const useMediaQuery = (width) => {
+const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = useState(false);
 
-  const updateTarget = useCallback((e) => {
-    if (e.matches) {
+  const updateTarget = useCallback((event: any) => {
+    console.log(event.matches);
+    if (event.matches) {
       setTargetReached(true);
     } else {
       setTargetReached(false);
@@ -43,14 +45,14 @@ const useMediaQuery = (width) => {
 
 const AI = () => {
   const isBreakpoint = useMediaQuery(1024);
-  const start = useRef();
-  const lang = useRef();
-  const da = useRef();
-  const dl = useRef();
-  const cv = useRef();
-  const nlp = useRef();
+  const start = useRef<HTMLDivElement | null>(null);
+  const lang = useRef<HTMLDivElement | null>(null);
+  const da = useRef<HTMLDivElement | null>(null);
+  const dl = useRef<HTMLDivElement | null>(null);
+  const cv = useRef<HTMLDivElement | null>(null);
+  const nlp = useRef<HTMLDivElement | null>(null);
 
-  const handleClick = (e) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const refs = [
       start.current,
       lang.current,
@@ -60,10 +62,12 @@ const AI = () => {
       nlp.current,
     ];
     refs.map((ref) => {
-      if (ref.id === e.target.id) {
-        ref.style.display = "flex";
-      } else {
-        ref.style.display = "none";
+      if (null !== ref) {
+        if (ref.id === (event.target as HTMLDListElement).id) {
+          ref.style.display = "flex";
+        } else {
+          ref.style.display = "none";
+        }
       }
     });
   };
@@ -98,9 +102,9 @@ const AI = () => {
             </button>
           </li>
           <li>
-            <a href="/skills/engineering">
+            <Link href="/skills/engineering">
               <button>Back</button>
-            </a>
+            </Link>
           </li>
         </ul>
 
