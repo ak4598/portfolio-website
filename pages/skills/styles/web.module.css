@@ -118,13 +118,12 @@
 .container .card .items[id="lang"] div:nth-child(1) {
   width: 300px;
   height: 300px;
-  animation-delay: -2s;
 }
 
 .container .card .items[id="lang"] div:nth-child(2) {
   width: 200px;
   height: 200px;
-  animation-delay: -1.5s;
+  animation-delay: -5s;
 }
 
 .container .card .items[id="lang"] div:nth-child(3) {
@@ -136,6 +135,7 @@
 .container .card .items[id="lang"] div:nth-child(4) {
   width: 150px;
   height: 150px;
+  animation-delay: -1.5s;
 }
 
 .container .card .items[id="fw"] {
@@ -198,7 +198,67 @@
 }
 
 @media (max-width: 560px) {
+  .container .card {
+    width: 50%;
+    right: 0;
+  }
   .container .menu {
     left: 0px;
+  }
+
+  .container .card .items {
+    height: 60%;
+  }
+
+  .container .menu li button {
+    padding: 20px 30px;
+  }
+
+  .container .card .items[id="start"] div {
+    font-size: 48px;
+  }
+
+  .container .card .items[id="lang"] div:nth-child(1) {
+    width: 150px;
+    height: 150px;
+  }
+
+  .container .card .items[id="lang"] div:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    animation-delay: -0.5s;
+  }
+
+  .container .card .items[id="lang"] div:nth-child(3) {
+    padding: 5px;
+    width: 60px;
+    height: 60px;
+    animation-delay: -1s;
+  }
+
+  .container .card .items[id="lang"] div:nth-child(4) {
+    padding: 5px;
+    width: 60px;
+    height: 60px;
+    animation-delay: -1.5s;
+  }
+
+  .container .card .items[id="fw"] div:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    animation-delay: -0.5s;
+  }
+  .container .card .items[id="ui"] div:nth-child(1) {
+    padding: 30px;
+    width: 150px;
+  }
+  .container .card .items[id="ui"] div:nth-child(2) {
+    height: 100px;
+    animation-delay: -0.5s;
+  }
+  .container .card .items[id="b"] div:nth-child(1) {
+    padding: 30px;
+    height: 150px;
+    width: 150px;
   }
 }

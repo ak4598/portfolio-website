@@ -132,7 +132,7 @@
 .container .card .items[id="fw"] div:nth-child(2) {
   padding: 0px;
   width: 300px;
-  animation-delay: -1s;
+  animation-delay: -0.5s;
 }
 
 .container .card .items[id="s"] {
@@ -145,7 +145,7 @@
 .container .card .items[id="s"] div:nth-child(2) {
   width: 300px;
 
-  animation-delay: -1s;
+  animation-delay: -0.5s;
 }
 
 .container .card img {
@@ -170,7 +170,29 @@
 }
 
 @media (max-width: 560px) {
+  .container .card {
+    width: 50%;
+    right: 0;
+  }
   .container .menu {
     left: 0px;
+  }
+
+  .container .card .items {
+    height: 60%;
+  }
+
+  .container .menu li button {
+    padding: 20px 30px;
+  }
+
+  .container .card .items[id="start"] div {
+    font-size: 48px;
+  }
+
+  .container .card .items[id="lang"] div:nth-child(1) {
+    padding: 0px;
+    width: 200px;
+    height: 200px;
   }
 }

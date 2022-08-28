@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import styles from "../styles/devops.module.css";
 import {
   Git,
@@ -14,9 +14,38 @@ import {
   Regex,
   Vim,
   Tmux,
+  K8Ss,
+  Dockers,
 } from "../../../assets/OtherLogos";
 
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addListener(updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeListener(updateTarget);
+  }, []);
+
+  return targetReached;
+};
+
 const DevOps = () => {
+  const isBreakpoint = useMediaQuery(560);
   const start = useRef();
   const os = useRef();
   const ms = useRef();
@@ -46,7 +75,7 @@ const DevOps = () => {
         <ul className={styles.menu}>
           <li>
             <button id="os" onClick={handleClick}>
-              Operating System
+              {isBreakpoint ? "OS" : "Operating System"}
             </button>
           </li>
           <li>
@@ -86,10 +115,14 @@ const DevOps = () => {
           </div>
           <div className={styles.items} id="ms" ref={ms}>
             <div>
-              <img src={Docker.src} />
+              {isBreakpoint ? (
+                <img src={Dockers.src} />
+              ) : (
+                <img src={Docker.src} />
+              )}
             </div>
             <div>
-              <img src={K8S.src} />
+              {isBreakpoint ? <img src={K8Ss.src} /> : <img src={K8S.src} />}
             </div>
           </div>
           <div className={styles.items} id="db" ref={db}>

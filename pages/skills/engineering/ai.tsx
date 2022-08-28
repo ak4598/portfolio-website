@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import styles from "../styles/ai.module.css";
 import {
   Pandas,
@@ -15,7 +15,34 @@ import {
 import { Python, Cpp } from "../../../assets/ProgLogos";
 import { FFmpeg } from "../../../assets/OtherLogos";
 
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addListener(updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeListener(updateTarget);
+  }, []);
+
+  return targetReached;
+};
+
 const AI = () => {
+  const isBreakpoint = useMediaQuery(560);
   const start = useRef();
   const lang = useRef();
   const da = useRef();
@@ -62,12 +89,12 @@ const AI = () => {
           </li>
           <li>
             <button id="cv" onClick={handleClick}>
-              Computer Vision
+              {isBreakpoint ? "CV" : "Computer Vision"}
             </button>
           </li>
           <li>
             <button id="nlp" onClick={handleClick}>
-              Natural Language Processing
+              {isBreakpoint ? "NLP" : "Natural Language Processing"}
             </button>
           </li>
           <li>

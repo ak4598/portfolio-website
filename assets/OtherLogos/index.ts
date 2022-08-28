@@ -16,6 +16,9 @@ import Tmux from "./tmux.svg";
 import Ubuntu from "./ubuntu.svg";
 import Debian from "./debian.svg";
 
+import K8Ss from "./k8sS.svg";
+import Dockers from "./dockerS.svg";
+
 import Menu from "./menu.svg";
 import Close from "./close.svg";
 
@@ -37,6 +40,8 @@ export {
   Tmux,
   Ubuntu,
   Debian,
+  K8Ss,
+  Dockers,
   Menu,
   Close,
 };

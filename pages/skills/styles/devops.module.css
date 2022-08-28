@@ -123,7 +123,7 @@
 .container .card .items[id="os"] div:nth-child(2) {
   width: 200px;
   height: 200px;
-  animation-delay: -1s;
+  animation-delay: -0.5s;
 }
 
 .container .card .items[id="ms"] {
@@ -135,9 +135,10 @@
 }
 .container .card .items[id="ms"] div:nth-child(2) {
   width: 400px;
-  animation-delay: -1s;
+  animation-delay: -0.5s;
 }
-\ .container .card .items[id="db"] {
+
+.container .card .items[id="db"] {
   display: none;
 }
 
@@ -147,17 +148,17 @@
 .container .card .items[id="db"] div:nth-child(2) {
   width: 300px;
 
-  animation-delay: -1s;
+  animation-delay: -0.5s;
 }
 .container .card .items[id="db"] div:nth-child(3) {
   width: 300px;
 
-  animation-delay: -1.5s;
+  animation-delay: -1s;
 }
 .container .card .items[id="db"] div:nth-child(4) {
   width: 300px;
 
-  animation-delay: -2s;
+  animation-delay: -1.5s;
 }
 
 .container .card .items[id="others"] {
@@ -170,23 +171,23 @@
 .container .card .items[id="others"] div:nth-child(2) {
   width: 200px;
   height: 200px;
-  animation-delay: -1s;
+  animation-delay: -0.5s;
 }
 
 .container .card .items[id="others"] div:nth-child(3) {
   width: 300px;
-  animation-delay: -1.5s;
+  animation-delay: -1s;
 }
 
 .container .card .items[id="others"] div:nth-child(4) {
   width: 250px;
   height: 250px;
-  animation-delay: -2s;
+  animation-delay: -1.5s;
 }
 
 .container .card .items[id="others"] div:nth-child(5) {
   width: 300px;
-  animation-delay: -2.5s;
+  animation-delay: -2s;
 }
 
 .container .card img {
@@ -211,7 +212,86 @@
 }
 
 @media (max-width: 560px) {
+  .container .card {
+    width: 50%;
+    right: 0;
+  }
   .container .menu {
     left: 0px;
+  }
+
+  .container .card .items {
+    height: 60%;
+  }
+
+  .container .menu li button {
+    padding: 20px 30px;
+  }
+
+  .container .card .items[id="start"] div {
+    font-size: 48px;
+  }
+
+  .container .card .items[id="os"] div:nth-child(1) {
+    width: 150px;
+    height: 150px;
+  }
+
+  .container .card .items[id="os"] div:nth-child(2) {
+    width: 120px;
+    height: 120px;
+    animation-delay: -0.5s;
+  }
+
+  .container .card .items[id="ms"] div:nth-child(1) {
+    width: 400px;
+  }
+
+  .container .card .items[id="ms"] div:nth-child(2) {
+    width: 400px;
+    animation-delay: -0.5s;
+  }
+  .container .card .items[id="db"] div:nth-child(1) {
+    height: 80px;
+  }
+
+  .container .card .items[id="db"] div:nth-child(2) {
+    width: 120px;
+    height: 120px;
+    animation-delay: -0.5s;
+  }
+
+  .container .card .items[id="db"] div:nth-child(3) {
+    height: 60px;
+    animation-delay: -1s;
+  }
+
+  .container .card .items[id="db"] div:nth-child(4) {
+    height: 60px;
+    animation-delay: -1.5s;
+  }
+
+  .container .card .items[id="others"] div:nth-child(1) {
+    height: 60px;
+  }
+  .container .card .items[id="others"] div:nth-child(2) {
+    height: 70px;
+
+    animation-delay: -0.5s;
+  }
+
+  .container .card .items[id="others"] div:nth-child(3) {
+    height: 50px;
+    animation-delay: -1s;
+  }
+
+  .container .card .items[id="others"] div:nth-child(4) {
+    height: 80px;
+    animation-delay: -1.5s;
+  }
+
+  .container .card .items[id="others"] div:nth-child(5) {
+    height: 40px;
+    animation-delay: -2s;
   }
 }
