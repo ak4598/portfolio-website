@@ -105,8 +105,8 @@
   .navbar li {
     position: relative;
     margin-left: 0;
-
     margin-right: auto;
+    width: 100%;
   }
 
   .navbar li div {
