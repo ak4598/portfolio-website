@@ -1,195 +1,201 @@
-.background {
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg, rgb(34, 40, 49) 0%, rgb(57, 62, 70) 100%);
-  top: 0;
-}
-
-.content {
-  z-index: 2;
-  width: 100%;
-  height: 100%;
+.box {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  overflow-x: hidden;
-}
-
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap;
-  z-index: 2;
-  position: relative;
-  width: 80%;
-  text-align: center;
-  color: #f8f9f9;
-  font-weight: 300;
-  font-size: 28px;
-  line-height: 200%;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 225, 253, 0.9) 0%,
+    rgba(252, 0, 122, 0.9) 100%
+  );
+  height: 100%;
   width: 100%;
+  overflow: hidden;
+
+  position: absolute;
 }
 
-.grid .gridBox[id="lang"] {
-  grid-area: lang;
-}
+.container {
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.grid .gridBox[id="dl"] {
-  grid-area: dl;
-}
+  width: 100%;
 
-.grid .gridBox[id="da"] {
-  grid-area: da;
-}
-
-.grid .gridBox[id="cv"] {
-  grid-area: cv;
-}
-
-.grid .gridBox[id="back"] {
-  grid-area: back;
-}
-
-.grid {
-  display: grid;
   position: relative;
-  gap: 10px;
-
-  grid-template-areas:
-    "lang lang lang dl dl dl dl"
-    "lang lang lang dl dl dl dl"
-    "lang lang lang back cv cv cv"
-    "da da da da cv cv cv"
-    "da da da da cv cv cv";
-
-  height: 80%;
-  width: 90%;
-  bottom: -5%;
 }
 
-.grid .gridBox {
-  background: rgba(248, 249, 249, 0.1);
+.container .card {
+  position: absolute;
+  right: 40px;
 
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
-
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2px);
+  width: 70%;
+  height: 700px;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 
-  padding: 5%;
-  overflow: hidden;
+  /* border-radius: 15px;
+  border: 1px solid rgba(248, 249, 249, 0.4);
+  border-right: 1px solid rgba(248, 249, 249, 0.2);
+  border-left: 1px solid rgba(248, 249, 249, 0.2);
+
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+
   transition: 0.5s;
 }
 
-.grid .gridBox[id="back"] {
-  background: rgba(248, 249, 249, 0.02);
+.container .menu {
+  padding: 0;
+  position: absolute;
+  left: 60px;
+  list-style: none;
+}
+
+.container .menu li button {
+  color: #f8f9f9;
+  font-weight: lighter;
+  font-size: 24px;
+  font-family: "League Spartan";
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  padding: 30px;
+}
+
+.container .menu li:hover {
+  background: rgba(248, 249, 249, 0.1);
+}
+
+.container .menu li:active {
+  background: rgba(248, 249, 249, 0.2);
+}
+
+.container .card div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 15px;
   border: 1px solid rgba(248, 249, 249, 0.4);
   border-right: 1px solid rgba(248, 249, 249, 0.2);
   border-left: 1px solid rgba(248, 249, 249, 0.2);
-  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px;
-  backdrop-filter: blur(2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(248, 249, 249, 0.05);
+  padding: 10px;
+  margin: 20px;
+  animation: animate 3s ease-in-out infinite;
 }
 
-.grid .gridBox[id="back"]::after {
-  background: rgba(0, 0, 0, 0);
-}
-
-.grid .gridBox[id="back"]:hover {
-  background: rgba(248, 249, 249, 0.02);
-  box-shadow: 0px 0px 10px #00adb5;
-  transform: scale(1.05);
-}
-
-.grid .gridBox:hover {
-  background: rgba(248, 249, 249, 0.3);
-  box-shadow: 0px 5px 100px #00adb5;
-}
-
-.grid .gridBox::after {
-  content: "";
-  position: absolute;
-  bottom: -70%;
-  width: 100%;
-  height: 100%;
-  transform: skewY(350deg);
-
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.grid .gridBox .category {
-  color: #f8f9f9;
-
-  max-width: 100%;
-  max-height: 100%;
-  font-size: 400%;
-  padding: 1%;
-  white-space: nowrap;
-
-  bottom: 0;
-  right: 0;
-  position: absolute;
-
-  opacity: 0.5;
-  transition: 0.5s;
-}
-
-.grid .gridBox:hover .category {
-  transform: translateY(100%);
-}
-
-.grid .gridBox .arrow {
-  color: #f8f9f9;
-
-  position: absolute;
-
-  opacity: 0.5;
-  transition: 0.5s;
-}
-
-.grid .gridBox .back {
+.container .card .items {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  transition: 0.5s;
+  flex-wrap: wrap;
 }
 
-.grid .gridBox .back:hover {
-  transform: scale(1.1);
-}
-
-.grid .gridBox .gridItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 50%;
+.container .card .items[id="start"] div {
   color: #f8f9f9;
-  transform: translateY(300%);
+  font-size: 96px;
 
-  font-size: 150%;
-  transition: 0.5s;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-.grid .gridBox:hover .gridItem {
-  transform: translateY(0);
+.container .card .items[id="lang"] {
+  display: none;
 }
 
-.grid .gridBox .gridItem img {
-  position: relative;
-  width: 80%;
-  height: 80%;
+.container .card .items[id="lang"] div:nth-child(1) {
+  padding: 30px;
+  width: 300px;
+  height: 300px;
+}
+
+.container .card .items[id="lang"] div:nth-child(2) {
+  padding: 0px;
+  width: 200px;
+  height: 200px;
+  animation-delay: -1s;
+}
+
+.container .card .items[id="fw"] {
+  display: none;
+}
+
+.container .card .items[id="fw"] div:nth-child(1) {
+}
+.container .card .items[id="fw"] div:nth-child(2) {
+  animation-delay: -1s;
+}
+.container .card .items[id="fw"] div:nth-child(3) {
+  animation-delay: -1.5s;
+}
+
+.container .card .items[id="ui"] {
+  display: none;
+}
+
+.container .card .items[id="ui"] div:nth-child(1) {
+  width: 300px;
+  height: 300px;
+}
+.container .card .items[id="ui"] div:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  animation-delay: -1s;
+}
+.container .card .items[id="ui"] div:nth-child(3) {
+  width: 200px;
+  height: 200px;
+  animation-delay: -1.5s;
+}
+
+.container .card .items[id="b"] {
+  display: none;
+}
+
+.container .card .items[id="b"] div:nth-child(1) {
+  width: 300px;
+  height: 300px;
+}
+.container .card .items[id="b"] div:nth-child(2) {
+  width: 400px;
+  animation-delay: -1s;
+}
+
+.container .card img {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(10%);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .container .menu {
+    left: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .container .menu {
+    left: 0px;
+  }
 }

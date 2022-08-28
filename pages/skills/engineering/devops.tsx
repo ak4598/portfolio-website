@@ -1,56 +1,111 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "../styles/devops.module.css";
-import * as lib from "../../../assets/LibLogos";
-import * as pro from "../../../assets/ProgLogos";
-import * as framework from "../../../assets/FrameworkLogos";
-import * as other from "../../../assets/OtherLogos";
-import { DevOps as DevOps_ } from "../../../assets/TechLogos";
+import {
+  Git,
+  Linux,
+  Docker,
+  Bash,
+  MongoDB,
+  MySQL,
+  Redis,
+  PostgreSQL,
+  K8S,
+} from "../../../assets/OtherLogos";
 
 const DevOps = () => {
+  const start = useRef();
+  const os = useRef();
+  const ms = useRef();
+  const db = useRef();
+  const others = useRef();
+
+  const handleClick = (e) => {
+    const refs = [
+      start.current,
+      os.current,
+      ms.current,
+      db.current,
+      others.current,
+    ];
+    refs.map((ref) => {
+      if (ref.id === e.target.id) {
+        ref.style.display = "flex";
+      } else {
+        ref.style.display = "none";
+      }
+    });
+  };
+
   return (
-    <div className={styles.background}>
-      <div className={styles.content}>
-        <div className={styles.grid}>
-          <div className={styles.gridBox} id="dl">
-            <div className={styles.category}>OS</div>
-            <div className={styles.gridItem}>
-              <img src={other.Linux.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={other.Git.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="da">
-            <div className={styles.category}>Version Control</div>
-            <div className={styles.gridItem}>
-              <img src={other.Git.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="cv">
-            <div className={styles.category}>Microservices</div>
-            <div className={styles.gridItem}>
-              <img src={other.Docker.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="db">
-            <div className={styles.category}>DB</div>
-            <div className={styles.gridItem}>
-              <img src={other.Redis.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={other.MongoDB.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={other.MySQL.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={other.PostgreSQL.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="back">
-            <a className={styles.back} href="/skills/engineering">
-              <img src={DevOps_.src} />
+    <div className={styles.box}>
+      <div className={styles.container}>
+        <ul className={styles.menu}>
+          <li>
+            <button id="os" onClick={handleClick}>
+              Operating System
+            </button>
+          </li>
+          <li>
+            <button id="ms" onClick={handleClick}>
+              Mircoservices
+            </button>
+          </li>
+          <li>
+            <button id="db" onClick={handleClick}>
+              Database
+            </button>
+          </li>
+          <li>
+            <button id="others" onClick={handleClick}>
+              Others
+            </button>
+          </li>
+
+          <li>
+            <a href="/skills/engineering">
+              <button>Back</button>
             </a>
+          </li>
+        </ul>
+
+        <div className={styles.card}>
+          <div className={styles.items} id="start" ref={start}>
+            <div>👈🏻 👨🏻‍💻</div>
+          </div>
+          <div className={styles.items} id="os" ref={os}>
+            <div>
+              <img src={Linux.src} />
+            </div>
+          </div>
+          <div className={styles.items} id="ms" ref={ms}>
+            <div>
+              <img src={Docker.src} />
+            </div>
+            <div>
+              <img src={K8S.src} />
+            </div>
+          </div>
+          <div className={styles.items} id="db" ref={db}>
+            <div>
+              <img src={MySQL.src} />
+            </div>
+            <div>
+              <img src={PostgreSQL.src} />
+            </div>
+            <div>
+              <img src={MongoDB.src} />
+            </div>
+            <div>
+              <img src={Redis.src} />
+            </div>
+          </div>
+          <div className={styles.items} id="others" ref={others}>
+            <div>
+              <img src={Bash.src} />
+            </div>
+            <div>
+              <img src={Git.src} />
+            </div>
           </div>
         </div>
       </div>

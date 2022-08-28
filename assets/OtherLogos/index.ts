@@ -9,6 +9,7 @@ import PostgreSQL from "./psql.svg";
 import MongoDB from "./mongodb.svg";
 import Moralis from "./moralis.svg";
 import TheGraph from "./thegraph.svg";
+import K8S from "./k8s.svg";
 
 import Menu from "./menu.svg";
 import Close from "./close.svg";
@@ -25,6 +26,7 @@ export {
   MongoDB,
   Moralis,
   TheGraph,
+  K8S,
   Menu,
   Close,
 };

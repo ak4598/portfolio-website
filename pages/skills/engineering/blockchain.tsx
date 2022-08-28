@@ -1,44 +1,76 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "../styles/blockchain.module.css";
-import * as lib from "../../../assets/LibLogos";
-import * as pro from "../../../assets/ProgLogos";
-import * as framework from "../../../assets/FrameworkLogos";
-import * as other from "../../../assets/OtherLogos";
-import { Blockchain as Blockchain_ } from "../../../assets/TechLogos";
+import { Hardhat, Hyperledger } from "../../../assets/FrameworkLogos";
+import { Solidity } from "../../../assets/ProgLogos";
+import { Moralis, TheGraph } from "../../../assets/OtherLogos";
 
 const Blockchain = () => {
+  const start = useRef();
+  const lang = useRef();
+  const fw = useRef();
+  const s = useRef();
+
+  const handleClick = (e) => {
+    const refs = [start.current, lang.current, fw.current, s.current];
+    refs.map((ref) => {
+      if (ref.id === e.target.id) {
+        ref.style.display = "flex";
+      } else {
+        ref.style.display = "none";
+      }
+    });
+  };
+
   return (
-    <div className={styles.background}>
-      <div className={styles.content}>
-        <div className={styles.grid}>
-          <div className={styles.gridBox} id="lang">
-            <div className={styles.category}>Language</div>
-            <div className={styles.gridItem}>
-              <img src={pro.Solidity.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="fw">
-            <div className={styles.category}>Framework</div>
-            <div className={styles.gridItem}>
-              <img src={framework.Hardhat.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={framework.Hyperledger.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="pc">
-            <div className={styles.category}>Protocol</div>
-            <div className={styles.gridItem}>
-              <img src={other.Moralis.src} />
-            </div>
-            <div className={styles.gridItem}>
-              <img src={other.TheGraph.src} />
-            </div>
-          </div>
-          <div className={styles.gridBox} id="back">
-            <a className={styles.back} href="/skills/engineering">
-              <img src={Blockchain_.src} />
+    <div className={styles.box}>
+      <div className={styles.container}>
+        <ul className={styles.menu}>
+          <li>
+            <button id="lang" onClick={handleClick}>
+              Language
+            </button>
+          </li>
+          <li>
+            <button id="fw" onClick={handleClick}>
+              Framework
+            </button>
+          </li>
+          <li>
+            <button id="s" onClick={handleClick}>
+              Service
+            </button>
+          </li>
+          <li>
+            <a href="/skills/engineering">
+              <button>Back</button>
             </a>
+          </li>
+        </ul>
+
+        <div className={styles.card}>
+          <div className={styles.items} id="start" ref={start}>
+            <div>👈🏻 👨🏻‍💻</div>
+          </div>
+          <div className={styles.items} id="lang" ref={lang}>
+            <div>
+              <img src={Solidity.src} />
+            </div>
+          </div>
+          <div className={styles.items} id="fw" ref={fw}>
+            <div>
+              <img src={Hardhat.src} />
+            </div>
+            <div>
+              <img src={Hyperledger.src} />
+            </div>
+          </div>
+          <div className={styles.items} id="s" ref={s}>
+            <div>
+              <img src={Moralis.src} />
+            </div>
+            <div>
+              <img src={TheGraph.src} />
+            </div>
           </div>
         </div>
       </div>
