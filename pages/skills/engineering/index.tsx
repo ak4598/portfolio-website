@@ -18,7 +18,7 @@ const Engineering = () => {
             <img src={AI.src} />
             <h2>Artificial Intelligence</h2>
             <p>
-              Extensive knowledge of the end-to-end delivery on solutions in
+              Extensive knowledge on the end-to-end delivery on solutions in
               both CV and NLP.
             </p>
             <a href="/skills/engineering/ai">
@@ -33,7 +33,7 @@ const Engineering = () => {
             <img src={Blockchain.src} />
             <h2>Blockchain</h2>
             <p>
-              Knowledge on both public chain and private chain. Blockchain is
+              Knowledge of both public chain and private chain. Blockchain is
               more than cryptocurrency.
             </p>
             <a href="/skills/engineering/blockchain">
