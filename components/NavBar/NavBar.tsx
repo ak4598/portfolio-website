@@ -59,9 +59,7 @@ const NavBar = () => {
                       section.toLowerCase()
                     }
                   >
-                    <button>
-                      <li>{section}</li>
-                    </button>
+                    <li>{section}</li>
                   </Link>
                 ))}
               </ul>

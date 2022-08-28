@@ -52,28 +52,20 @@
   left: 40px;
 }
 
-.navbar li ul button {
-  background: transparent;
-  font-family: "League Spartan";
-  color: #f8f9f9;
-
-  text-transform: uppercase;
-  font-size: 18px;
-  border: 0;
-  cursor: pointer;
+.navbar li ul li {
   position: relative;
   padding: 20px 0;
   text-indent: 10px;
   width: 100%;
-  text-align: left;
+  cursor: pointer;
 }
 
-.navbar li ul button li {
-  padding: 0;
-}
-
-.navbar li ul button:hover {
+.navbar li ul li:hover {
   background: rgba(248, 249, 249, 0.2);
+}
+
+.navbar li ul li:active {
+  background: rgba(248, 249, 249, 0.3);
 }
 
 .mobileNavToggle {
@@ -115,6 +107,9 @@
     transition: 0.5s;
   }
 
+  .navbar ul {
+    overflow: hidden;
+  }
   .navbar li {
     position: relative;
     margin-left: 0;
@@ -130,14 +125,38 @@
   .navbar li ul {
     position: relative;
     display: initial;
+    background: transparent;
     left: -10px;
   }
 
   .navbar li ul button {
     padding: 10px 20px;
+    background: transparent;
+    font-family: "League Spartan";
+    color: #f8f9f9;
+
+    text-transform: uppercase;
+    font-size: 18px;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .navbar li ul button:hover {
+    background: rgba(248, 249, 249, 0.2);
+  }
+
+  .navbar li ul button:active {
+    background: rgba(248, 249, 249, 0.3);
+  }
+
+  .navbar li ul li:hover {
+    background: transparent;
   }
 
   .navbar li ul button li {
+    padding: 0;
   }
 
   .navbar li:focus-within > ul,
