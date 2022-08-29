@@ -7,7 +7,7 @@ const Engineering = () => {
   return (
     <div className={styles.box}>
       <div className={styles.title}>
-        I am an A.I. Engineer, with some knowledge in Blockchain and Web
+        I am an A.I. Engineer, with some knowledge of Blockchain and Web
         Development. <br />
         Of course, having a bit of DevOps knowledge is always appreciated.
       </div>
@@ -19,7 +19,7 @@ const Engineering = () => {
             <img src={AI.src} />
             <h2>Artificial Intelligence</h2>
             <p>
-              Extensive knowledge on the end-to-end delivery on solutions in
+              Extensive knowledge of the end-to-end delivery on solutions in
               both CV and NLP.
             </p>
             <Link href="/skills/engineering/ai">
