@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/photography.module.css";
-import texture from "../../../assets/images/Blue_Watercolor_Map_of_the_World.jpg";
+import { earth } from "../../../assets/images";
 
 const Photography = () => {
   let Globe = () => null;
@@ -9,22 +9,37 @@ const Photography = () => {
     Globe = require("react-globe.gl").default;
   }
 
-  const earth = useRef<HTMLDivElement | null>(null);
+  const earthRef = useRef<HTMLDivElement | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(earth.src);
 
-  const [imageUrl, setImageUrl] = useState<string | null>(texture.src);
+  const [earthSize, setEarthSize] = useState(
+    window.innerWidth * 1.8 < window.innerHeight * 1.8
+      ? window.innerWidth * 1.8
+      : window.innerHeight * 1.8
+  );
+
+  const handleResize = () => {
+    setEarthSize(
+      window.innerWidth * 1.8 < window.innerHeight * 1.8
+        ? window.innerWidth * 1.8
+        : window.innerHeight * 1.8
+    );
+  };
 
   useEffect(() => {
-    setImageUrl(texture.src);
-  }, []);
+    setImageUrl(earth.src);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
   return (
     <div className={styles.scene}>
       <div className={styles.earth}>
         <Globe
           //@ts-ignore
-          ref={earth}
-          width={1800}
-          height={1800}
+          ref={earthRef}
+          width={earthSize}
+          height={earthSize}
           backgroundColor={"rgba(0,0,0,0)"}
           globeImageUrl={imageUrl}
           arcColor={"color"}

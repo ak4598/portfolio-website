@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "./index.module.css";
-import backgroundImage from "../assets/background/iceland.jpg";
+import { background } from "../assets/images";
 
 const Home: NextPage = () => {
   return (
@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Andy Kwan</title>
       </Head>
-      <Image layout="fill" className={styles.image} src={backgroundImage.src} />
+      <Image layout="fill" className={styles.image} src={background.src} />
       <div className={styles.mask}></div>
 
       <div className={styles.titleOverlay}>
