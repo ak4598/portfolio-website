@@ -3,9 +3,27 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: black;
+  background: linear-gradient(
+    145deg,
+    rgba(1, 27, 28, 1) 0%,
+    rgba(1, 10, 22, 1) 100%
+  );
   top: 0;
   overflow: hidden;
+}
+
+.images {
+  position: absolute;
+  border: 1px solid rgba(248, 249, 249, 0.4);
+  border-radius: 15px;
+  border-right: 1px solid rgba(248, 249, 249, 0.2);
+  border-left: 1px solid rgba(248, 249, 249, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(248, 249, 249, 0.1);
+  top: 20%;
+  left: 2%;
+  width: 60%;
+  height: 70%;
 }
 
 .earth {
@@ -14,7 +32,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
 
   overflow: hidden;
+}
+
+.mapMarker {
+  border: 1px solid rgba(248, 249, 249, 0.4);
+  border-radius: 50%;
+  border-right: 1px solid rgba(248, 249, 249, 0.2);
+  border-left: 1px solid rgba(248, 249, 249, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(248, 249, 249, 0.05);
+  width: 2%;
+  height: 2%;
 }

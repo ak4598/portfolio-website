@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./NavBar.module.css";
 import { pages } from "./pages";
 import { Menu, Close } from "../../assets/OtherLogos";
+import logo from "../../assets/images/logo.png";
 
 const NavBar = () => {
   const ref = useRef<HTMLUListElement>(null);
@@ -34,7 +35,9 @@ const NavBar = () => {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <a className={styles.logo}>LOGO</a>
+        <a className={styles.logo}>
+          <img src={logo.src} />
+        </a>
       </Link>
 
       <button className={styles.mobileNavToggle} onClick={openMenu}>
