@@ -11,9 +11,12 @@ import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
 import dynamic from "next/dynamic";
 
-const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
-  ssr: false,
-});
+const GlobeTmpl = dynamic<any>(
+  () => import("../../../components/Globe/GlobeTmpl"),
+  {
+    ssr: false,
+  }
+);
 
 GlobeTmpl.displayName = "GlobeTmpl";
 
