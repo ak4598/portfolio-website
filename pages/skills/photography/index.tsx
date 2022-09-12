@@ -34,12 +34,15 @@ const Photography = () => {
 
   useEffect(() => {
     setImageUrl(earth.src);
-    if (null !== earthRef.current) {
-      (earthRef.current as any).controls().enableZoom = false;
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
+  });
+
+  // useEffect(() => {
+  //   if (null !== earthRef.current) {
+  //     (earthRef.current as any).controls().enableZoom = false;
+  //   }
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, [handleResize]);
 
   const visited = [
     "Iceland",
