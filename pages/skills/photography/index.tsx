@@ -91,13 +91,13 @@ const Photography: NextPage = () => {
         <Globe
           //@ts-ignore
           refs={earthRef}
-          width={earthSize}
-          height={earthSize}
+          width={earthSize as number}
+          height={earthSize as number}
           backgroundColor={"rgba(0,0,0,0)"}
           globeImageUrl={imageUrl}
           rendererConfig={{ preserveDrawingBuffer: true }}
           htmlElementsData={places}
-          htmlElement={(d: { [name: string]: string }) => {
+          htmlElement={(d) => {
             const el = document.createElement("div");
             el.className = styles.mapMarker;
             //@ts-ignore
