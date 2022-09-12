@@ -11,12 +11,17 @@ import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
 import dynamic from "next/dynamic";
 
-// const Globe = dynamic(
-//   () => {
-//     return import("react-globe.gl");
-//   },
-//   { ssr: false }
-// );
+const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
+  ssr: false,
+});
+
+GlobeTmpl.displayName = "GlobeTmpl";
+
+const Globe = forwardRef((props: any, ref) => (
+  <GlobeTmpl {...props} forwardRef={ref} />
+));
+
+Globe.displayName = "Globe";
 
 const visited = [
   "Iceland",
@@ -127,11 +132,3 @@ const Photography: NextPage = () => {
 };
 
 export default Photography;
-
-const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
-  ssr: false,
-});
-
-const Globe = forwardRef((props: any, ref) => (
-  <GlobeTmpl {...props} forwardRef={ref} />
-));
