@@ -65,6 +65,11 @@ const Photography = () => {
 
   return (
     <div className={styles.scene}>
+      <div className={styles.title}>
+        I am an amateur landscape {"(portrait sometimes)"} photographer 📸
+        <br />
+        The world is my gallery 🌍
+      </div>
       <div className={styles.images}></div>
       <div className={styles.earth}>
         <Globe
