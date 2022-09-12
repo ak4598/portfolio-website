@@ -5,6 +5,7 @@ import React, {
   useState,
   forwardRef,
   createRef,
+  useCallback,
 } from "react";
 import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
@@ -47,7 +48,6 @@ const visitedPlaces = filteredData.map((f) => ({
 }));
 
 const Photography: NextPage = () => {
-  // const earthRef = useRef<HTMLDivElement | null>(null);
   const earthRef = createRef();
 
   const start = useRef<HTMLDivElement | null>(null);
@@ -56,6 +56,8 @@ const Photography: NextPage = () => {
   const [places, setPlaces] = useState<any>(visitedPlaces);
   const [imageUrl, setImageUrl] = useState<string>(earth.src);
   const [cameraActive, setCameraActive] = useState(false);
+  const [countries, setCountries] = useState({ features: [] });
+  const [hover, setHover] = useState<boolean | null>();
 
   const enlargeFactor = 1.8;
 
@@ -68,6 +70,32 @@ const Photography: NextPage = () => {
         : window.innerHeight * enlargeFactor
     );
   };
+
+  useEffect(() => {
+    fetch(
+      "https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson"
+    )
+      .then((res) => res.json())
+      .then((countries) => {
+        setCountries(countries);
+      });
+  }, []);
+
+  const onHoverHandler = useCallback((polygon: any) => {
+    if (polygon !== null) {
+      setHover(polygon.properties.ISO_A3);
+    } else {
+      setHover(null);
+    }
+  }, []);
+
+  const onClickHandler = useCallback((event: any) => {
+    console.log(event.properties.NAME);
+    if (null !== start.current && null !== gallery.current) {
+      start.current.style.display = "none";
+      gallery.current.style.display = "initial";
+    }
+  }, []);
 
   useEffect(() => {
     if (!earthRef.current) {
@@ -107,27 +135,24 @@ const Photography: NextPage = () => {
       <div className={styles.images} ref={gallery}></div>
       <div className={styles.earth}>
         <Globe
+          ref={earthRef}
           width={earthSize as number}
           height={earthSize as number}
           backgroundColor={"rgba(0,0,0,0)"}
           globeImageUrl={imageUrl}
           rendererConfig={{ preserveDrawingBuffer: true }}
-          htmlElementsData={places}
-          htmlElement={(d: any) => {
-            const el = document.createElement("div");
-            el.className = styles.mapMarker;
-            //@ts-ignore
-            el.style["pointer-events"] = "auto";
-            el.style.cursor = "pointer";
-            el.onclick = () => {
-              if (null !== start.current && null !== gallery.current) {
-                start.current.style.display = "none";
-                gallery.current.style.display = "initial";
-              }
-            };
-            return el;
-          }}
-          ref={earthRef}
+          polygonsData={countries.features.filter(
+            (d: any) => d.properties.ISO_A2 !== "AQ"
+          )}
+          polygonAltitude={0.01}
+          polygonCapColor={(d: any) =>
+            d.properties.ISO_A3 === hover
+              ? "rgba(255, 255,255, 0.3)"
+              : "rgba(255, 255,255, 0)"
+          }
+          polygonSideColor={() => "rgba(255, 255, 255, 0)"}
+          onPolygonHover={onHoverHandler}
+          onPolygonClick={onClickHandler}
         />
       </div>
     </div>
