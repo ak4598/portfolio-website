@@ -25,11 +25,8 @@ const Photography: NextPage = () => {
   const [imageUrl, setImageUrl] = useState<string>(earth.src);
 
   const enlargeFactor = 1.8;
-  const [earthSize, setEarthSize] = useState<number | null>(null);
 
-  // window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
-  // ? window.innerWidth * enlargeFactor
-  // : window.innerHeight * enlargeFactor
+  const [earthSize, setEarthSize] = useState<number | null>(null);
 
   const handleResize = () => {
     setEarthSize(
@@ -41,6 +38,11 @@ const Photography: NextPage = () => {
 
   useEffect(() => {
     setImageUrl(earth.src);
+    setEarthSize(
+      window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
+        ? window.innerWidth * enlargeFactor
+        : window.innerHeight * enlargeFactor
+    );
   });
 
   useEffect(() => {
