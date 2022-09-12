@@ -27,34 +27,20 @@ const Globe = forwardRef((props: any, ref) => (
 
 Globe.displayName = "Globe";
 
-const visited = [
-  "Iceland",
-  "Switzerland",
-  "Netherlands",
-  "Hong Kong S.A.R.",
-  "United Kingdom",
-  "Belgium",
-];
-
-const filteredData = locations.features.filter((f) =>
-  visited.includes(f.properties.adm0name)
-);
-
-const visitedPlaces = filteredData.map((f) => ({
-  lat: f.properties.latitude,
-  lng: f.properties.longitude,
-  name: f.properties.name,
-  adm0name: f.properties.adm0name,
-}));
-
 const Photography: NextPage = () => {
   const earthRef = createRef();
 
   const start = useRef<HTMLDivElement | null>(null);
   const gallery = useRef<HTMLDivElement | null>(null);
 
-  const [places, setPlaces] = useState<any>(visitedPlaces);
-  const [imageUrl, setImageUrl] = useState<string>(earth.src);
+  const [title, setTitle] = useState<any>(
+    <div>
+      I am an amateur photographer 📸
+      <br />
+      The world is my gallery 🌍
+    </div>
+  );
+  const [imageUrl, setImageUrl] = useState<any>(earth.src);
   const [cameraActive, setCameraActive] = useState(false);
   const [countries, setCountries] = useState({ features: [] });
   const [hover, setHover] = useState<boolean | null>();
@@ -90,7 +76,7 @@ const Photography: NextPage = () => {
   }, []);
 
   const onClickHandler = useCallback((event: any) => {
-    console.log(event.properties.NAME);
+    setTitle(<div>{event.properties.NAME}</div>);
     if (null !== start.current && null !== gallery.current) {
       start.current.style.display = "none";
       gallery.current.style.display = "initial";
@@ -109,7 +95,7 @@ const Photography: NextPage = () => {
 
   useEffect(() => {
     setImageUrl(earth.src);
-    setPlaces(visitedPlaces);
+
     setEarthSize(
       window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
         ? window.innerWidth * enlargeFactor
@@ -125,9 +111,10 @@ const Photography: NextPage = () => {
   return (
     <div className={styles.scene}>
       <div className={styles.title}>
-        I am an amateur photographer 📸
+        {/* I am an amateur photographer 📸
         <br />
-        The world is my gallery 🌍
+        The world is my gallery 🌍 */}
+        {title}
       </div>
       <div className={styles.item} id="start" ref={start}>
         <div>📸 🌍 👉🏻</div>
