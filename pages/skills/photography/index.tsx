@@ -12,16 +12,33 @@ const Globe = dynamic(
   { ssr: false }
 );
 
-const Photography: NextPage = () => {
-  // let Globe = () => null;
-  // const Globe = require("react-globe.gl").default;
+const visited = [
+  "Iceland",
+  "Switzerland",
+  "Netherlands",
+  "Hong Kong S.A.R.",
+  "United Kingdom",
+  "Belgium",
+];
 
+const filteredData = locations.features.filter((f) =>
+  visited.includes(f.properties.adm0name)
+);
+
+const visitedPlaces = filteredData.map((f) => ({
+  lat: f.properties.latitude,
+  lng: f.properties.longitude,
+  name: f.properties.name,
+  adm0name: f.properties.adm0name,
+}));
+
+const Photography: NextPage = () => {
   const earthRef = useRef<HTMLDivElement | null>(null);
 
   const start = useRef<HTMLDivElement | null>(null);
   const gallery = useRef<HTMLDivElement | null>(null);
 
-  const [places, setPlaces] = useState<any>([]);
+  const [places, setPlaces] = useState<any>(visitedPlaces);
   const [imageUrl, setImageUrl] = useState<string>(earth.src);
 
   const enlargeFactor = 1.8;
@@ -36,37 +53,19 @@ const Photography: NextPage = () => {
     );
   };
 
-  const visited = [
-    "Iceland",
-    "Switzerland",
-    "Netherlands",
-    "Hong Kong S.A.R.",
-    "United Kingdom",
-    "Belgium",
-  ];
-
-  const filteredData = locations.features
-    .filter((f) => visited.includes(f.properties.adm0name))
-    .map((f) => ({
-      lat: f.properties.latitude,
-      lng: f.properties.longitude,
-      name: f.properties.name,
-      adm0name: f.properties.adm0name,
-    }));
-
   useEffect(() => {
     setImageUrl(earth.src);
+    setPlaces(visitedPlaces);
     setEarthSize(
       window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
         ? window.innerWidth * enlargeFactor
         : window.innerHeight * enlargeFactor
     );
-    setPlaces(filteredData);
   });
 
   useEffect(() => {
     if (null !== earthRef.current) {
-      (earthRef.current as any).controls().enableZoom = false;
+      (earthRef.current as any).controls().enableZoom = false; // not yet apply, bug of dynamic import
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
