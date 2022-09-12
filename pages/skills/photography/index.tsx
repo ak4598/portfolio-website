@@ -5,9 +5,11 @@ import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
 
 const Photography: NextPage = () => {
+  console.log("hi");
   let Globe = () => null;
   if (typeof window !== "undefined") {
     Globe = require("react-globe.gl").default;
+    console.log(Globe);
   }
   const earthRef = useRef<HTMLDivElement | null>(null);
 
@@ -44,30 +46,30 @@ const Photography: NextPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
-  // const visited = [
-  //   "Iceland",
-  //   "Switzerland",
-  //   "Netherlands",
-  //   "Hong Kong S.A.R.",
-  //   "United Kingdom",
-  //   "Belgium",
-  // ];
+  const visited = [
+    "Iceland",
+    "Switzerland",
+    "Netherlands",
+    "Hong Kong S.A.R.",
+    "United Kingdom",
+    "Belgium",
+  ];
 
-  // const filteredData = locations.features.filter((f) =>
-  //   visited.includes(f.properties.adm0name)
-  // );
+  const filteredData = locations.features.filter((f) =>
+    visited.includes(f.properties.adm0name)
+  );
 
-  // useEffect(() => {
-  //   // load data
-  //   setPlaces(
-  //     filteredData.map((f) => ({
-  //       lat: f.properties.latitude,
-  //       lng: f.properties.longitude,
-  //       name: f.properties.name,
-  //       adm0name: f.properties.adm0name,
-  //     }))
-  //   );
-  // }, []);
+  useEffect(() => {
+    // load data
+    setPlaces(
+      filteredData.map((f) => ({
+        lat: f.properties.latitude,
+        lng: f.properties.longitude,
+        name: f.properties.name,
+        adm0name: f.properties.adm0name,
+      }))
+    );
+  }, []);
 
   return (
     <div className={styles.scene}>
