@@ -103,11 +103,9 @@
 .earth {
   width: 180%;
   height: 150%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   overflow: hidden;
 }
 

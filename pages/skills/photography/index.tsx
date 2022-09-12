@@ -91,28 +91,28 @@ const Photography: NextPage = () => {
       <div className={styles.images} ref={gallery}></div>
       <div className={styles.earth}>
         <Globe
-          //@ts-ignore
-          refs={earthRef}
-          width={earthSize as number}
-          height={earthSize as number}
-          backgroundColor={"rgba(0,0,0,0)"}
-          globeImageUrl={imageUrl}
-          rendererConfig={{ preserveDrawingBuffer: true }}
-          htmlElementsData={places}
-          htmlElement={(d) => {
-            const el = document.createElement("div");
-            el.className = styles.mapMarker;
-            //@ts-ignore
-            el.style["pointer-events"] = "auto";
-            el.style.cursor = "pointer";
-            el.onclick = () => {
-              if (null !== start.current && null !== gallery.current) {
-                start.current.style.display = "none";
-                gallery.current.style.display = "initial";
-              }
-            };
-            return el;
-          }}
+        // //@ts-ignore
+        // refs={earthRef}
+        // width={earthSize as number}
+        // height={earthSize as number}
+        // backgroundColor={"rgba(0,0,0,0)"}
+        // globeImageUrl={imageUrl}
+        // rendererConfig={{ preserveDrawingBuffer: true }}
+        // htmlElementsData={places}
+        // htmlElement={(d) => {
+        //   const el = document.createElement("div");
+        //   el.className = styles.mapMarker;
+        //   //@ts-ignore
+        //   el.style["pointer-events"] = "auto";
+        //   el.style.cursor = "pointer";
+        //   el.onclick = () => {
+        //     if (null !== start.current && null !== gallery.current) {
+        //       start.current.style.display = "none";
+        //       gallery.current.style.display = "initial";
+        //     }
+        //   };
+        //   return el;
+        // }}
         />
       </div>
     </div>
