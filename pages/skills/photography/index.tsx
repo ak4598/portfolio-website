@@ -1,16 +1,22 @@
 import type { NextPage } from "next";
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  forwardRef,
+  createRef,
+} from "react";
 import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
 import dynamic from "next/dynamic";
 
-const Globe = dynamic(
-  () => {
-    return import("react-globe.gl");
-  },
-  { ssr: false }
-);
+// const Globe = dynamic(
+//   () => {
+//     return import("react-globe.gl");
+//   },
+//   { ssr: false }
+// );
 
 const visited = [
   "Iceland",
@@ -33,13 +39,15 @@ const visitedPlaces = filteredData.map((f) => ({
 }));
 
 const Photography: NextPage = () => {
-  const earthRef = useRef<HTMLDivElement | null>(null);
+  // const earthRef = useRef<HTMLDivElement | null>(null);
+  const earthRef = createRef();
 
   const start = useRef<HTMLDivElement | null>(null);
   const gallery = useRef<HTMLDivElement | null>(null);
 
   const [places, setPlaces] = useState<any>(visitedPlaces);
   const [imageUrl, setImageUrl] = useState<string>(earth.src);
+  const [cameraActive, setCameraActive] = useState(false);
 
   const enlargeFactor = 1.8;
 
@@ -54,6 +62,16 @@ const Photography: NextPage = () => {
   };
 
   useEffect(() => {
+    if (!earthRef.current) {
+      setTimeout(() => setCameraActive(true), 1000); // Retry if globe hasn't rendered yet
+    }
+    if (earthRef.current && cameraActive) {
+      (earthRef.current as any).controls().enableZoom = false;
+      setCameraActive(false);
+    }
+  }, [earthRef.current, cameraActive]);
+
+  useEffect(() => {
     setImageUrl(earth.src);
     setPlaces(visitedPlaces);
     setEarthSize(
@@ -64,9 +82,6 @@ const Photography: NextPage = () => {
   });
 
   useEffect(() => {
-    if (null !== earthRef.current) {
-      (earthRef.current as any).controls().enableZoom = false; // not yet apply, bug of dynamic import
-    }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
@@ -84,15 +99,13 @@ const Photography: NextPage = () => {
       <div className={styles.images} ref={gallery}></div>
       <div className={styles.earth}>
         <Globe
-          //@ts-ignore
-          refs={earthRef}
           width={earthSize as number}
           height={earthSize as number}
           backgroundColor={"rgba(0,0,0,0)"}
           globeImageUrl={imageUrl}
           rendererConfig={{ preserveDrawingBuffer: true }}
           htmlElementsData={places}
-          htmlElement={(d) => {
+          htmlElement={(d: any) => {
             const el = document.createElement("div");
             el.className = styles.mapMarker;
             //@ts-ignore
@@ -106,6 +119,7 @@ const Photography: NextPage = () => {
             };
             return el;
           }}
+          ref={earthRef}
         />
       </div>
     </div>
@@ -113,3 +127,11 @@ const Photography: NextPage = () => {
 };
 
 export default Photography;
+
+const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
+  ssr: false,
+});
+
+const Globe = forwardRef((props: any, ref) => (
+  <GlobeTmpl {...props} forwardRef={ref} />
+));
