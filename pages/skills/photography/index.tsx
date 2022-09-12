@@ -11,6 +11,10 @@ const Photography = () => {
   }
 
   const earthRef = useRef<HTMLDivElement | null>(null);
+
+  const start = useRef<HTMLDivElement | null>(null);
+  const gallery = useRef<HTMLDivElement | null>(null);
+
   const [places, setPlaces] = useState<any>([]);
   const [imageUrl, setImageUrl] = useState<string>(earth.src);
 
@@ -66,11 +70,14 @@ const Photography = () => {
   return (
     <div className={styles.scene}>
       <div className={styles.title}>
-        I am an amateur landscape {"(portrait sometimes)"} photographer 📸
+        I am an amateur photographer 📸
         <br />
         The world is my gallery 🌍
       </div>
-      <div className={styles.images}></div>
+      <div className={styles.item} id="start" ref={start}>
+        <div>📸 🌍 👉🏻</div>
+      </div>
+      <div className={styles.images} ref={gallery}></div>
       <div className={styles.earth}>
         <Globe
           //@ts-ignore
@@ -87,7 +94,12 @@ const Photography = () => {
             //@ts-ignore
             el.style["pointer-events"] = "auto";
             el.style.cursor = "pointer";
-            el.onclick = () => console.info(d.name);
+            el.onclick = () => {
+              if (null !== start.current && null !== gallery.current) {
+                start.current.style.display = "none";
+                gallery.current.style.display = "initial";
+              }
+            };
             return el;
           }}
         />
