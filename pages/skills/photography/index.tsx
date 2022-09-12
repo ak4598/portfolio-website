@@ -3,13 +3,12 @@ import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
 
+let Globe = () => null;
+if (typeof window !== "undefined") {
+  Globe = require("react-globe.gl").default;
+}
+
 const Photography = () => {
-  let Globe = () => null;
-
-  if (typeof window !== "undefined") {
-    Globe = require("react-globe.gl").default;
-  }
-
   const earthRef = useRef<HTMLDivElement | null>(null);
 
   const start = useRef<HTMLDivElement | null>(null);
