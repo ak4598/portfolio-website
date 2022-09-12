@@ -3,18 +3,18 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
+import dynamic from "next/dynamic";
+
+const Globe = dynamic(
+  () => {
+    return import("react-globe.gl");
+  },
+  { ssr: false }
+);
 
 const Photography: NextPage = () => {
   // let Globe = () => null;
-  const Globe = require("react-globe.gl").default;
-
-  // const loadGlobe = async () => {
-  //   Globe = await require("react-globe.gl").default;
-  // };
-
-  // useEffect(() => {
-  //   Globe = require("react-globe.gl").default;
-  // }, []);
+  // const Globe = require("react-globe.gl").default;
 
   const earthRef = useRef<HTMLDivElement | null>(null);
 
@@ -25,11 +25,11 @@ const Photography: NextPage = () => {
   const [imageUrl, setImageUrl] = useState<string>(earth.src);
 
   const enlargeFactor = 1.8;
-  const [earthSize, setEarthSize] = useState<number>(
-    window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
-      ? window.innerWidth * enlargeFactor
-      : window.innerHeight * enlargeFactor
-  );
+  const [earthSize, setEarthSize] = useState<number | null>(null);
+
+  // window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
+  // ? window.innerWidth * enlargeFactor
+  // : window.innerHeight * enlargeFactor
 
   const handleResize = () => {
     setEarthSize(
