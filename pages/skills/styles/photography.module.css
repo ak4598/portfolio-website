@@ -5,8 +5,8 @@
   height: 100%;
   background: linear-gradient(
     145deg,
-    rgba(1, 27, 28, 1) 0%,
-    rgba(1, 10, 22, 1) 100%
+    rgba(17, 1, 22, 1) 0%,
+    rgba(3, 18, 37, 1) 100%
   );
   top: 0;
   overflow: hidden;
@@ -19,16 +19,41 @@
   border-right: 1px solid rgba(248, 249, 249, 0.2);
   border-left: 1px solid rgba(248, 249, 249, 0.2);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  background: rgba(248, 249, 249, 0.1);
+
   top: 20%;
   left: 2%;
   width: 60%;
   height: 70%;
 }
 
+.images::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  border-radius: 15px;
+
+  background: #f8f9f9;
+}
+
+.images::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background: #f8f9f9;
+
+  filter: blur(20px);
+}
+
 .earth {
   width: 180%;
   height: 150%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,12 +62,40 @@
 }
 
 .mapMarker {
-  border: 1px solid rgba(248, 249, 249, 0.4);
   border-radius: 50%;
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
+
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  background: rgba(248, 249, 249, 0.05);
-  width: 2%;
-  height: 2%;
+
+  width: 1%;
+  height: 1%;
+}
+
+.mapMarker::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    rgba(254, 244, 227, 1) 0%,
+    rgba(255, 251, 223, 1) 100%
+  );
+}
+
+.mapMarker::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background: linear-gradient(
+    145deg,
+    rgba(254, 244, 227, 1) 0%,
+    rgba(255, 251, 223, 1) 100%
+  );
+
+  filter: blur(20px);
 }

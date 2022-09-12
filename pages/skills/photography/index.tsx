@@ -31,6 +31,9 @@ const Photography = () => {
 
   useEffect(() => {
     setImageUrl(earth.src);
+    if (null !== earthRef.current) {
+      (earthRef.current as any).controls().enableZoom = false;
+    }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
@@ -73,14 +76,13 @@ const Photography = () => {
           globeImageUrl={imageUrl}
           rendererConfig={{ preserveDrawingBuffer: true }}
           htmlElementsData={places}
-          htmlElement={(d) => {
+          htmlElement={(d: { [name: string]: string }) => {
             const el = document.createElement("div");
             el.className = styles.mapMarker;
-
+            //@ts-ignore
             el.style["pointer-events"] = "auto";
             el.style.cursor = "pointer";
             el.onclick = () => console.info(d.name);
-
             return el;
           }}
         />
