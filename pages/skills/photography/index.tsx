@@ -1,14 +1,14 @@
+import type { NextPage } from "next";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
 
-let Globe = () => null;
-if (typeof window !== "undefined") {
-  Globe = require("react-globe.gl").default;
-}
-
-const Photography = () => {
+const Photography: NextPage = () => {
+  let Globe = () => null;
+  if (typeof window !== "undefined") {
+    Globe = require("react-globe.gl").default;
+  }
   const earthRef = useRef<HTMLDivElement | null>(null);
 
   const start = useRef<HTMLDivElement | null>(null);
@@ -36,38 +36,38 @@ const Photography = () => {
     setImageUrl(earth.src);
   });
 
-  // useEffect(() => {
-  //   if (null !== earthRef.current) {
-  //     (earthRef.current as any).controls().enableZoom = false;
-  //   }
-  //   window.addEventListener("resize", handleResize);
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, [handleResize]);
-
-  const visited = [
-    "Iceland",
-    "Switzerland",
-    "Netherlands",
-    "Hong Kong S.A.R.",
-    "United Kingdom",
-    "Belgium",
-  ];
-
-  const filteredData = locations.features.filter((f) =>
-    visited.includes(f.properties.adm0name)
-  );
-
   useEffect(() => {
-    // load data
-    setPlaces(
-      filteredData.map((f) => ({
-        lat: f.properties.latitude,
-        lng: f.properties.longitude,
-        name: f.properties.name,
-        adm0name: f.properties.adm0name,
-      }))
-    );
-  }, []);
+    if (null !== earthRef.current) {
+      (earthRef.current as any).controls().enableZoom = false;
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
+
+  // const visited = [
+  //   "Iceland",
+  //   "Switzerland",
+  //   "Netherlands",
+  //   "Hong Kong S.A.R.",
+  //   "United Kingdom",
+  //   "Belgium",
+  // ];
+
+  // const filteredData = locations.features.filter((f) =>
+  //   visited.includes(f.properties.adm0name)
+  // );
+
+  // useEffect(() => {
+  //   // load data
+  //   setPlaces(
+  //     filteredData.map((f) => ({
+  //       lat: f.properties.latitude,
+  //       lng: f.properties.longitude,
+  //       name: f.properties.name,
+  //       adm0name: f.properties.adm0name,
+  //     }))
+  //   );
+  // }, []);
 
   return (
     <div className={styles.scene}>
