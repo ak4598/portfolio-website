@@ -5,12 +5,17 @@ import { earth } from "../../../assets/images";
 import locations from "../../../assets/data/places.json";
 
 const Photography: NextPage = () => {
-  console.log("hi");
-  let Globe = () => null;
-  if (typeof window !== "undefined") {
-    Globe = require("react-globe.gl").default;
-    console.log(Globe);
-  }
+  // let Globe = () => null;
+  const Globe = require("react-globe.gl").default;
+
+  // const loadGlobe = async () => {
+  //   Globe = await require("react-globe.gl").default;
+  // };
+
+  // useEffect(() => {
+  //   Globe = require("react-globe.gl").default;
+  // }, []);
+
   const earthRef = useRef<HTMLDivElement | null>(null);
 
   const start = useRef<HTMLDivElement | null>(null);
@@ -85,7 +90,7 @@ const Photography: NextPage = () => {
       <div className={styles.earth}>
         <Globe
           //@ts-ignore
-          ref={earthRef}
+          refs={earthRef}
           width={earthSize}
           height={earthSize}
           backgroundColor={"rgba(0,0,0,0)"}
