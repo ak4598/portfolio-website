@@ -23,11 +23,10 @@ import dynamic from "next/dynamic";
 
 // Globe.displayName = "Globe";
 
-const Globe = dynamic(() => import("react-globe.gl"), {
-  ssr: false,
-});
-
 const Photography: NextPage = () => {
+  const Globe = dynamic(() => import("react-globe.gl"), {
+    ssr: false,
+  });
   // const earthRef = createRef();
 
   // const start = useRef<HTMLDivElement | null>(null);
