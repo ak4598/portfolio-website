@@ -57,6 +57,9 @@ const Photography: NextPage = () => {
   };
 
   useEffect(() => {
+    if (!earthRef.current) {
+      setTimeout(() => setGlobeActive(true), 1000); // Retry if globe hasn't rendered yet
+    }
     setGlobe(
       <Globe
         ref={earthRef}
@@ -79,17 +82,16 @@ const Photography: NextPage = () => {
         onPolygonClick={onClickHandler}
       />
     );
-  });
-
-  useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson"
-    )
-      .then((res) => res.json())
-      .then((countries) => {
-        setCountries(countries);
-      });
-  }, []);
+  }, [globeActive]),
+    useEffect(() => {
+      fetch(
+        "https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson"
+      )
+        .then((res) => res.json())
+        .then((countries) => {
+          setCountries(countries);
+        });
+    }, []);
 
   const onHoverHandler = useCallback((polygon: any) => {
     if (polygon !== null) {
