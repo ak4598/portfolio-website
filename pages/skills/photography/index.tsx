@@ -37,7 +37,8 @@ const Photography: NextPage = () => {
     </div>
   );
 
-  const [globeActive, setGlobeActive] = useState<any>(<Globe />);
+  const [globeActive, setGlobeActive] = useState<boolean>(false);
+  const [globe, setGlobe] = useState<any>(<Globe />);
 
   const [imageUrl, setImageUrl] = useState(earth.src);
   const [cameraActive, setCameraActive] = useState<boolean>(false);
@@ -56,7 +57,7 @@ const Photography: NextPage = () => {
   };
 
   useEffect(() => {
-    setGlobeActive(
+    setGlobe(
       <Globe
         ref={earthRef}
         width={earthSize as number}
@@ -78,7 +79,7 @@ const Photography: NextPage = () => {
         onPolygonClick={onClickHandler}
       />
     );
-  }, []);
+  });
 
   useEffect(() => {
     fetch(
@@ -164,7 +165,7 @@ const Photography: NextPage = () => {
           onPolygonHover={onHoverHandler}
           onPolygonClick={onClickHandler}
         /> */}
-        {globeActive}
+        {globe}
       </div>
     </div>
   );
