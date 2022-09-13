@@ -11,21 +11,19 @@ import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import dynamic from "next/dynamic";
 
+const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
+  ssr: false,
+});
+
+GlobeTmpl.displayName = "GlobeTmpl";
+
+const Globe = forwardRef((props: any, ref) => (
+  <GlobeTmpl {...props} forwardRef={ref} />
+));
+
+Globe.displayName = "Globe";
+
 const Photography: NextPage = () => {
-  const GlobeTmpl = dynamic(
-    () => import("../../../components/Globe/GlobeTmpl"),
-    {
-      ssr: false,
-    }
-  );
-
-  GlobeTmpl.displayName = "GlobeTmpl";
-
-  const Globe = forwardRef((props: any, ref) => (
-    <GlobeTmpl {...props} forwardRef={ref} />
-  ));
-
-  Globe.displayName = "Globe";
   const earthRef = createRef();
 
   const start = useRef<HTMLDivElement | null>(null);
@@ -38,6 +36,9 @@ const Photography: NextPage = () => {
       The world is my gallery 🌍
     </div>
   );
+
+  const [globeActive, setGlobeActive] = useState<any>(<Globe />);
+
   const [imageUrl, setImageUrl] = useState(earth.src);
   const [cameraActive, setCameraActive] = useState<boolean>(false);
   const [countries, setCountries] = useState({ features: [] });
@@ -53,6 +54,31 @@ const Photography: NextPage = () => {
         : window.innerHeight * enlargeFactor
     );
   };
+
+  useEffect(() => {
+    setGlobeActive(
+      <Globe
+        ref={earthRef}
+        width={earthSize as number}
+        height={earthSize as number}
+        backgroundColor={"rgba(0,0,0,0)"}
+        globeImageUrl={imageUrl}
+        rendererConfig={{ preserveDrawingBuffer: true }}
+        polygonsData={countries.features.filter(
+          (d: any) => d.properties.ISO_A2 !== "AQ"
+        )}
+        polygonAltitude={0.01}
+        polygonCapColor={(d: any) =>
+          d.properties.ISO_A3 === hover
+            ? "rgba(255, 255,255, 0.3)"
+            : "rgba(255, 255,255, 0)"
+        }
+        polygonSideColor={() => "rgba(255, 255, 255, 0)"}
+        onPolygonHover={onHoverHandler}
+        onPolygonClick={onClickHandler}
+      />
+    );
+  }, []);
 
   useEffect(() => {
     fetch(
@@ -118,7 +144,7 @@ const Photography: NextPage = () => {
       </div>
       <div className={styles.images} ref={gallery}></div>
       <div className={styles.earth}>
-        <Globe
+        {/* <Globe
           ref={earthRef}
           width={earthSize as number}
           height={earthSize as number}
@@ -137,7 +163,8 @@ const Photography: NextPage = () => {
           polygonSideColor={() => "rgba(255, 255, 255, 0)"}
           onPolygonHover={onHoverHandler}
           onPolygonClick={onClickHandler}
-        />
+        /> */}
+        {globeActive}
       </div>
     </div>
   );
