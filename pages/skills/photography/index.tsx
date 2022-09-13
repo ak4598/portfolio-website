@@ -11,17 +11,21 @@ import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import dynamic from "next/dynamic";
 
-const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
+// const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
+//   ssr: false,
+// });
+
+// GlobeTmpl.displayName = "GlobeTmpl";
+
+// const Globe = forwardRef((props: any, ref) => (
+//   <GlobeTmpl {...props} forwardRef={ref} />
+// ));
+
+// Globe.displayName = "Globe";
+
+const Globe = dynamic(() => import("react-globe.gl"), {
   ssr: false,
 });
-
-GlobeTmpl.displayName = "GlobeTmpl";
-
-const Globe = forwardRef((props: any, ref) => (
-  <GlobeTmpl {...props} forwardRef={ref} />
-));
-
-Globe.displayName = "Globe";
 
 const Photography: NextPage = () => {
   // const earthRef = createRef();
