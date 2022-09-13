@@ -9,15 +9,11 @@ import React, {
 } from "react";
 import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
-import locations from "../../../assets/data/places.json";
 import dynamic from "next/dynamic";
 
-const GlobeTmpl = dynamic<any>(
-  () => import("../../../components/Globe/GlobeTmpl"),
-  {
-    ssr: false,
-  }
-);
+const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
+  ssr: false,
+});
 
 GlobeTmpl.displayName = "GlobeTmpl";
 
@@ -40,14 +36,13 @@ const Photography: NextPage = () => {
       The world is my gallery 🌍
     </div>
   );
-  const [imageUrl, setImageUrl] = useState<any>(earth.src);
-  const [cameraActive, setCameraActive] = useState(false);
+  const [imageUrl, setImageUrl] = useState(earth.src);
+  const [cameraActive, setCameraActive] = useState<boolean>(false);
   const [countries, setCountries] = useState({ features: [] });
   const [hover, setHover] = useState<boolean | null>();
+  const [earthSize, setEarthSize] = useState<number | null>(null);
 
   const enlargeFactor = 1.8;
-
-  const [earthSize, setEarthSize] = useState<number | null>(null);
 
   const handleResize = () => {
     setEarthSize(
