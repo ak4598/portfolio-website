@@ -11,101 +11,98 @@ import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import dynamic from "next/dynamic";
 
-// const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
-//   ssr: false,
-// });
+const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
+  ssr: false,
+});
 
-// GlobeTmpl.displayName = "GlobeTmpl";
+GlobeTmpl.displayName = "GlobeTmpl";
 
-// const Globe = forwardRef((props: any, ref) => (
-//   <GlobeTmpl {...props} forwardRef={ref} />
-// ));
+const Globe = forwardRef((props: any, ref) => (
+  <GlobeTmpl {...props} forwardRef={ref} />
+));
 
-// Globe.displayName = "Globe";
+Globe.displayName = "Globe";
 
 const Photography: NextPage = () => {
-  const Globe = dynamic(() => import("react-globe.gl"), {
-    ssr: false,
+  const earthRef = createRef();
+
+  const start = useRef<HTMLDivElement | null>(null);
+  const gallery = useRef<HTMLDivElement | null>(null);
+
+  const [title, setTitle] = useState<any>(
+    <div>
+      I am an amateur photographer 📸
+      <br />
+      The world is my gallery 🌍
+    </div>
+  );
+
+  const [imageUrl, setImageUrl] = useState(earth.src);
+  const [cameraActive, setCameraActive] = useState<boolean>(false);
+  const [countries, setCountries] = useState({ features: [] });
+  const [hover, setHover] = useState<boolean | null>();
+  const [earthSize, setEarthSize] = useState<number | null>(null);
+
+  const enlargeFactor = 1.8;
+
+  const handleResize = () => {
+    setEarthSize(
+      window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
+        ? window.innerWidth * enlargeFactor
+        : window.innerHeight * enlargeFactor
+    );
+  };
+
+  useEffect(() => {
+    fetch(
+      "https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson"
+    )
+      .then((res) => res.json())
+      .then((countries) => {
+        setCountries(countries);
+      });
+  }, []);
+
+  const onHoverHandler = useCallback((polygon: any) => {
+    if (polygon !== null) {
+      setHover(polygon.properties.ISO_A3);
+    } else {
+      setHover(null);
+    }
+  }, []);
+
+  const onClickHandler = useCallback((event: any) => {
+    setTitle(<div>{event.properties.NAME}</div>);
+    if (null !== start.current && null !== gallery.current) {
+      start.current.style.display = "none";
+      gallery.current.style.display = "initial";
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!earthRef.current) {
+      setTimeout(() => setCameraActive(true), 1000); // Retry if globe hasn't rendered yet
+    }
+    if (earthRef.current && cameraActive) {
+      (earthRef.current as any).controls().enableZoom = false;
+      setCameraActive(false);
+    }
+  }, [earthRef.current, cameraActive]);
+
+  useEffect(() => {
+    setImageUrl(earth.src);
+
+    setEarthSize(
+      window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
+        ? window.innerWidth * enlargeFactor
+        : window.innerHeight * enlargeFactor
+    );
   });
-  // const earthRef = createRef();
 
-  // const start = useRef<HTMLDivElement | null>(null);
-  // const gallery = useRef<HTMLDivElement | null>(null);
-
-  // const [title, setTitle] = useState<any>(
-  //   <div>
-  //     I am an amateur photographer 📸
-  //     <br />
-  //     The world is my gallery 🌍
-  //   </div>
-  // );
-
-  // const [imageUrl, setImageUrl] = useState(earth.src);
-  // const [cameraActive, setCameraActive] = useState<boolean>(false);
-  // const [countries, setCountries] = useState({ features: [] });
-  // const [hover, setHover] = useState<boolean | null>();
-  // const [earthSize, setEarthSize] = useState<number | null>(null);
-
-  // const enlargeFactor = 1.8;
-
-  // const handleResize = () => {
-  //   setEarthSize(
-  //     window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
-  //       ? window.innerWidth * enlargeFactor
-  //       : window.innerHeight * enlargeFactor
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   fetch(
-  //     "https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson"
-  //   )
-  //     .then((res) => res.json())
-  //     .then((countries) => {
-  //       setCountries(countries);
-  //     });
-  // }, []);
-
-  // const onHoverHandler = useCallback((polygon: any) => {
-  //   if (polygon !== null) {
-  //     setHover(polygon.properties.ISO_A3);
-  //   } else {
-  //     setHover(null);
-  //   }
-  // }, []);
-
-  // const onClickHandler = useCallback((event: any) => {
-  //   setTitle(<div>{event.properties.NAME}</div>);
-  //   if (null !== start.current && null !== gallery.current) {
-  //     start.current.style.display = "none";
-  //     gallery.current.style.display = "initial";
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (!earthRef.current) {
-  //     setTimeout(() => setCameraActive(true), 1000); // Retry if globe hasn't rendered yet
-  //   }
-  //   if (earthRef.current && cameraActive) {
-  //     (earthRef.current as any).controls().enableZoom = false;
-  //     setCameraActive(false);
-  //   }
-  // }, [earthRef.current, cameraActive]);
-
-  // useEffect(() => {
-  //   setImageUrl(earth.src);
-
-  //   setEarthSize(
-  //     window.innerWidth * enlargeFactor < window.innerHeight * enlargeFactor
-  //       ? window.innerWidth * enlargeFactor
-  //       : window.innerHeight * enlargeFactor
-  //   );
-  // });
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", handleResize);
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, [handleResize]);
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
   return (
     <div className={styles.scene}>
@@ -113,15 +110,14 @@ const Photography: NextPage = () => {
         {/* I am an amateur photographer 📸
         <br />
         The world is my gallery 🌍 */}
-        {/* {title} */}
+        {title}
       </div>
-      {/* <div className={styles.item} id="start" ref={start}>
+      <div className={styles.item} id="start" ref={start}>
         <div>📸 🌍 👉🏻</div>
       </div>
-      <div className={styles.images} ref={gallery}></div> */}
+      <div className={styles.images} ref={gallery}></div>
       <div className={styles.earth}>
-        <Globe />
-        {/* <Globe
+        <Globe
           ref={earthRef}
           width={earthSize as number}
           height={earthSize as number}
@@ -140,7 +136,7 @@ const Photography: NextPage = () => {
           polygonSideColor={() => "rgba(255, 255, 255, 0)"}
           onPolygonHover={onHoverHandler}
           onPolygonClick={onClickHandler}
-        /> */}
+        />
       </div>
     </div>
   );
