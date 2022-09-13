@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { connectMongo } from "../../../utils/mongodb";
 import imageModel from "../../../models/model";
 
-export default async function addImage(
+export default async function getCountry(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -11,13 +11,14 @@ export default async function addImage(
   } catch (error: any) {
     res.status(404).json({ message: error.message });
   }
-  const { country, image } = req.body;
-  const newImage = new imageModel({ country: country, image: image });
+
+  const { country } = req.query;
 
   try {
-    await newImage.save(newImage);
-    res.status(201).json(newImage);
+    const images = await imageModel.find({ country: country });
+    res.status(200).json(images);
   } catch (error: any) {
-    res.status(409).json({ message: error });
+    console.log(error);
+    res.status(404).json({ message: error.message });
   }
 }
