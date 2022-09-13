@@ -1,7 +1,7 @@
-import GlobeTmpl from "react-globe.gl";
+import Globe from "react-globe.gl";
 
-const Globe = ({ forwardRef, ...otherProps }: any) => (
-  <GlobeTmpl {...otherProps} ref={forwardRef} />
+const GlobeTmpl = ({ forwardRef, ...otherProps }: any) => (
+  <Globe {...otherProps} ref={forwardRef} />
 );
 
-export default Globe;
+export default GlobeTmpl;
