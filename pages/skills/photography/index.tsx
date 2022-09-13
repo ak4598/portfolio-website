@@ -37,9 +37,6 @@ const Photography: NextPage = () => {
     </div>
   );
 
-  const [globeActive, setGlobeActive] = useState<boolean>(false);
-  const [globe, setGlobe] = useState<any>(<Globe />);
-
   const [imageUrl, setImageUrl] = useState(earth.src);
   const [cameraActive, setCameraActive] = useState<boolean>(false);
   const [countries, setCountries] = useState({ features: [] });
@@ -57,41 +54,14 @@ const Photography: NextPage = () => {
   };
 
   useEffect(() => {
-    if (!earthRef.current) {
-      setTimeout(() => setGlobeActive(true), 1000); // Retry if globe hasn't rendered yet
-    }
-    setGlobe(
-      <Globe
-        ref={earthRef}
-        width={earthSize as number}
-        height={earthSize as number}
-        backgroundColor={"rgba(0,0,0,0)"}
-        globeImageUrl={imageUrl}
-        rendererConfig={{ preserveDrawingBuffer: true }}
-        polygonsData={countries.features.filter(
-          (d: any) => d.properties.ISO_A2 !== "AQ"
-        )}
-        polygonAltitude={0.01}
-        polygonCapColor={(d: any) =>
-          d.properties.ISO_A3 === hover
-            ? "rgba(255, 255,255, 0.3)"
-            : "rgba(255, 255,255, 0)"
-        }
-        polygonSideColor={() => "rgba(255, 255, 255, 0)"}
-        onPolygonHover={onHoverHandler}
-        onPolygonClick={onClickHandler}
-      />
-    );
-  }, [globeActive]),
-    useEffect(() => {
-      fetch(
-        "https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson"
-      )
-        .then((res) => res.json())
-        .then((countries) => {
-          setCountries(countries);
-        });
-    }, []);
+    fetch(
+      "https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson"
+    )
+      .then((res) => res.json())
+      .then((countries) => {
+        setCountries(countries);
+      });
+  }, []);
 
   const onHoverHandler = useCallback((polygon: any) => {
     if (polygon !== null) {
@@ -147,7 +117,7 @@ const Photography: NextPage = () => {
       </div>
       <div className={styles.images} ref={gallery}></div>
       <div className={styles.earth}>
-        {/* <Globe
+        <Globe
           ref={earthRef}
           width={earthSize as number}
           height={earthSize as number}
@@ -166,8 +136,7 @@ const Photography: NextPage = () => {
           polygonSideColor={() => "rgba(255, 255, 255, 0)"}
           onPolygonHover={onHoverHandler}
           onPolygonClick={onClickHandler}
-        /> */}
-        {globe}
+        />
       </div>
     </div>
   );
