@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectMongo } from "../../../utils/mongodb";
-import imageModel from "../../../models/model";
+import { countryModel } from "../../../models/model";
 
 export default async function getCountry(
   req: NextApiRequest,
@@ -15,7 +15,7 @@ export default async function getCountry(
   const { country } = req.query;
 
   try {
-    const images = await imageModel.find({ country: country });
+    const images = await countryModel.find({ country: country });
     res.status(200).json(images);
   } catch (error: any) {
     console.log(error);

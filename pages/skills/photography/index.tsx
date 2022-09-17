@@ -71,7 +71,11 @@ const Photography: NextPage = () => {
     }
   }, []);
 
-  const onClickHandler = useCallback((event: any) => {
+  const onClickHandler = useCallback(async (event: any) => {
+    // const data = await fetch(
+    //   `/api/images/get-country-images?country=${"test"}`
+    // ).then((d) => d.json());
+
     setTitle(<div>{event.properties.NAME}</div>);
     if (null !== start.current && null !== gallery.current) {
       start.current.style.display = "none";

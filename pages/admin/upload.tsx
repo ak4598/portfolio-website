@@ -11,33 +11,55 @@ const Upload = () => {
     image: "",
   });
 
-  const [ref, setRef] = useState<any>(null);
-
   const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
-    if (e.target.id === "photography") {
-      setRef(photographyRef.current);
-    } else if (e.target.id === "cookery") {
-      setRef(cookeryRef.current);
-    }
 
-    if (null !== ref.files) {
-      reader.readAsDataURL(ref.files[0] as Blob);
-      reader.onload = () => {
-        setPostData({ ...postData, image: reader.result as string });
-      };
+    if (e.target.id === "photography") {
+      if (null !== photographyRef.current?.files) {
+        reader.readAsDataURL(photographyRef.current?.files[0] as Blob);
+        reader.onload = () => {
+          setPostData({ ...postData, image: reader.result as string });
+        };
+      }
+    } else if (e.target.id === "cookery") {
+      if (null !== cookeryRef.current?.files) {
+        try {
+          reader.readAsDataURL(cookeryRef.current?.files[0] as Blob);
+          reader.onload = () => {
+            setPostData({ ...postData, image: reader.result as string });
+          };
+        } catch (error: any) {
+          alert("Please choose a file!");
+        }
+      }
     }
   };
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setPostData({
-      country: "",
-      caption: "",
-      image: "",
+
+    const response = await fetch("/api/images/add-country-image", {
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(postData),
+      method: "POST",
     });
-    if (null !== formRef.current) {
-      formRef.current.reset();
+
+    if (response.status === 201) {
+      // clear form
+      setPostData({
+        country: "",
+        caption: "",
+        image: "",
+      });
+      if (null !== formRef.current) {
+        formRef.current.reset();
+      }
+
+      alert("Uploaded");
+    } else {
+      alert("Cannot upload!");
     }
   };
   return (

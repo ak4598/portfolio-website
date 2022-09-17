@@ -1,11 +1,11 @@
 import { Schema, model, models } from "mongoose";
 
-const imageSchema = new Schema({
+const countrySchema = new Schema({
   country: String,
-  image: String,
   caption: String,
+  image: String,
 });
 
-const imageModel = models.imageModel || model("Images", imageSchema);
+const countryModel = models.Country || model("Country", countrySchema);
 
-export default imageModel;
+export { countryModel };
