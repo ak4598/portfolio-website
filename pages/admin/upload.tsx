@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import styles from "./styles/admin.module.css";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Upload = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -35,6 +36,8 @@ const Upload = () => {
     }
   };
 
+  const handleAuth = async () => {};
+
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
 
@@ -62,63 +65,69 @@ const Upload = () => {
       alert("Cannot upload!");
     }
   };
+
+  const { data: session } = useSession();
+  if (session) {
+    return (
+      <div>
+        <div className={styles.mask}></div>
+        <div className={styles.titleOverlay}>
+          <div>
+            Photography
+            <form
+              ref={formRef}
+              autoComplete="off"
+              noValidate
+              onSubmit={handleSubmit}
+            >
+              <input
+                placeholder="country"
+                onChange={(e) =>
+                  setPostData({ ...postData, country: e.target.value })
+                }
+              />
+              <input
+                placeholder="caption"
+                onChange={(e) =>
+                  setPostData({ ...postData, caption: e.target.value })
+                }
+              />
+              <input
+                type="file"
+                id="photography"
+                ref={photographyRef}
+                accept="image/png, image/jpeg"
+                onChange={handleImage}
+              />
+              <input type="submit" value="Upload"></input>
+            </form>
+          </div>
+          <div>
+            Cookery
+            <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+              <input />
+              <input />
+              <input
+                type="file"
+                id="cookery"
+                ref={cookeryRef}
+                accept="image/png, image/jpeg"
+                onChange={handleImage}
+              />
+              <input type="submit" value="Upload"></input>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className={styles.mask}></div>
       <div className={styles.titleOverlay}>
-        <div>
-          Login
-          <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-            <input placeholder="username" />
-            <input placeholder="password" type="password" />
-            <input type="submit" value="Authenticate" />
-          </form>
-        </div>
-        <div>
-          Photography
-          <form
-            ref={formRef}
-            autoComplete="off"
-            noValidate
-            onSubmit={handleSubmit}
-          >
-            <input
-              placeholder="country"
-              onChange={(e) =>
-                setPostData({ ...postData, country: e.target.value })
-              }
-            />
-            <input
-              placeholder="caption"
-              onChange={(e) =>
-                setPostData({ ...postData, caption: e.target.value })
-              }
-            />
-            <input
-              type="file"
-              id="photography"
-              ref={photographyRef}
-              accept="image/png, image/jpeg"
-              onChange={handleImage}
-            />
-            <input type="submit" value="Upload"></input>
-          </form>
-        </div>
-        <div>
-          Cookery
-          <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-            <input />
-            <input />
-            <input
-              type="file"
-              id="cookery"
-              ref={cookeryRef}
-              accept="image/png, image/jpeg"
-              onChange={handleImage}
-            />
-            <input type="submit" value="Upload"></input>
-          </form>
-        </div>
+        Not signed in <br />
+        <button onClick={() => signIn()}>Sign in</button>
       </div>
     </div>
   );
