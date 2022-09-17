@@ -7,7 +7,6 @@ export default async function addImage(
   res: NextApiResponse
 ) {
   try {
-    console.log("mongodburi", process.env.MONGODB_URI);
     await connectMongo();
   } catch (error: any) {
     res.status(404).json({ message: error.message });

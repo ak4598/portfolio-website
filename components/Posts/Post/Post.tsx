@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Post.module.css";
 
 type Props = {
   image: string;
@@ -6,7 +7,12 @@ type Props = {
 };
 
 const Post: React.FC<Props> = ({ image, caption }) => {
-  return <div></div>;
+  return (
+    <div className={styles.card}>
+      <img src={image} />
+      <p>caption</p>
+    </div>
+  );
 };
 
 export default Post;

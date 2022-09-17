@@ -60,23 +60,17 @@
 
 .images {
   position: absolute;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-radius: 15px;
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: scroll;
 
   top: 25%;
   left: 5%;
-  width: 60%;
+  width: 50%;
   height: 65%;
 
-  min-width: 960px;
-  min-height: 540px;
   display: none;
 }
 
-.images::before {
+/* .images::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -98,7 +92,7 @@
   background: #f8f9f9;
 
   filter: blur(20px);
-}
+} */
 
 .earth {
   width: 180%;

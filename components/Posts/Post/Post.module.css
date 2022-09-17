@@ -1,0 +1,24 @@
+.card {
+  width: 30%;
+  height: 50%;
+
+  border-radius: 15px;
+  margin: 1%;
+  overflow: hidden;
+
+  border: 1px solid rgba(248, 249, 249, 0.4);
+  border-radius: 15px;
+  border-right: 1px solid rgba(248, 249, 249, 0.2);
+  border-left: 1px solid rgba(248, 249, 249, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  background: rgba(248, 249, 249, 0.02);
+
+  color: #f8f9f9;
+}
+
+.card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}

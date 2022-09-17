@@ -11,6 +11,8 @@ import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import dynamic from "next/dynamic";
 
+import Posts from "../../../components/Posts/Posts";
+
 const GlobeTmpl = dynamic(() => import("../../../components/Globe/GlobeTmpl"), {
   ssr: false,
 });
@@ -36,6 +38,8 @@ const Photography: NextPage = () => {
       The world is my gallery 🌍
     </div>
   );
+
+  const [galleryFC, setGalleryFC] = useState<any>(null);
 
   const [imageUrl, setImageUrl] = useState(earth.src);
   const [cameraActive, setCameraActive] = useState<boolean>(false);
@@ -72,11 +76,8 @@ const Photography: NextPage = () => {
   }, []);
 
   const onClickHandler = useCallback(async (event: any) => {
-    // const data = await fetch(
-    //   `/api/images/get-country-images?country=${"test"}`
-    // ).then((d) => d.json());
-
     setTitle(<div>{event.properties.NAME}</div>);
+    setGalleryFC(<Posts country={event.properties.NAME} />);
     if (null !== start.current && null !== gallery.current) {
       start.current.style.display = "none";
       gallery.current.style.display = "initial";
@@ -114,7 +115,9 @@ const Photography: NextPage = () => {
       <div className={styles.item} id="start" ref={start}>
         <div>📸 🌍 👉🏻</div>
       </div>
-      <div className={styles.images} ref={gallery}></div>
+      <div className={styles.images} ref={gallery}>
+        {galleryFC}
+      </div>
       <div className={styles.earth}>
         <Globe
           ref={earthRef}

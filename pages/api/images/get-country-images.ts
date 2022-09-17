@@ -16,6 +16,7 @@ export default async function getCountry(
 
   try {
     const images = await countryModel.find({ country: country });
+
     res.status(200).json(images);
   } catch (error: any) {
     console.log(error);
