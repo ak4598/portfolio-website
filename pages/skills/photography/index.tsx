@@ -106,12 +106,7 @@ const Photography: NextPage = () => {
 
   return (
     <div className={styles.scene}>
-      <div className={styles.title}>
-        {/* I am an amateur photographer 📸
-        <br />
-        The world is my gallery 🌍 */}
-        {title}
-      </div>
+      <div className={styles.title}>{title}</div>
       <div className={styles.item} id="start" ref={start}>
         <div>📸 🌍 👉🏻</div>
       </div>
