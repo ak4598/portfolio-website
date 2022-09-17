@@ -60,13 +60,20 @@
 
 .images {
   position: absolute;
-  overflow: scroll;
+  overflow-y: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   top: 25%;
   left: 5%;
   width: 50%;
   height: 65%;
 
+  display: none;
+}
+
+.images::-webkit-scrollbar {
   display: none;
 }
 
