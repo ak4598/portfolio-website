@@ -28,6 +28,12 @@
   animation: animate 4s ease-in-out infinite;
 }
 
+.post {
+  width: 30%;
+  height: 50%;
+  margin: 1%;
+}
+
 @keyframes animate {
   0%,
   100% {

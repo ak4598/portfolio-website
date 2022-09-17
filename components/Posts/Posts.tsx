@@ -36,7 +36,9 @@ const Posts: React.FC<Props> = ({ country }) => {
   return (
     <div className={styles.grid}>
       {posts.map((post: any) => (
-        <Post image={post.image} caption={post.caption} />
+        <div key={post._id} className={styles.post}>
+          <Post image={post.image} caption={post.caption} />
+        </div>
       ))}
     </div>
   );
