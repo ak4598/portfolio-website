@@ -77,30 +77,6 @@
   display: none;
 }
 
-/* .images::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-
-  border-radius: 15px;
-
-  background: #f8f9f9;
-}
-
-.images::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-
-  background: #f8f9f9;
-
-  filter: blur(20px);
-} */
-
 .earth {
   width: 180%;
   height: 150%;
