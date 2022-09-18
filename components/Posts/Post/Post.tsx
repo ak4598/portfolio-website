@@ -26,13 +26,15 @@ const Post: React.FC<Props> = ({ id }) => {
     return (
       <div className={styles.card}>
         <div className={styles.image}>
-          {/* <Image
-            src={"null"}
+          <Image
+            src={NotFoundImg.src}
+            blurDataURL={NotFoundImg.src}
+            placeholder="blur"
             width={500}
             height={500}
             objectFit="cover"
             quality={100}
-          /> */}
+          />
         </div>
         <p>Loading...</p>
       </div>
