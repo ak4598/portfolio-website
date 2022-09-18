@@ -27,3 +27,11 @@ export default async function addImage(
     res.status(409).json({ message: error });
   }
 }
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "4mb", // Set desired value here
+    },
+  },
+};

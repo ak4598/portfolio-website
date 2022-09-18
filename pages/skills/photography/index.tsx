@@ -72,15 +72,20 @@ const Photography: NextPage = () => {
   }, []);
 
   const onClickHandler = useCallback(async (event: any) => {
+    let countryName = event.properties.NAME;
+    if (event.properties.NAME === "China") {
+      countryName = "Hong Kong / China";
+    }
+
     if (null !== earthDiv.current) {
       setTitle(
         <div>
-          <div>{event.properties.NAME}</div>
+          <div>{countryName}</div>
           <button onClick={() => router.reload()}>Back</button>
         </div>
       );
     } else {
-      setTitle(<div>{event.properties.NAME}</div>);
+      setTitle(<div>{countryName}</div>);
     }
 
     setGalleryFC(<Posts country={event.properties.NAME} />);

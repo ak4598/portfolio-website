@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
@@ -19,17 +20,14 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   } else {
     return (
       <SessionProvider session={session}>
+        <Head>
+          <title>Andy Kwan</title>
+        </Head>
         <NavBar />
         <Component {...pageProps} />
       </SessionProvider>
     );
   }
-  // return (
-  //   <div>
-  //     <NavBar />
-  //     <Component {...pageProps} />
-  //   </div>
-  // );
 }
 
 export default MyApp;
