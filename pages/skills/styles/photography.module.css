@@ -28,7 +28,7 @@
   font-size: 28px;
   line-height: 200%;
   width: 100%;
-  padding-top: 150px;
+  padding-top: 100px;
 }
 
 .title button {
@@ -77,10 +77,10 @@
   position: absolute;
   overflow-y: scroll;
 
-  top: 25%;
+  top: 18%;
   left: 5%;
   width: 60%;
-  height: 70%;
+  height: 80%;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
