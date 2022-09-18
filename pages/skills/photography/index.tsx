@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import React, {
   useEffect,
   useRef,
@@ -28,6 +29,7 @@ Globe.displayName = "Globe";
 
 const Photography: NextPage = () => {
   const isBreakpoint = useMediaQuery(560);
+  const router = useRouter();
   const earthRef = createRef();
 
   const start = useRef<HTMLDivElement | null>(null);
@@ -43,7 +45,6 @@ const Photography: NextPage = () => {
   );
 
   const [galleryFC, setGalleryFC] = useState<any>(null);
-
   const [imageUrl, setImageUrl] = useState(earth.src);
   const [cameraActive, setCameraActive] = useState<boolean>(false);
   const [countries, setCountries] = useState({ features: [] });
@@ -79,14 +80,24 @@ const Photography: NextPage = () => {
   }, []);
 
   const onClickHandler = useCallback(async (event: any) => {
-    setTitle(<div>{event.properties.NAME}</div>);
+    if (null !== earthDiv.current) {
+      setTitle(
+        <div>
+          <div>{event.properties.NAME}</div>
+          <button onClick={() => router.reload()}>Back</button>
+        </div>
+      );
+    } else {
+      setTitle(<div>{event.properties.NAME}</div>);
+    }
+
     setGalleryFC(<Posts country={event.properties.NAME} />);
     if (null !== start.current && null !== gallery.current) {
       start.current.style.display = "none";
       gallery.current.style.display = "initial";
-      // if (isBreakpoint && null !== earthDiv.current) {
-      //   earthDiv.current.style.display = "none";
-      // }
+      if (null !== earthDiv.current) {
+        earthDiv.current.style.display = "none";
+      }
     }
   }, []);
 
@@ -121,11 +132,10 @@ const Photography: NextPage = () => {
       <div className={styles.item} id="start" ref={start}>
         {isBreakpoint ? <div>📸 👇🏻 🌍</div> : <div>📸 🌍 👉🏻</div>}
       </div>
-
       <div className={styles.gallery} ref={gallery}>
         {galleryFC}
       </div>
-      <div className={styles.earth} ref={earthDiv}>
+      <div className={styles.earth} ref={isBreakpoint ? earthDiv : null}>
         <Globe
           ref={earthRef}
           width={earthSize as number}
@@ -147,6 +157,53 @@ const Photography: NextPage = () => {
           onPolygonClick={onClickHandler}
         />
       </div>
+      {/* {isBreakpoint ? (
+        <div className={styles.earth} ref={earthDiv}>
+          <Globe
+            ref={earthRef}
+            width={earthSize as number}
+            height={earthSize as number}
+            backgroundColor={"rgba(0,0,0,0)"}
+            globeImageUrl={imageUrl}
+            rendererConfig={{ preserveDrawingBuffer: true }}
+            polygonsData={countries.features.filter(
+              (d: any) => d.properties.ISO_A2 !== "AQ"
+            )}
+            polygonAltitude={0.01}
+            polygonCapColor={(d: any) =>
+              d.properties.ISO_A3 === hover
+                ? "rgba(255, 255,255, 0.3)"
+                : "rgba(255, 255,255, 0)"
+            }
+            polygonSideColor={() => "rgba(255, 255, 255, 0)"}
+            onPolygonHover={onHoverHandler}
+            onPolygonClick={onClickHandler}
+          />
+        </div>
+      ) : (
+        <div className={styles.earth}>
+          <Globe
+            ref={earthRef}
+            width={earthSize as number}
+            height={earthSize as number}
+            backgroundColor={"rgba(0,0,0,0)"}
+            globeImageUrl={imageUrl}
+            rendererConfig={{ preserveDrawingBuffer: true }}
+            polygonsData={countries.features.filter(
+              (d: any) => d.properties.ISO_A2 !== "AQ"
+            )}
+            polygonAltitude={0.01}
+            polygonCapColor={(d: any) =>
+              d.properties.ISO_A3 === hover
+                ? "rgba(255, 255,255, 0.3)"
+                : "rgba(255, 255,255, 0)"
+            }
+            polygonSideColor={() => "rgba(255, 255, 255, 0)"}
+            onPolygonHover={onHoverHandler}
+            onPolygonClick={onClickHandler}
+          />
+        </div>
+      )} */}
     </div>
   );
 };

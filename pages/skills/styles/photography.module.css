@@ -31,6 +31,20 @@
   padding-top: 150px;
 }
 
+.title button {
+  position: absolute;
+  right: 0;
+  top: 80%;
+  padding: 0px 20px;
+  background: transparent;
+  font-size: 16px;
+  border: 0;
+  color: #f8f9f9;
+  font-family: "League Spartan";
+  font-weight: lighter;
+  cursor: pointer;
+}
+
 .item {
   position: absolute;
   display: flex;
@@ -133,7 +147,7 @@
 @media (max-width: 560px) {
   .title {
     font-size: 20px;
-    padding-top: 80px;
+    padding-top: 25%;
   }
 
   .item {
@@ -149,9 +163,9 @@
   }
 
   .gallery {
-    top: 20%;
+    top: 30%;
     left: 0%;
     width: 100%;
-    height: 100%;
+    height: 65%;
   }
 }
