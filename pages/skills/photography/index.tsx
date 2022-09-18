@@ -71,14 +71,6 @@ const Photography: NextPage = () => {
       });
   }, []);
 
-  const onHoverHandler = useCallback((polygon: any) => {
-    if (polygon !== null) {
-      setHover(polygon.properties.ISO_A3);
-    } else {
-      setHover(null);
-    }
-  }, []);
-
   const onClickHandler = useCallback(async (event: any) => {
     if (null !== earthDiv.current) {
       setTitle(
@@ -142,68 +134,18 @@ const Photography: NextPage = () => {
           height={earthSize as number}
           backgroundColor={"rgba(0,0,0,0)"}
           globeImageUrl={imageUrl}
-          rendererConfig={{ preserveDrawingBuffer: true }}
+          lineHoverPrecision={0}
           polygonsData={countries.features.filter(
             (d: any) => d.properties.ISO_A2 !== "AQ"
           )}
-          polygonAltitude={0.01}
           polygonCapColor={(d: any) =>
-            d.properties.ISO_A3 === hover
-              ? "rgba(255, 255,255, 0.3)"
-              : "rgba(255, 255,255, 0)"
+            d === hover ? "rgba(255, 255,255, 0.3)" : "rgba(255, 255,255, 0)"
           }
           polygonSideColor={() => "rgba(255, 255, 255, 0)"}
-          onPolygonHover={onHoverHandler}
+          onPolygonHover={setHover}
           onPolygonClick={onClickHandler}
         />
       </div>
-      {/* {isBreakpoint ? (
-        <div className={styles.earth} ref={earthDiv}>
-          <Globe
-            ref={earthRef}
-            width={earthSize as number}
-            height={earthSize as number}
-            backgroundColor={"rgba(0,0,0,0)"}
-            globeImageUrl={imageUrl}
-            rendererConfig={{ preserveDrawingBuffer: true }}
-            polygonsData={countries.features.filter(
-              (d: any) => d.properties.ISO_A2 !== "AQ"
-            )}
-            polygonAltitude={0.01}
-            polygonCapColor={(d: any) =>
-              d.properties.ISO_A3 === hover
-                ? "rgba(255, 255,255, 0.3)"
-                : "rgba(255, 255,255, 0)"
-            }
-            polygonSideColor={() => "rgba(255, 255, 255, 0)"}
-            onPolygonHover={onHoverHandler}
-            onPolygonClick={onClickHandler}
-          />
-        </div>
-      ) : (
-        <div className={styles.earth}>
-          <Globe
-            ref={earthRef}
-            width={earthSize as number}
-            height={earthSize as number}
-            backgroundColor={"rgba(0,0,0,0)"}
-            globeImageUrl={imageUrl}
-            rendererConfig={{ preserveDrawingBuffer: true }}
-            polygonsData={countries.features.filter(
-              (d: any) => d.properties.ISO_A2 !== "AQ"
-            )}
-            polygonAltitude={0.01}
-            polygonCapColor={(d: any) =>
-              d.properties.ISO_A3 === hover
-                ? "rgba(255, 255,255, 0.3)"
-                : "rgba(255, 255,255, 0)"
-            }
-            polygonSideColor={() => "rgba(255, 255, 255, 0)"}
-            onPolygonHover={onHoverHandler}
-            onPolygonClick={onClickHandler}
-          />
-        </div>
-      )} */}
     </div>
   );
 };
