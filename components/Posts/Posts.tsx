@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Post from "./Post/Post";
 import styles from "./Posts.module.css";
+import shuffle from "../../utils/shuffle";
 
 type Props = {
   country: string;
@@ -16,6 +17,7 @@ const Posts: React.FC<Props> = ({ country }) => {
     fetch(`/api/images/get-country-images?country=${country}`)
       .then((res) => res.json())
       .then((id) => {
+        shuffle(id);
         setPosts(id);
         setLoading(false);
       });
