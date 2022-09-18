@@ -203,7 +203,7 @@
     margin-bottom: 20px;
     font-size: 20px;
 
-    padding-top: clamp(120px, 80px, 25%);
+    padding-top: 25%;
   }
 }
 
