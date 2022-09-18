@@ -43,3 +43,14 @@
     transform: translateY(-10%);
   }
 }
+
+@media (max-width: 560px) {
+  .grid {
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 20px;
+    padding-top: 80px;
+  }
+}

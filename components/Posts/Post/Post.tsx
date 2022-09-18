@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Post.module.css";
+import NotFoundImg from "../../../assets/images/not_found.png";
 
 type Props = {
   id: string;
@@ -33,7 +34,7 @@ const Post: React.FC<Props> = ({ id }) => {
             quality={100}
           /> */}
         </div>
-        <p>{null}</p>
+        <p>Loading...</p>
       </div>
     );
   if (!isLoading) {
@@ -41,15 +42,17 @@ const Post: React.FC<Props> = ({ id }) => {
       return (
         <div className={styles.card}>
           <div className={styles.image}>
-            {/* <Image
-            src={"null"}
-            width={500}
-            height={500}
-            objectFit="cover"
-            quality={100}
-          /> */}
+            <Image
+              src={NotFoundImg.src}
+              blurDataURL={NotFoundImg.src}
+              placeholder="blur"
+              width={500}
+              height={500}
+              objectFit="cover"
+              quality={100}
+            />
           </div>
-          <p>{null}</p>
+          <p>Image not found</p>
         </div>
       );
     }

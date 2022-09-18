@@ -10,6 +10,7 @@ import React, {
 import styles from "../styles/photography.module.css";
 import { earth } from "../../../assets/images";
 import dynamic from "next/dynamic";
+import useMediaQuery from "../../../utils/useMediaQuery";
 
 import Posts from "../../../components/Posts/Posts";
 
@@ -26,10 +27,12 @@ const Globe = forwardRef((props: any, ref) => (
 Globe.displayName = "Globe";
 
 const Photography: NextPage = () => {
+  const isBreakpoint = useMediaQuery(560);
   const earthRef = createRef();
 
   const start = useRef<HTMLDivElement | null>(null);
   const gallery = useRef<HTMLDivElement | null>(null);
+  const earthDiv = useRef<HTMLDivElement | null>(null);
 
   const [title, setTitle] = useState<any>(
     <div>
@@ -81,6 +84,9 @@ const Photography: NextPage = () => {
     if (null !== start.current && null !== gallery.current) {
       start.current.style.display = "none";
       gallery.current.style.display = "initial";
+      // if (isBreakpoint && null !== earthDiv.current) {
+      //   earthDiv.current.style.display = "none";
+      // }
     }
   }, []);
 
@@ -113,12 +119,13 @@ const Photography: NextPage = () => {
     <div className={styles.scene}>
       <div className={styles.title}>{title}</div>
       <div className={styles.item} id="start" ref={start}>
-        <div>📸 🌍 👉🏻</div>
+        {isBreakpoint ? <div>📸 👇🏻 🌍</div> : <div>📸 🌍 👉🏻</div>}
       </div>
-      <div className={styles.images} ref={gallery}>
+
+      <div className={styles.gallery} ref={gallery}>
         {galleryFC}
       </div>
-      <div className={styles.earth}>
+      <div className={styles.earth} ref={earthDiv}>
         <Globe
           ref={earthRef}
           width={earthSize as number}
