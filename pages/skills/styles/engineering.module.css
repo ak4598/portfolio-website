@@ -9,9 +9,16 @@
   );
   height: 100%;
   width: 100%;
-  overflow: hidden;
+
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   position: absolute;
+}
+
+.box::-webkit-scrollbar {
+  display: none;
 }
 
 .title {
