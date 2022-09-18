@@ -12,12 +12,10 @@ export default async function getCountry(
     res.status(404).json({ message: error.message });
   }
 
-  const { country } = req.query;
-
+  const { id } = req.query;
   try {
-    const imagesId = await countryModel.find({ country: country }, "_id");
-
-    res.status(200).json(imagesId);
+    const images = await countryModel.findById(id);
+    res.status(200).json(images);
   } catch (error: any) {
     console.log(error);
     res.status(404).json({ message: error.message });

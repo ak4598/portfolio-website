@@ -12,10 +12,11 @@ const Posts: React.FC<Props> = ({ country }) => {
 
   useEffect(() => {
     setLoading(true);
+
     fetch(`/api/images/get-country-images?country=${country}`)
       .then((res) => res.json())
-      .then((data) => {
-        setPosts(data);
+      .then((id) => {
+        setPosts(id);
         setLoading(false);
       });
   }, [country]);
@@ -37,7 +38,7 @@ const Posts: React.FC<Props> = ({ country }) => {
     <div className={styles.grid}>
       {posts.map((post: any) => (
         <div key={post._id} className={styles.post}>
-          <Post image={post.image} caption={post.caption} />
+          <Post id={post._id} />
         </div>
       ))}
     </div>
