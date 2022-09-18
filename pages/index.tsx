@@ -7,7 +7,12 @@ import { background } from "../assets/images";
 const Home: NextPage = () => {
   return (
     <div>
-      <Image layout="fill" className={styles.image} src={background.src} />
+      <Image
+        layout="fill"
+        className={styles.image}
+        objectFit="cover"
+        src={background.src}
+      />
       <div className={styles.mask}></div>
 
       <div className={styles.titleOverlay}>
