@@ -30,8 +30,8 @@ const Post: React.FC<Props> = ({ id }) => {
             src={NotFoundImg.src}
             blurDataURL={NotFoundImg.src}
             placeholder="blur"
-            width={500}
-            height={500}
+            width={540}
+            height={675}
             objectFit="cover"
             quality={100}
           />
@@ -48,8 +48,8 @@ const Post: React.FC<Props> = ({ id }) => {
               src={NotFoundImg.src}
               blurDataURL={NotFoundImg.src}
               placeholder="blur"
-              width={500}
-              height={500}
+              width={540}
+              height={675}
               objectFit="cover"
               quality={100}
             />
@@ -67,8 +67,8 @@ const Post: React.FC<Props> = ({ id }) => {
           src={post.image}
           blurDataURL={post.image}
           placeholder="blur"
-          width={500}
-          height={500}
+          width={540}
+          height={675}
           objectFit="cover"
           quality={100}
         />
