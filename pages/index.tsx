@@ -12,6 +12,7 @@ const Home: NextPage = () => {
         className={styles.image}
         objectFit="cover"
         src={background.src}
+        quality={100}
       />
       <div className={styles.mask}></div>
 

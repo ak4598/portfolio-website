@@ -7,8 +7,8 @@ import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 const About = () => {
   return (
     <ParallaxProvider>
-      <Parallax speed={-30}>
-        <Image src={about1.src} layout="fill" objectFit="cover" />
+      <Parallax>
+        <Image src={about1.src} layout="fill" objectFit="cover" quality={100} />
       </Parallax>
     </ParallaxProvider>
   );
