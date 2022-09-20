@@ -4,6 +4,7 @@ import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import NavBar from "../components/NavBar/NavBar";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [showChild, setShowChild] = useState(false);
@@ -20,11 +21,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   } else {
     return (
       <SessionProvider session={session}>
-        <Head>
-          <title>Andy Kwan</title>
-        </Head>
-        <NavBar />
-        <Component {...pageProps} />
+        <ParallaxProvider>
+          <Head>
+            <title>Andy Kwan</title>
+          </Head>
+          <NavBar />
+          <Component {...pageProps} />
+        </ParallaxProvider>
       </SessionProvider>
     );
   }
