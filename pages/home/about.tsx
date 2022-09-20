@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import about1 from "../../assets/images/about1.jpg";
+import { about1, about2, about3, about4 } from "../../assets/images";
 import styles from "./styles/about.module.css";
 import {
   Parallax,
@@ -11,19 +11,26 @@ import {
 const About = () => {
   return (
     <div>
-      <ParallaxBannerLayer
-        className={styles.banner}
-        image={about1.src}
-        speed={-20}
-      />
-      <Parallax speed={-100}>
-        <div className={styles.title}>This is Andy Kwan.</div>
-        <div className={styles.arrow}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </Parallax>
+      <ParallaxBanner className={styles.parallaxBanner}>
+        <ParallaxBannerLayer image={about1.src} speed={0} />
+        <Parallax speed={-20}>
+          <div className={styles.title}>This is Andy Kwan.</div>
+          <div className={styles.arrow}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </Parallax>
+      </ParallaxBanner>
+      <ParallaxBanner className={styles.parallaxBanner}>
+        <ParallaxBannerLayer image={about2.src} speed={0} />
+      </ParallaxBanner>
+      <ParallaxBanner className={styles.parallaxBanner}>
+        <ParallaxBannerLayer image={about3.src} speed={0} />
+      </ParallaxBanner>
+      <ParallaxBanner className={styles.parallaxBanner}>
+        <ParallaxBannerLayer image={about4.src} speed={0} />
+      </ParallaxBanner>
     </div>
   );
 };
