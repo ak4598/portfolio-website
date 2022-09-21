@@ -6,7 +6,7 @@ import { background } from "../assets/images";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className={styles.top}>
       <Image
         layout="fill"
         className={styles.image}

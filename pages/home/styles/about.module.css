@@ -25,9 +25,17 @@
   backdrop-filter: blur(2px);
 } */
 
+.top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .parallaxBanner {
   aspect-ratio: 1/1;
 }
+
 .title {
   display: flex;
   justify-content: center;
@@ -43,9 +51,34 @@
   font-size: 28px;
   /* line-height: 200%; */
   width: 100%;
-  padding-top: 20%;
+  padding-top: 10%;
   padding-bottom: 30px;
   top: 50%;
+}
+
+.box {
+  position: absolute;
+  color: #020101;
+  width: 30%;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.box p {
+  background: #f8f9f9;
+  line-height: 150%;
+  padding: 10%;
+  text-align: justify-all;
+}
+
+#intro1 {
+  padding-top: 5%;
+  right: 0%;
+}
+
+#intro2 {
+  padding-top: 20%;
+  left: 0%;
 }
 
 .arrow {

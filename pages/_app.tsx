@@ -8,6 +8,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [showChild, setShowChild] = useState(false);
+
   useEffect(() => {
     setShowChild(true);
   }, []);

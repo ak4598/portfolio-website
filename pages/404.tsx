@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 
 const Custom404 = () => {
   return (
-    <div>
+    <div className={styles.top}>
       <div className={styles.mask404}></div>
       <div className={styles.titleOverlay}>
         <div className={styles.title}>404 Error</div>
