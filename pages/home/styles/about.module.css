@@ -1,5 +1,5 @@
 .container {
-  height: 900%;
+  height: 900%; /* no. bg * height% of each bg + 100% */
 }
 
 .hidden {
@@ -42,16 +42,11 @@
   height: 100%;
 }
 
-.parallaxBanner {
-  aspect-ratio: 1/1;
-}
-
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* white-space: nowrap; */
   z-index: 2;
 
   width: 80%;
@@ -63,6 +58,94 @@
   width: 100%;
   top: 30%;
   position: absolute;
+
+  transition: all 0.5s;
+}
+.up {
+  transform: translatey(-100%);
+}
+
+.content {
+  position: absolute;
+
+  line-height: 120%;
+  background: #f8f9f9;
+  font-weight: 300;
+  font-size: 28px;
+  padding: 3%;
+
+  transition: all 0.5s;
+}
+
+.in {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.outLeft {
+  opacity: 0;
+  transform: translateX(-30%);
+}
+
+.outRight {
+  opacity: 0;
+  transform: translateX(30%);
+}
+
+#intro1 {
+  top: 40%;
+  left: 5%;
+  width: 25%;
+  min-width: 400px;
+}
+
+#intro2 {
+  top: 50%;
+  right: 5%;
+  width: 30%;
+  min-width: 480px;
+}
+
+#intro3 {
+  top: 20%;
+  right: 5%;
+  width: 35%;
+  min-width: 560px;
+}
+
+#intro4 {
+  top: 60%;
+  right: 5%;
+  width: 45%;
+  min-width: 720px;
+}
+
+#intro5 {
+  top: 20%;
+  left: 5%;
+  width: 40%;
+  min-width: 640px;
+}
+
+#intro6 {
+  top: 50%;
+  left: 5%;
+  width: 45%;
+  min-width: 720px;
+}
+
+#intro7 {
+  top: 20%;
+  left: 5%;
+  width: 35%;
+  min-width: 560px;
+}
+
+#intro8 {
+  top: 20%;
+  right: 5%;
+  width: 35%;
+  min-width: 560px;
 }
 
 .arrow {

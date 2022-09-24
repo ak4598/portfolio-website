@@ -1,15 +1,19 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { about1, about2, about3, about4 } from "../../assets/images";
 import styles from "./styles/about.module.css";
 
 const About = () => {
+  const buffer = 0.4;
+  const breakPoints = [2, 4, 6, 8];
+
   const bg1 = useRef<HTMLDivElement | null>(null);
   const bg2 = useRef<HTMLDivElement | null>(null);
   const bg3 = useRef<HTMLDivElement | null>(null);
   const bg4 = useRef<HTMLDivElement | null>(null);
 
-  // const [scrollY, setScrollY] = useState<number>(0);
+  const [scrollY, setScrollY] = useState<number>(0);
   const [windowSize, setWindowSize] = useState<{ [name: string]: number }>({
     width: 0,
     height: 0,
@@ -20,8 +24,14 @@ const About = () => {
       width: window.innerWidth,
       height: window.innerHeight,
     });
-    console.log("width", windowSize.width, "height", windowSize.height);
   };
+
+  useEffect(() => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -30,10 +40,8 @@ const About = () => {
 
   const onScroll = useCallback(() => {
     const { pageYOffset, scrollY, innerHeight } = window;
-    // setScrollY(window.pageYOffset);
+    setScrollY(window.pageYOffset);
     // console.log("yOffset", pageYOffset, "scrollY", scrollY);
-    const buffer = 0.4;
-    const breakPoints = [2, 4, 6, 8];
 
     if (
       null !== bg1.current &&
@@ -101,13 +109,40 @@ const About = () => {
             objectFit="cover"
             quality={100}
           />
-          <div className={styles.title}>
+          <div
+            className={`${styles.title} ${
+              scrollY > windowSize.height * (breakPoints[0] - 1.6)
+                ? styles.up
+                : ""
+            }`}
+          >
             This is Andy Kwan.
             <div className={styles.arrow}>
               <span></span>
               <span></span>
               <span></span>
             </div>
+          </div>
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[0] - 1.6)
+                ? styles.in
+                : styles.outLeft
+            }`}
+            id={styles.intro1}
+          >
+            He is currently a consultant at Deloitte FinTech Lab.
+          </div>
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[0] - 1)
+                ? styles.in
+                : styles.outRight
+            }`}
+            id={styles.intro2}
+          >
+            He focuses on delivering end-to-end and state-of-the-art A.I.
+            solutions for his client.
           </div>
         </div>
         <div className={styles.banner} ref={bg2}>
@@ -117,6 +152,34 @@ const About = () => {
             objectFit="cover"
             quality={100}
           />
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[1] - 1.6)
+                ? styles.in
+                : styles.outRight
+            }`}
+            id={styles.intro3}
+          >
+            He graduated from The University of Hong Kong in July 2022. <br />
+            <br />
+            Look at his smile, he is so happy because he can finally say good
+            bye to all the assignments and examinations.
+          </div>
+
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[1] - 1)
+                ? styles.in
+                : styles.outRight
+            }`}
+            id={styles.intro4}
+          >
+            Btw, his majors are indeed Economics and Finance.
+            <br />
+            <br />
+            But declaring a minor in Computer Science was the best decision he
+            had made throughout his university life.
+          </div>
         </div>
         <div className={styles.banner} ref={bg3}>
           <Image
@@ -125,6 +188,34 @@ const About = () => {
             objectFit="cover"
             quality={100}
           />
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[2] - 1.6)
+                ? styles.in
+                : styles.outLeft
+            }`}
+            id={styles.intro5}
+          >
+            He has a lot of hobbies such as watching anime, playing video games,
+            staying at home all day long etc. So yes, basically he is an otaku.
+          </div>
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[2] - 1)
+                ? styles.in
+                : styles.outLeft
+            }`}
+            id={styles.intro6}
+          >
+            Hiking and traveling are perhaps his only 2 outdoors hobbies. He
+            like them because he can take a lot of pictures and then turn them
+            into unrealistic images.
+            <br />
+            <br />
+            P.S. Climbing up the hill and took this for background image
+            actually nearly took away his life. Please note that no sports for
+            otaku, thanks.
+          </div>
         </div>
         <div className={styles.banner} ref={bg4}>
           <Image
@@ -133,6 +224,28 @@ const About = () => {
             objectFit="cover"
             quality={100}
           />
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[3] - 1.6)
+                ? styles.in
+                : styles.outLeft
+            }`}
+            id={styles.intro7}
+          >
+            If you wanna know more about me, you can visit the contact page 🤣
+          </div>
+
+          <div
+            className={`${styles.content} ${
+              scrollY > windowSize.height * (breakPoints[3] - 1)
+                ? styles.in
+                : styles.outRight
+            }`}
+            id={styles.intro8}
+          >
+            If you do not wanna know more about me, this is the end of the page
+            🙂
+          </div>
         </div>
       </div>
     </div>
@@ -140,10 +253,3 @@ const About = () => {
 };
 
 export default About;
-
-{
-  /* He is currently a consultant at Deloitte FinTech Lab. */
-}
-{
-  /* He focuses on delivering end-to-end and state-of-the-art A.I. solutions for his client. */
-}
