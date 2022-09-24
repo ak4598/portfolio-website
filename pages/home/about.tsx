@@ -29,18 +29,66 @@ const About = () => {
   }, [handleResize]);
 
   const onScroll = useCallback(() => {
-    setScrollY(window.pageYOffset);
     const { pageYOffset, scrollY, innerHeight } = window;
-
+    setScrollY(window.pageYOffset);
     // console.log("yOffset", pageYOffset, "scrollY", scrollY);
-    if (pageYOffset >= innerHeight * 2) {
+    const buffer = 0.4;
+
+    if (pageYOffset <= innerHeight * (2 - buffer)) {
+      if (null !== bg1.current && null !== bg2.current) {
+        bg1.current.style.opacity = "1";
+        bg2.current.style.opacity = "0";
+      }
+    } else if (
+      innerHeight * (2 - buffer) < pageYOffset &&
+      pageYOffset <= innerHeight * 2
+    ) {
       if (null !== bg1.current && null !== bg2.current) {
         bg1.current.style.opacity = `${
-          (innerHeight * 2 - (scrollY - innerHeight * 2)) / (innerHeight * 2)
+          (innerHeight * 2 - scrollY) / (innerHeight * buffer)
         }`;
         bg2.current.style.opacity = `${
-          (scrollY - innerHeight * 2) / (innerHeight * 2)
+          1 - (innerHeight * 2 - scrollY) / (innerHeight * buffer)
         }`;
+      }
+    } else if (pageYOffset <= innerHeight * (4 - buffer)) {
+      if (null !== bg2.current && null !== bg3.current) {
+        bg2.current.style.opacity = "1";
+        bg3.current.style.opacity = "0";
+      }
+    } else if (
+      innerHeight * (4 - buffer) < pageYOffset &&
+      pageYOffset <= innerHeight * 4
+    ) {
+      if (null !== bg2.current && null !== bg3.current) {
+        bg2.current.style.opacity = `${
+          (innerHeight * 4 - scrollY) / (innerHeight * buffer)
+        }`;
+        bg3.current.style.opacity = `${
+          1 - (innerHeight * 4 - scrollY) / (innerHeight * buffer)
+        }`;
+      }
+    } else if (pageYOffset <= innerHeight * (6 - buffer)) {
+      if (null !== bg3.current && null !== bg4.current) {
+        bg3.current.style.opacity = "1";
+        bg4.current.style.opacity = "0";
+      }
+    } else if (
+      innerHeight * (6 - buffer) < pageYOffset &&
+      pageYOffset <= innerHeight * 6
+    ) {
+      if (null !== bg3.current && null !== bg4.current) {
+        bg3.current.style.opacity = `${
+          (innerHeight * 6 - scrollY) / (innerHeight * buffer)
+        }`;
+        bg4.current.style.opacity = `${
+          1 - (innerHeight * 6 - scrollY) / (innerHeight * buffer)
+        }`;
+      }
+    } else if (pageYOffset <= innerHeight * (8 - buffer)) {
+      if (null !== bg3.current && null !== bg4.current) {
+        bg3.current.style.opacity = "0";
+        bg4.current.style.opacity = "1";
       }
     }
   }, []);
