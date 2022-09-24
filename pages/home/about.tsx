@@ -39,60 +39,7 @@ const About = () => {
   }, [handleResize]);
 
   const onScroll = useCallback(() => {
-    const { pageYOffset, scrollY, innerHeight } = window;
     setScrollY(window.pageYOffset);
-    // console.log("yOffset", pageYOffset, "scrollY", scrollY);
-
-    if (
-      null !== bg1.current &&
-      null !== bg2.current &&
-      null !== bg3.current &&
-      null !== bg4.current
-    ) {
-      if (pageYOffset <= innerHeight * (breakPoints[0] - buffer)) {
-        bg1.current.style.opacity = "1";
-        bg2.current.style.opacity = "0";
-      } else if (
-        innerHeight * (breakPoints[0] - buffer) < pageYOffset &&
-        pageYOffset <= innerHeight * breakPoints[0]
-      ) {
-        bg1.current.style.opacity = `${
-          (innerHeight * breakPoints[0] - scrollY) / (innerHeight * buffer)
-        }`;
-        bg2.current.style.opacity = `${
-          1 - (innerHeight * breakPoints[0] - scrollY) / (innerHeight * buffer)
-        }`;
-      } else if (pageYOffset <= innerHeight * (breakPoints[1] - buffer)) {
-        bg2.current.style.opacity = "1";
-        bg3.current.style.opacity = "0";
-      } else if (
-        innerHeight * (breakPoints[1] - buffer) < pageYOffset &&
-        pageYOffset <= innerHeight * breakPoints[1]
-      ) {
-        bg2.current.style.opacity = `${
-          (innerHeight * breakPoints[1] - scrollY) / (innerHeight * buffer)
-        }`;
-        bg3.current.style.opacity = `${
-          1 - (innerHeight * breakPoints[1] - scrollY) / (innerHeight * buffer)
-        }`;
-      } else if (pageYOffset <= innerHeight * (breakPoints[2] - buffer)) {
-        bg3.current.style.opacity = "1";
-        bg4.current.style.opacity = "0";
-      } else if (
-        innerHeight * (breakPoints[2] - buffer) < pageYOffset &&
-        pageYOffset <= innerHeight * breakPoints[2]
-      ) {
-        bg3.current.style.opacity = `${
-          (innerHeight * breakPoints[2] - scrollY) / (innerHeight * buffer)
-        }`;
-        bg4.current.style.opacity = `${
-          1 - (innerHeight * breakPoints[2] - scrollY) / (innerHeight * buffer)
-        }`;
-      } else if (pageYOffset <= innerHeight * (breakPoints[3] - buffer)) {
-        bg3.current.style.opacity = "0";
-        bg4.current.style.opacity = "1";
-      }
-    }
   }, []);
 
   useEffect(() => {
@@ -102,7 +49,14 @@ const About = () => {
   return (
     <div className={styles.top}>
       <div className={styles.container}>
-        <div className={styles.banner} ref={bg1}>
+        <div
+          className={`${styles.banner} ${
+            0 <= scrollY && scrollY < windowSize.height * breakPoints[0]
+              ? styles.show
+              : styles.hidden
+          }`}
+          ref={bg1}
+        >
           <Image
             src={about1.src}
             layout="fill"
@@ -145,7 +99,15 @@ const About = () => {
             solutions for his client.
           </div>
         </div>
-        <div className={styles.banner} ref={bg2}>
+        <div
+          className={`${styles.banner} ${
+            windowSize.height * breakPoints[0] <= scrollY &&
+            scrollY < windowSize.height * breakPoints[1]
+              ? styles.show
+              : styles.hidden
+          }`}
+          ref={bg2}
+        >
           <Image
             src={about2.src}
             layout="fill"
@@ -181,7 +143,15 @@ const About = () => {
             had made throughout his university life.
           </div>
         </div>
-        <div className={styles.banner} ref={bg3}>
+        <div
+          className={`${styles.banner} ${
+            windowSize.height * breakPoints[1] < scrollY &&
+            scrollY < windowSize.height * breakPoints[2]
+              ? styles.show
+              : styles.hidden
+          }`}
+          ref={bg3}
+        >
           <Image
             src={about3.src}
             layout="fill"
@@ -217,7 +187,14 @@ const About = () => {
             otaku, thanks.
           </div>
         </div>
-        <div className={styles.banner} ref={bg4}>
+        <div
+          className={`${styles.banner} ${
+            windowSize.height * breakPoints[2] < scrollY
+              ? styles.show
+              : styles.hidden
+          }`}
+          ref={bg4}
+        >
           <Image
             src={about4.src}
             layout="fill"
