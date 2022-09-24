@@ -97,7 +97,7 @@ const About = () => {
             id={styles.intro2}
           >
             He focuses on delivering end-to-end and state-of-the-art A.I.
-            solutions for his client. 🤖
+            solutions for his clients. 🤖
           </div>
         </div>
         <div
@@ -209,14 +209,13 @@ const About = () => {
             }`}
             id={styles.intro6}
           >
-            Hiking and traveling are perhaps his only 2 outdoors hobbies. He
+            Hiking and travelling are perhaps his only 2 outdoors hobbies. He
             like them because he can take a lot of pictures and then turn them
             into unrealistic images. 🤓
             <br />
             <br />
-            P.S. Climbing up the hill and took this for background image
-            actually nearly took away his life. Please note that no sports for
-            otaku, thanks. 🥵
+            P.S. Climbing up the hill and taking this background image nearly
+            took away his life. Please note that no sports for otaku, thanks. 🥵
           </div>
         </div>
         <div
@@ -261,7 +260,7 @@ const About = () => {
             }`}
             id={styles.intro7}
           >
-            If you wanna know connect with me, you can visit the{" "}
+            If you wanna connect with me, you can visit the{" "}
             <span>
               <Link href="/home/contact">contact</Link>
             </span>{" "}
