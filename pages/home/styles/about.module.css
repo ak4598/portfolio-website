@@ -52,7 +52,7 @@
 }
 
 #title3 {
-  left: 40%;
+  left: 35%;
   top: 60%;
 }
 
@@ -63,6 +63,14 @@
 
 .up {
   transform: translateY(-100%);
+}
+
+.down {
+  transform: translateY(450%);
+}
+
+.ending {
+  transition: all 0.5s;
 }
 
 .content {
@@ -139,6 +147,10 @@
   left: 5%;
   width: 35%;
   min-width: 560px;
+}
+
+#intro7 span {
+  text-decoration: underline;
 }
 
 #intro8 {

@@ -233,10 +233,9 @@ const About = () => {
             objectFit="cover"
             quality={100}
           />
-          {scrollY > windowSize.height * breakPoints[2] &&
-          scrollY < windowSize.height * (breakPoints[3] - 1) ? (
+          {scrollY < windowSize.height * (breakPoints[3] - 1) ? (
             <div className={`${styles.title}`} id={styles.title4}>
-              <div>Just a little bit more.</div>
+              <div className={`${styles.ending}`}>Just a little bit more.</div>
               <div className={`${styles.arrow} ${styles.normal}`}>
                 <span></span>
                 <span></span>
@@ -245,12 +244,12 @@ const About = () => {
             </div>
           ) : (
             <div className={`${styles.title}`} id={styles.title4}>
+              <div className={`${styles.ending} ${styles.down}`}>The end.</div>
               <div className={`${styles.arrow} ${styles.opposite}`}>
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
-              <div>The end.</div>
             </div>
           )}
 
@@ -262,7 +261,11 @@ const About = () => {
             }`}
             id={styles.intro7}
           >
-            If you wanna know more about me, you can visit the contact page 🤣
+            If you wanna know connect with me, you can visit the{" "}
+            <span>
+              <Link href="/home/contact">contact</Link>
+            </span>{" "}
+            page 🤣
           </div>
 
           <div
