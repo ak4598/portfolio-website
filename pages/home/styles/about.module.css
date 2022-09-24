@@ -110,8 +110,8 @@
 #intro2 {
   top: 50%;
   right: 5%;
-  width: 30%;
-  min-width: 480px;
+  width: 32%;
+  min-width: 512px;
 }
 
 #intro3 {
@@ -149,7 +149,7 @@
   min-width: 560px;
 }
 
-#intro7 span {
+#intro7 .link {
   text-decoration: underline;
 }
 

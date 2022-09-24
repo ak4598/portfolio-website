@@ -85,7 +85,9 @@ const About = () => {
             }`}
             id={styles.intro1}
           >
-            He is currently a consultant at Deloitte FinTech Lab. 👨🏻‍💻
+            He is currently a{" "}
+            <span style={{ color: "ForestGreen" }}>consultant</span> at{" "}
+            <span style={{ color: "ForestGreen" }}>Deloitte FinTech Lab</span>👨🏻‍💻
           </div>
           <div
             className={`${styles.content} ${
@@ -95,8 +97,9 @@ const About = () => {
             }`}
             id={styles.intro2}
           >
-            He focuses on delivering end-to-end and state-of-the-art A.I.
-            solutions for his clients. 🤖
+            He focuses on delivering end-to-end and state-of-the-art{" "}
+            <span style={{ color: "CornflowerBlue" }}>A.I. solutions</span> for
+            his clients🤖
           </div>
         </div>
         <div
@@ -137,11 +140,13 @@ const About = () => {
             }`}
             id={styles.intro3}
           >
-            He graduated from The University of Hong Kong in July 2022. 👨🏻‍🎓
+            He graduated from{" "}
+            <span style={{ color: "peru" }}>The University of Hong Kong</span>{" "}
+            in July 2022👨🏻‍🎓
             <br />
             <br />
             Look at his smile, he is so happy because he can finally say good
-            bye to all the assignments and examinations. 🤣
+            bye to all the assignments and examinations🤣
           </div>
           <div
             className={`${styles.content} ${
@@ -151,11 +156,13 @@ const About = () => {
             }`}
             id={styles.intro4}
           >
-            Btw, his majors are indeed Economics and Finance. 💵
+            Btw, his majors are indeed{" "}
+            <span style={{ color: "SeaGreen" }}>Economics and Finance</span>.💵
             <br />
             <br />
-            But declaring a minor in Computer Science was the best decision he
-            had made throughout his university life. 😎
+            But declaring a minor in{" "}
+            <span style={{ color: "SteelBlue" }}>Computer Science</span> was the
+            best decision he had made throughout his university life.😎
           </div>
         </div>
         <div
@@ -196,9 +203,12 @@ const About = () => {
             }`}
             id={styles.intro5}
           >
-            He has a lot of hobbies such as watching anime, playing video games,
-            staying at home all day long etc. So yes, basically he is an otaku.
-            👾
+            He has a lot of hobbies such as watching{" "}
+            <span style={{ color: "HotPink" }}>anime</span>, playing{" "}
+            <span style={{ color: "SlateBlue" }}>video games</span>,{" "}
+            <span style={{ color: "Orchid" }}>staying at home</span> all day
+            long etc. So yes, basically he is an{" "}
+            <span style={{ color: "Violet" }}>otaku</span>👾
           </div>
           <div
             className={`${styles.content} ${
@@ -210,11 +220,13 @@ const About = () => {
           >
             Hiking and travelling are perhaps his only 2 outdoors hobbies. He
             like them because he can take a lot of pictures and then turn them
-            into unrealistic images. 🤓
+            into{" "}
+            <span style={{ color: "LightSalmon" }}>unrealistic images</span>
+            🤓
             <br />
             <br />
             P.S. Climbing up the hill and taking this background image nearly
-            took away his life. Please note that no sports for otaku, thanks. 🥵
+            took away his life. Please note that no sports for otaku, thanks🥵
           </div>
         </div>
         <div
@@ -259,11 +271,13 @@ const About = () => {
             }`}
             id={styles.intro7}
           >
-            If you wanna connect with me, you can visit the{" "}
-            <span>
+            If you{" "}
+            <span style={{ color: "IndianRed" }}>wanna connect with me</span>,
+            you can visit the{" "}
+            <span className={styles.link}>
               <Link href="/home/contact">contact</Link>
             </span>{" "}
-            page 🤣
+            page🤣
           </div>
 
           <div
@@ -274,7 +288,9 @@ const About = () => {
             }`}
             id={styles.intro8}
           >
-            If you don{"'"}t wanna connect with me, thanks for your time 🥲
+            If you{" "}
+            <span style={{ color: "SteelBlue" }}>don{"'"}t wanna connect</span>{" "}
+            with me, thanks for your time🥲
           </div>
         </div>
       </div>
