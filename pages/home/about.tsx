@@ -9,7 +9,7 @@ const About = () => {
   const bg3 = useRef<HTMLDivElement | null>(null);
   const bg4 = useRef<HTMLDivElement | null>(null);
 
-  const [scrollY, setScrollY] = useState<number>(0);
+  // const [scrollY, setScrollY] = useState<number>(0);
   const [windowSize, setWindowSize] = useState<{ [name: string]: number }>({
     width: 0,
     height: 0,
@@ -30,63 +30,57 @@ const About = () => {
 
   const onScroll = useCallback(() => {
     const { pageYOffset, scrollY, innerHeight } = window;
-    setScrollY(window.pageYOffset);
+    // setScrollY(window.pageYOffset);
     // console.log("yOffset", pageYOffset, "scrollY", scrollY);
     const buffer = 0.4;
+    const breakPoints = [2, 4, 6, 8];
 
-    if (pageYOffset <= innerHeight * (2 - buffer)) {
-      if (null !== bg1.current && null !== bg2.current) {
+    if (
+      null !== bg1.current &&
+      null !== bg2.current &&
+      null !== bg3.current &&
+      null !== bg4.current
+    ) {
+      if (pageYOffset <= innerHeight * (breakPoints[0] - buffer)) {
         bg1.current.style.opacity = "1";
         bg2.current.style.opacity = "0";
-      }
-    } else if (
-      innerHeight * (2 - buffer) < pageYOffset &&
-      pageYOffset <= innerHeight * 2
-    ) {
-      if (null !== bg1.current && null !== bg2.current) {
+      } else if (
+        innerHeight * (breakPoints[0] - buffer) < pageYOffset &&
+        pageYOffset <= innerHeight * breakPoints[0]
+      ) {
         bg1.current.style.opacity = `${
-          (innerHeight * 2 - scrollY) / (innerHeight * buffer)
+          (innerHeight * breakPoints[0] - scrollY) / (innerHeight * buffer)
         }`;
         bg2.current.style.opacity = `${
-          1 - (innerHeight * 2 - scrollY) / (innerHeight * buffer)
+          1 - (innerHeight * breakPoints[0] - scrollY) / (innerHeight * buffer)
         }`;
-      }
-    } else if (pageYOffset <= innerHeight * (4 - buffer)) {
-      if (null !== bg2.current && null !== bg3.current) {
+      } else if (pageYOffset <= innerHeight * (breakPoints[1] - buffer)) {
         bg2.current.style.opacity = "1";
         bg3.current.style.opacity = "0";
-      }
-    } else if (
-      innerHeight * (4 - buffer) < pageYOffset &&
-      pageYOffset <= innerHeight * 4
-    ) {
-      if (null !== bg2.current && null !== bg3.current) {
+      } else if (
+        innerHeight * (breakPoints[1] - buffer) < pageYOffset &&
+        pageYOffset <= innerHeight * breakPoints[1]
+      ) {
         bg2.current.style.opacity = `${
-          (innerHeight * 4 - scrollY) / (innerHeight * buffer)
+          (innerHeight * breakPoints[1] - scrollY) / (innerHeight * buffer)
         }`;
         bg3.current.style.opacity = `${
-          1 - (innerHeight * 4 - scrollY) / (innerHeight * buffer)
+          1 - (innerHeight * breakPoints[1] - scrollY) / (innerHeight * buffer)
         }`;
-      }
-    } else if (pageYOffset <= innerHeight * (6 - buffer)) {
-      if (null !== bg3.current && null !== bg4.current) {
+      } else if (pageYOffset <= innerHeight * (breakPoints[2] - buffer)) {
         bg3.current.style.opacity = "1";
         bg4.current.style.opacity = "0";
-      }
-    } else if (
-      innerHeight * (6 - buffer) < pageYOffset &&
-      pageYOffset <= innerHeight * 6
-    ) {
-      if (null !== bg3.current && null !== bg4.current) {
+      } else if (
+        innerHeight * (breakPoints[2] - buffer) < pageYOffset &&
+        pageYOffset <= innerHeight * breakPoints[2]
+      ) {
         bg3.current.style.opacity = `${
-          (innerHeight * 6 - scrollY) / (innerHeight * buffer)
+          (innerHeight * breakPoints[2] - scrollY) / (innerHeight * buffer)
         }`;
         bg4.current.style.opacity = `${
-          1 - (innerHeight * 6 - scrollY) / (innerHeight * buffer)
+          1 - (innerHeight * breakPoints[2] - scrollY) / (innerHeight * buffer)
         }`;
-      }
-    } else if (pageYOffset <= innerHeight * (8 - buffer)) {
-      if (null !== bg3.current && null !== bg4.current) {
+      } else if (pageYOffset <= innerHeight * (breakPoints[3] - buffer)) {
         bg3.current.style.opacity = "0";
         bg4.current.style.opacity = "1";
       }
