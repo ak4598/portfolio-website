@@ -123,7 +123,7 @@ const About = () => {
             }`}
             id={styles.title2}
           >
-            His school life.
+            More about Andy.
             <div className={styles.arrow}>
               <span></span>
               <span></span>
@@ -182,7 +182,7 @@ const About = () => {
             }`}
             id={styles.title3}
           >
-            His hobbies.
+            The real Andy.
             <div className={styles.arrow}>
               <span></span>
               <span></span>
@@ -234,7 +234,7 @@ const About = () => {
           />
           {scrollY < windowSize.height * (breakPoints[3] - 1) ? (
             <div className={`${styles.title}`} id={styles.title4}>
-              <div className={`${styles.ending}`}>Just a little bit more.</div>
+              <div className={`${styles.ending}`}>Interested in Andy?</div>
               <div className={`${styles.arrow} ${styles.normal}`}>
                 <span></span>
                 <span></span>
@@ -275,8 +275,7 @@ const About = () => {
             }`}
             id={styles.intro8}
           >
-            If you do not wanna know more about me, this is the end of the page
-            🙂
+            If you don't wanna connect with me, thanks for your time 🥲
           </div>
         </div>
       </div>
