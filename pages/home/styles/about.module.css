@@ -218,6 +218,55 @@
 }
 
 @media (max-width: 1260px) {
+  .title,
+  .content {
+    font-size: 24px;
+  }
+
+  .arrow {
+    margin: 4%;
+    transform: scale(0.8);
+  }
+
+  #intro1 {
+    min-width: 200px;
+  }
+
+  #intro2 {
+    min-width: 240px;
+  }
+
+  #intro3 {
+    min-width: 280px;
+  }
+
+  #intro4 {
+    min-width: 360px;
+  }
+
+  #intro5 {
+    min-width: 320px;
+  }
+
+  #intro6 {
+    min-width: 360px;
+  }
+
+  #intro7 {
+    min-width: 280px;
+  }
+
+  #intro8 {
+    min-width: 280px;
+  }
+
+  #title2 {
+    right: 35%;
+  }
+
+  #title4 {
+    left: 30%;
+  }
 }
 
 @media (max-width: 560px) {
