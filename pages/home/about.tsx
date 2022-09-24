@@ -69,6 +69,7 @@ const About = () => {
                 ? styles.up
                 : ""
             }`}
+            id={styles.title1}
           >
             This is Andy Kwan.
             <div className={styles.arrow}>
@@ -85,7 +86,7 @@ const About = () => {
             }`}
             id={styles.intro1}
           >
-            He is currently a consultant at Deloitte FinTech Lab.
+            He is currently a consultant at Deloitte FinTech Lab. 👨🏻‍💻
           </div>
           <div
             className={`${styles.content} ${
@@ -96,7 +97,7 @@ const About = () => {
             id={styles.intro2}
           >
             He focuses on delivering end-to-end and state-of-the-art A.I.
-            solutions for his client.
+            solutions for his client. 🤖
           </div>
         </div>
         <div
@@ -115,6 +116,21 @@ const About = () => {
             quality={100}
           />
           <div
+            className={`${styles.title} ${
+              scrollY > windowSize.height * (breakPoints[1] - 1.6)
+                ? styles.up
+                : ""
+            }`}
+            id={styles.title2}
+          >
+            His school life.
+            <div className={styles.arrow}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div
             className={`${styles.content} ${
               scrollY > windowSize.height * (breakPoints[1] - 1.6)
                 ? styles.in
@@ -122,12 +138,12 @@ const About = () => {
             }`}
             id={styles.intro3}
           >
-            He graduated from The University of Hong Kong in July 2022. <br />
+            He graduated from The University of Hong Kong in July 2022. 👨🏻‍🎓
+            <br />
             <br />
             Look at his smile, he is so happy because he can finally say good
-            bye to all the assignments and examinations.
+            bye to all the assignments and examinations. 🤣
           </div>
-
           <div
             className={`${styles.content} ${
               scrollY > windowSize.height * (breakPoints[1] - 1)
@@ -136,11 +152,11 @@ const About = () => {
             }`}
             id={styles.intro4}
           >
-            Btw, his majors are indeed Economics and Finance.
+            Btw, his majors are indeed Economics and Finance. 💵
             <br />
             <br />
             But declaring a minor in Computer Science was the best decision he
-            had made throughout his university life.
+            had made throughout his university life. 😎
           </div>
         </div>
         <div
@@ -159,6 +175,21 @@ const About = () => {
             quality={100}
           />
           <div
+            className={`${styles.title} ${
+              scrollY > windowSize.height * (breakPoints[2] - 1.6)
+                ? styles.up
+                : ""
+            }`}
+            id={styles.title3}
+          >
+            His hobbies.
+            <div className={styles.arrow}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div
             className={`${styles.content} ${
               scrollY > windowSize.height * (breakPoints[2] - 1.6)
                 ? styles.in
@@ -168,6 +199,7 @@ const About = () => {
           >
             He has a lot of hobbies such as watching anime, playing video games,
             staying at home all day long etc. So yes, basically he is an otaku.
+            👾
           </div>
           <div
             className={`${styles.content} ${
@@ -179,12 +211,12 @@ const About = () => {
           >
             Hiking and traveling are perhaps his only 2 outdoors hobbies. He
             like them because he can take a lot of pictures and then turn them
-            into unrealistic images.
+            into unrealistic images. 🤓
             <br />
             <br />
             P.S. Climbing up the hill and took this for background image
             actually nearly took away his life. Please note that no sports for
-            otaku, thanks.
+            otaku, thanks. 🥵
           </div>
         </div>
         <div
@@ -201,6 +233,27 @@ const About = () => {
             objectFit="cover"
             quality={100}
           />
+          {scrollY > windowSize.height * breakPoints[2] &&
+          scrollY < windowSize.height * (breakPoints[3] - 1) ? (
+            <div className={`${styles.title}`} id={styles.title4}>
+              <div>Just a little bit more.</div>
+              <div className={`${styles.arrow} ${styles.normal}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          ) : (
+            <div className={`${styles.title}`} id={styles.title4}>
+              <div className={`${styles.arrow} ${styles.opposite}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div>The end.</div>
+            </div>
+          )}
+
           <div
             className={`${styles.content} ${
               scrollY > windowSize.height * (breakPoints[3] - 1.6)
