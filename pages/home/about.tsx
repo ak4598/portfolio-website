@@ -5,7 +5,6 @@ import { about1, about2, about3, about4 } from "../../assets/images";
 import styles from "./styles/about.module.css";
 
 const About = () => {
-  const buffer = 0.4;
   const breakPoints = [2, 4, 6, 8];
 
   const bg1 = useRef<HTMLDivElement | null>(null);
@@ -275,7 +274,7 @@ const About = () => {
             }`}
             id={styles.intro8}
           >
-            If you don't wanna connect with me, thanks for your time 🥲
+            If you don{"'"}t wanna connect with me, thanks for your time 🥲
           </div>
         </div>
       </div>
