@@ -228,6 +228,10 @@
     transform: scale(0.8);
   }
 
+  .opposite {
+    transform: scale(0.8) scaleY(-1);
+  }
+
   #intro1 {
     min-width: 200px;
   }
@@ -277,6 +281,9 @@
   .arrow {
     margin: 6%;
     transform: scale(0.6);
+  }
+  .opposite {
+    transform: scale(0.6) scaleY(-1);
   }
 
   #intro1 {
