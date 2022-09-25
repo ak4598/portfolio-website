@@ -1,0 +1,49 @@
+.card {
+  width: 800px;
+  height: 450px;
+  margin: 1%;
+  position: relative;
+}
+
+.card .image {
+  transition: all 0.5s;
+}
+
+.card:hover .image {
+  transform: scale(1.2);
+}
+
+.card:hover .leftMask {
+  transform: scale(1.2);
+}
+
+.card .leftMask {
+  position: absolute;
+  width: 35%;
+  height: 100%;
+  padding: 2%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.5s;
+}
+
+.card .leftMask .box {
+  background: #f8f9f9;
+
+  height: 100%;
+}
+
+.card .leftMask .box h1 {
+  text-align: center;
+  font-size: 48px;
+  line-height: 100%;
+  padding: 10%;
+}
+
+.card .leftMask .box p {
+  padding: 10%;
+  color: #030202;
+}

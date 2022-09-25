@@ -1,0 +1,23 @@
+.background {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  overflow: hidden;
+}
+
+.background span:nth-child(1) {
+  width: 100%;
+  height: 50%;
+  background: #020303;
+  position: absolute;
+}
+.background span:nth-child(2) {
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  background: #f8f9f9;
+  position: absolute;
+}
