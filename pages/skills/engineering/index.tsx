@@ -1,9 +1,10 @@
 import React from "react";
+import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../styles/engineering.module.css";
 import { AI, Blockchain, Web, DevOps } from "../../../assets/TechLogos";
 
-const Engineering = () => {
+const Engineering: NextPage = () => {
   return (
     <div className={styles.box}>
       <div className={styles.title}>

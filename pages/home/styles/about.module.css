@@ -77,7 +77,8 @@
   position: absolute;
 
   line-height: 120%;
-  background: #f8f9f9;
+  /* background: #f8f9f9; */
+  background: rgba(248, 249, 249, 0.9);
   font-weight: 300;
   font-size: 28px;
   padding: 3%;
@@ -147,10 +148,6 @@
   left: 5%;
   width: 35%;
   min-width: 560px;
-}
-
-#intro7 .link {
-  text-decoration: underline;
 }
 
 #intro8 {

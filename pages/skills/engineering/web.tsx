@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../styles/web.module.css";
 import { Tailwind, MUI } from "../../../assets/LibLogos";
@@ -6,7 +7,7 @@ import { React_, Nextjs, Express } from "../../../assets/FrameworkLogos";
 import { Html, Css, JavaScript, TypeScript } from "../../../assets/ProgLogos";
 import { FFmpeg } from "../../../assets/OtherLogos";
 
-const Web = () => {
+const Web: NextPage = () => {
   const start = useRef<HTMLDivElement | null>(null);
   const lang = useRef<HTMLDivElement | null>(null);
   const fw = useRef<HTMLDivElement | null>(null);

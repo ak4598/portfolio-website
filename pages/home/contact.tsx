@@ -1,4 +1,5 @@
 import React from "react";
+import type { NextPage } from "next";
 import Image from "next/image";
 import styles from "./styles/contact.module.css";
 import {
@@ -9,7 +10,7 @@ import {
 } from "../../assets/SocialMediaLogos";
 import { mySocialMedia } from "../../components/NavBar/pages";
 
-const Contact = () => {
+const Contact: NextPage = () => {
   console.log(Facebook);
   return (
     <div className={styles.background}>

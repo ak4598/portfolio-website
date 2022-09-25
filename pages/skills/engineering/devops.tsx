@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
+import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../styles/devops.module.css";
 import {
@@ -15,34 +16,9 @@ import {
   K8Ss,
   Dockers,
 } from "../../../assets/OtherLogos";
+import useMediaQuery from "../../../utils/useMediaQuery";
 
-const useMediaQuery = (width: number) => {
-  const [targetReached, setTargetReached] = useState(false);
-
-  const updateTarget = useCallback((event: any) => {
-    if (event.matches) {
-      setTargetReached(true);
-    } else {
-      setTargetReached(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addListener(updateTarget);
-
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) {
-      setTargetReached(true);
-    }
-
-    return () => media.removeListener(updateTarget);
-  }, []);
-
-  return targetReached;
-};
-
-const DevOps = () => {
+const DevOps: NextPage = () => {
   const isBreakpoint = useMediaQuery(768);
   const start = useRef<HTMLDivElement | null>(null);
   const os = useRef<HTMLDivElement | null>(null);

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
+import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../styles/ai.module.css";
 import {
@@ -15,35 +16,9 @@ import {
 } from "../../../assets/LibLogos";
 import { Python, Cpp } from "../../../assets/ProgLogos";
 import { FFmpeg } from "../../../assets/OtherLogos";
+import useMediaQuery from "../../../utils/useMediaQuery";
 
-const useMediaQuery = (width: number) => {
-  const [targetReached, setTargetReached] = useState(false);
-
-  const updateTarget = useCallback((event: any) => {
-    console.log(event.matches);
-    if (event.matches) {
-      setTargetReached(true);
-    } else {
-      setTargetReached(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addListener(updateTarget);
-
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) {
-      setTargetReached(true);
-    }
-
-    return () => media.removeListener(updateTarget);
-  }, []);
-
-  return targetReached;
-};
-
-const AI = () => {
+const AI: NextPage = () => {
   const isBreakpoint = useMediaQuery(1024);
   const start = useRef<HTMLDivElement | null>(null);
   const lang = useRef<HTMLDivElement | null>(null);

@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
+import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../styles/blockchain.module.css";
 import { Hardhat, Hyperledger } from "../../../assets/FrameworkLogos";
 import { Solidity } from "../../../assets/ProgLogos";
 import { Moralis, TheGraph } from "../../../assets/OtherLogos";
 
-const Blockchain = () => {
+const Blockchain: NextPage = () => {
   const start = useRef<HTMLDivElement | null>(null);
   const lang = useRef<HTMLDivElement | null>(null);
   const fw = useRef<HTMLDivElement | null>(null);

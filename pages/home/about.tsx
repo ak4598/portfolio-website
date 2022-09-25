@@ -1,10 +1,11 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
+import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { about1, about2, about3, about4 } from "../../assets/images";
 import styles from "./styles/about.module.css";
 
-const About = () => {
+const About: NextPage = () => {
   const breakPoints = [2, 4, 6, 8];
 
   const bg1 = useRef<HTMLDivElement | null>(null);
@@ -274,7 +275,7 @@ const About = () => {
             If you{" "}
             <span style={{ color: "IndianRed" }}>wanna connect with me</span>,
             you can visit the{" "}
-            <span className={styles.link}>
+            <span style={{ textDecoration: "underline" }}>
               <Link href="/home/contact">contact</Link>
             </span>{" "}
             page🤣
