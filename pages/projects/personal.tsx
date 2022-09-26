@@ -12,6 +12,7 @@ const Personal: NextPage = () => {
         <div className={styles.container}>
           {personal.map((p) => (
             <ProjectCard
+              key={p.title}
               title={p.title}
               description={p.description}
               thumbnail={p.thumbnail}
