@@ -5,12 +5,25 @@
   height: 100%;
 
   background: linear-gradient(145deg, SteelBlue 0%, MidnightBlue 100%);
+  background: #030202;
+  background: linear-gradient(
+    145deg,
+    rgba(251, 199, 250, 1) 0%,
+    rgba(147, 243, 254, 1) 100%
+  );
   top: 0;
-  overflow: hidden;
+  overflow: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.background::-webkit-scrollbar {
+  display: none;
 }
 
 .title {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +36,7 @@
   line-height: 200%;
   width: 100%;
   padding-top: 150px;
+  padding-bottom: 20px;
 }
 
 .container {
@@ -31,8 +45,8 @@
   height: 80%;
   justify-content: center;
   align-items: center;
-  top: 20%;
-  position: absolute;
+
+  position: relative;
   z-index: 2;
   flex-wrap: wrap;
 }

@@ -1,17 +1,23 @@
 import React from "react";
 import type { NextPage } from "next";
-import Image from "next/image";
 import styles from "./styles/personal.module.css";
-import { background } from "../../assets/images";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import { personal } from "../../components/ProjectCard/projects";
 
 const Personal: NextPage = () => {
   return (
     <div>
-      <div className={styles.background}></div>
-      <div className={styles.title}>Personal</div>
-      <div className={styles.container}>
-        <ProjectCard />
+      <div className={styles.background}>
+        <div className={styles.title}>Personal</div>
+        <div className={styles.container}>
+          {personal.map((p) => (
+            <ProjectCard
+              title={p.title}
+              description={p.description}
+              thumbnail={p.thumbnail}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

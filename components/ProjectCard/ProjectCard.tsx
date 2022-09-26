@@ -2,12 +2,19 @@ import React from "react";
 import Image from "next/image";
 import styles from "./ProjectCard.module.css";
 import { background } from "../../assets/images";
+import * as pj from "../../assets/Projects";
 
-const ProjectCard = () => {
+type Props = {
+  title: string;
+  description: string;
+  thumbnail: string;
+};
+
+const ProjectCard: React.FC<Props> = ({ title, description, thumbnail }) => {
   return (
     <div className={styles.card}>
       <Image
-        src={background.src}
+        src={thumbnail}
         layout="fill"
         objectFit="cover"
         quality={100}
@@ -15,13 +22,8 @@ const ProjectCard = () => {
       />
       <div className={styles.leftMask}>
         <div className={styles.box}>
-          <h1>Kaggle Pipeline</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-            quo amet vel, explicabo sint similique commodi nulla voluptas
-            facilis et qui nesciunt soluta rem, quis impedit. Cupiditate dicta
-            repellendus nesciunt.
-          </p>
+          <h1>{title}</h1>
+          {/* <p>{description}</p> */}
         </div>
       </div>
     </div>
