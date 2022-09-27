@@ -8,7 +8,9 @@ const Personal: NextPage = () => {
   return (
     <div>
       <div className={styles.background}>
-        <div className={styles.title}>Personal</div>
+        <div className={styles.title}>
+          I build side projects when I am bored 🥱
+        </div>
         <div className={styles.container}>
           {personal.map((p) => (
             <ProjectCard

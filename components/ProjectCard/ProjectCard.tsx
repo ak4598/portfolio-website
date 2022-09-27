@@ -13,13 +13,17 @@ type Props = {
 const ProjectCard: React.FC<Props> = ({ title, description, thumbnail }) => {
   return (
     <div className={styles.card}>
-      <div className={styles.image}>
-        <Image src={thumbnail} layout="fill" objectFit="cover" quality={100} />
-      </div>
+      <Image
+        className={styles.image}
+        src={thumbnail}
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+      />
       <div className={styles.leftMask}>
         <div className={styles.box}>
           <h1>{title}</h1>
-          {/* <p>{description}</p> */}
+          <p>{description}</p>
         </div>
       </div>
     </div>
