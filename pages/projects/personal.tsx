@@ -18,6 +18,7 @@ const Personal: NextPage = () => {
               title={p.title}
               description={p.description}
               thumbnail={p.thumbnail}
+              github={p.github}
             />
           ))}
         </div>

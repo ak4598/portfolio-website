@@ -50,24 +50,28 @@
   width: 80%;
   overflow: hidden;
   transition: all 0.5s;
+  position: absolute;
+  top: 30%;
 }
 
 .card:hover .leftMask .box {
-  height: 80%;
+  top: 10%;
+  height: 100%;
 }
 
 .card .leftMask .box h1 {
   text-align: center;
   font-size: 48px;
   line-height: 100%;
-  padding: 5% 10%;
+
   transition: all 0.5s;
 }
 
 .card .leftMask .box p {
   line-height: 120%;
   font-weight: lighter;
-  transform: translateY(200px);
+  transform: translateY(10px);
+  opacity: 0;
   transition: all 0.5s;
 
   color: #f8f9f9;
@@ -75,10 +79,27 @@
 
 .card:hover .leftMask .box p {
   transform: translateY(0px);
+  opacity: 1;
 }
 
 .title {
   font-size: 28px;
   font-family: "Montserrat";
   letter-spacing: 5px;
+}
+
+.github {
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  z-index: 1;
+  transition: all 0.5s;
+  transform: translateX(-10px);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.card:hover .github {
+  opacity: 1;
+  transform: translateX(0px);
 }
