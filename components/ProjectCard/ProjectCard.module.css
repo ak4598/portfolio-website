@@ -6,6 +6,14 @@
 }
 
 .card .image {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
   transition: all 0.5s;
 }
 
@@ -18,6 +26,7 @@
   /* height: 20%;
   top: -20%; */
   width: 40%;
+  /* backdrop-filter: blur(10px); */
 }
 
 .card .leftMask {
@@ -35,13 +44,11 @@
   justify-content: center;
   align-items: center;
 
-  /* border: 1px solid rgba(248, 249, 249, 0.4);
+  border: 1px solid rgba(248, 249, 249, 0.4);
   border-right: 1px solid rgba(248, 249, 249, 0.2);
   border-left: 1px solid rgba(248, 249, 249, 0.2);
-  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1); */
-  backdrop-filter: blur(10px);
-
-  mask: url(#mask);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(100px);
 
   transition: all 0.5s;
 }
