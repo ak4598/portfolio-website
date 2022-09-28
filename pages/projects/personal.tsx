@@ -32,7 +32,13 @@ const Personal: NextPage = () => {
             <p>{project.description}</p>
             <div className={styles.techStack}>
               {project.skills.map((skill: string) => (
-                <Image src={skill} width={50} height={50} quality={100} />
+                <Image
+                  key={skill}
+                  src={skill}
+                  width={50}
+                  height={50}
+                  quality={100}
+                />
               ))}
             </div>
             <div className={styles.github}>
