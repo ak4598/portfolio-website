@@ -39,13 +39,12 @@
 
 .container {
   display: flex;
-  /* overflow: scroll; */
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
   width: 100%;
-  height: 80%;
+  height: 60%;
 
   justify-content: center;
   align-items: center;
@@ -58,3 +57,128 @@
 /* .container::-webkit-scrollbar {
   display: none;
 } */
+
+.infoBox {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0px 20px;
+  color: #f8f9f9;
+
+  background: white;
+  width: 30%;
+  height: 80%;
+  top: 10%;
+  right: 5%;
+
+  background: transparent;
+  border: 1px solid rgba(248, 249, 249, 0.4);
+  border-right: 1px solid rgba(248, 249, 249, 0.2);
+  border-left: 1px solid rgba(248, 249, 249, 0.2);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(100px);
+}
+
+.infoBox h1 {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 30%;
+  margin: 0; */
+  text-align: center;
+  font-size: 48px;
+  line-height: 100%;
+
+  transition: all 0.5s;
+}
+
+.infoBox p {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 40%;
+  margin: 0; */
+  padding: 0px 50px;
+  font-size: 24px;
+  line-height: 120%;
+  font-weight: lighter;
+
+  transition: all 0.5s;
+}
+
+.infoBox .techStack {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  padding: 10%;
+}
+
+.infoBox .github {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  z-index: 1;
+  transition: all 0.5s;
+  transform: translateX(-10px);
+
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 20%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  height: 60%;
+  overflow: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu .pjItem {
+  margin: 20%;
+}
+
+.menu .pjItem button {
+  width: 100%;
+  color: #f8f9f9;
+  font-weight: lighter;
+  font-size: 24px;
+  font-family: "League Spartan";
+  cursor: pointer;
+  padding: 20px 0px;
+  background: transparent;
+  border: 1px solid rgba(248, 249, 249, 0.4);
+  border-right: 1px solid rgba(248, 249, 249, 0.2);
+  border-left: 1px solid rgba(248, 249, 249, 0.2);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(100px);
+}
+
+.menu .pjItem button:hover {
+  background-color: rgba(248, 249, 249, 0.05);
+}
+
+.menu .pjItem button:active {
+  background-color: rgba(248, 249, 249, 0.1);
+}

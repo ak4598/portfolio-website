@@ -7,6 +7,7 @@ import Redis from "./redis.svg";
 import MySQL from "./mysql.svg";
 import PostgreSQL from "./psql.svg";
 import MongoDB from "./mongodb.svg";
+import MongoDBs from "./mongodbS.svg";
 import Moralis from "./moralis.svg";
 import TheGraph from "./thegraph.svg";
 import K8S from "./k8s.svg";
@@ -32,6 +33,7 @@ export {
   MySQL,
   PostgreSQL,
   MongoDB,
+  MongoDBs,
   Moralis,
   TheGraph,
   K8S,
