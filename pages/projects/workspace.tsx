@@ -2,8 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
 import styles from "./styles/workspace.module.css";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import { workspace } from "../../components/ProjectCard/projects";
+import { workspace } from "../../assets/Projects/projects";
 import { GitHub } from "../../assets/SocialMediaLogos";
 import useMediaQuery from "../../utils/useMediaQuery";
 
@@ -35,6 +34,8 @@ const Workspace: NextPage = () => {
         {project && (
           <Image
             src={project.thumbnail as string}
+            blurDataURL={project.thumbnail as string}
+            placeholder="blur"
             layout="fill"
             objectFit="cover"
             quality={100}
@@ -53,7 +54,6 @@ const Workspace: NextPage = () => {
                     src={skill}
                     width={isBreakpoint ? 30 : 50}
                     height={isBreakpoint ? 30 : 50}
-                    quality={100}
                   />
                 ))}
               </div>
@@ -68,7 +68,6 @@ const Workspace: NextPage = () => {
                       src={GitHub}
                       width={isBreakpoint ? 20 : 36}
                       height={isBreakpoint ? 20 : 36}
-                      quality={100}
                     />
                   </a>
                 </div>

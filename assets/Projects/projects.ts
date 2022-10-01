@@ -1,8 +1,8 @@
-import * as pj from "../../assets/Projects";
-import * as lib from "../../assets/LibLogos";
-import * as lang from "../../assets/ProgLogos";
-import * as fw from "../../assets/FrameworkLogos";
-import * as others from "../../assets/OtherLogos";
+import * as pj from ".";
+import * as lib from "../LibLogos";
+import * as lang from "../ProgLogos";
+import * as fw from "../FrameworkLogos";
+import * as others from "../OtherLogos";
 
 type project = {
   title: string;
