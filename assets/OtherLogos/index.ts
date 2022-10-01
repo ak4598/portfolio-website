@@ -5,7 +5,9 @@ import FFmpeg from "./ffmpeg.svg";
 import FFmpegs from "./ffmpegs.svg";
 import Bash from "./bash.svg";
 import Redis from "./redis.svg";
+import Rediss from "./rediss.svg";
 import MySQL from "./mysql.svg";
+import MySQLs from "./mysqls.svg";
 import PostgreSQL from "./psql.svg";
 import MongoDB from "./mongodb.svg";
 import MongoDBs from "./mongodbS.svg";
@@ -32,7 +34,9 @@ export {
   FFmpegs,
   Bash,
   Redis,
+  Rediss,
   MySQL,
+  MySQLs,
   PostgreSQL,
   MongoDB,
   MongoDBs,
