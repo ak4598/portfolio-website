@@ -7,7 +7,10 @@ import { personal } from "../../components/ProjectCard/projects";
 import { GitHub } from "../../assets/SocialMediaLogos";
 
 const Personal: NextPage = () => {
+  const infoRef = useRef<HTMLDivElement | null>(null);
   const [background, setBackground] = useState<string | boolean>(false);
+
+  // try useEffect on infoBox
 
   const [project, setProject] = useState<any>(false);
 
@@ -27,7 +30,7 @@ const Personal: NextPage = () => {
           />
         )}
         {project && (
-          <div className={styles.infoBox}>
+          <div className={styles.infoBox} ref={infoRef}>
             <h1>{project.title}</h1>
             <p>{project.description}</p>
             <div className={styles.techStack}>
@@ -41,32 +44,20 @@ const Personal: NextPage = () => {
                 />
               ))}
             </div>
-            <div className={styles.github}>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image src={GitHub} width={36} height={36} quality={100} />
-              </a>
-            </div>
+            {project.github !== "" && (
+              <div className={styles.github}>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={GitHub} width={36} height={36} quality={100} />
+                </a>
+              </div>
+            )}
           </div>
         )}
 
-        {/* <div className={styles.title}>
-          I build side projects when I am bored 🥱
-        </div> */}
-        {/* <div className={styles.container}>
-          {personal.map((p) => (
-            <ProjectCard
-              key={p.title}
-              title={p.title}
-              description={p.description}
-              thumbnail={p.thumbnail}
-              github={p.github}
-            />
-          ))}
-        </div> */}
         <ul className={styles.menu}>
           {personal.map((p) => (
             <li key={p.title} className={styles.pjItem}>
@@ -76,6 +67,8 @@ const Personal: NextPage = () => {
             </li>
           ))}
         </ul>
+
+        {/* <button className={styles.show}></button> */}
       </div>
     </div>
   );

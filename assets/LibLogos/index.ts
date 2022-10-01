@@ -1,6 +1,8 @@
 import NumPy from "./numpy.svg";
+import NumPys from "./numpys.svg";
 import OpenCV from "./opencv.svg";
 import Pandas from "./pandas.svg";
+import Pandass from "./pandass.svg";
 import Sklearn from "./sklearn.svg";
 import TensorFlow from "./tensorflow.svg";
 import PyTorch from "./pytorch.svg";
@@ -13,8 +15,10 @@ import Nltk from "./nltk.svg";
 
 export {
   NumPy,
+  NumPys,
   OpenCV,
   Pandas,
+  Pandass,
   Sklearn,
   TensorFlow,
   PyTorch,

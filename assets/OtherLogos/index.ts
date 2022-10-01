@@ -2,6 +2,7 @@ import Docker from "./docker.svg";
 import Linux from "./linux.svg";
 import Git from "./git.svg";
 import FFmpeg from "./ffmpeg.svg";
+import FFmpegs from "./ffmpegs.svg";
 import Bash from "./bash.svg";
 import Redis from "./redis.svg";
 import MySQL from "./mysql.svg";
@@ -28,6 +29,7 @@ export {
   Linux,
   Git,
   FFmpeg,
+  FFmpegs,
   Bash,
   Redis,
   MySQL,
