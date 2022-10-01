@@ -5,8 +5,11 @@ import styles from "./styles/personal.module.css";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { personal } from "../../components/ProjectCard/projects";
 import { GitHub } from "../../assets/SocialMediaLogos";
+import useMediaQuery from "../../utils/useMediaQuery";
 
 const Personal: NextPage = () => {
+  const isBreakpoint = useMediaQuery(850);
+
   const infoRef = useRef<HTMLDivElement | null>(null);
   const menuContainerRef = useRef<HTMLDivElement | null>(null);
   const [background, setBackground] = useState<string | boolean>(false);
@@ -48,8 +51,8 @@ const Personal: NextPage = () => {
                   <Image
                     key={project.skills.indexOf(skill)}
                     src={skill}
-                    width={50}
-                    height={50}
+                    width={isBreakpoint ? 30 : 50}
+                    height={isBreakpoint ? 30 : 50}
                     quality={100}
                   />
                 ))}
@@ -61,7 +64,12 @@ const Personal: NextPage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Image src={GitHub} width={36} height={36} quality={100} />
+                    <Image
+                      src={GitHub}
+                      width={isBreakpoint ? 20 : 36}
+                      height={isBreakpoint ? 20 : 36}
+                      quality={100}
+                    />
                   </a>
                 </div>
               )}
@@ -69,6 +77,11 @@ const Personal: NextPage = () => {
           )}
         </div>
 
+        {!project && (
+          <div className={styles.title}>
+            I build side projects when I am bored🥱
+          </div>
+        )}
         <div className={styles.menuContainer} ref={menuContainerRef}>
           <ul className={styles.menu}>
             {personal.map((p) => (

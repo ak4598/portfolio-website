@@ -5,8 +5,11 @@ import styles from "./styles/workspace.module.css";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { workspace } from "../../components/ProjectCard/projects";
 import { GitHub } from "../../assets/SocialMediaLogos";
+import useMediaQuery from "../../utils/useMediaQuery";
 
 const Workspace: NextPage = () => {
+  const isBreakpoint = useMediaQuery(850);
+
   const infoRef = useRef<HTMLDivElement | null>(null);
   const menuContainerRef = useRef<HTMLDivElement | null>(null);
   const [background, setBackground] = useState<string | boolean>(false);
@@ -48,8 +51,8 @@ const Workspace: NextPage = () => {
                   <Image
                     key={project.skills.indexOf(skill)}
                     src={skill}
-                    width={50}
-                    height={50}
+                    width={isBreakpoint ? 30 : 50}
+                    height={isBreakpoint ? 30 : 50}
                     quality={100}
                   />
                 ))}
@@ -61,13 +64,24 @@ const Workspace: NextPage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Image src={GitHub} width={36} height={36} quality={100} />
+                    <Image
+                      src={GitHub}
+                      width={isBreakpoint ? 20 : 36}
+                      height={isBreakpoint ? 20 : 36}
+                      quality={100}
+                    />
                   </a>
                 </div>
               )}
             </div>
           )}
         </div>
+
+        {!project && (
+          <div className={styles.title}>
+            Projects I built throughout my career👨🏻‍💻
+          </div>
+        )}
 
         <div className={styles.menuContainer} ref={menuContainerRef}>
           <ul className={styles.menu}>

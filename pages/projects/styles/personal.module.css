@@ -71,8 +71,8 @@
 
   background: white;
   width: 480px;
-  height: 80%;
-  top: 10%;
+  height: 70%;
+  top: 15%;
   right: 5%;
 
   background: transparent;
@@ -128,9 +128,11 @@
 
 .menuContainer {
   position: absolute;
+  top: 25%;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-width: 320px;
+  height: 60%;
   padding: 0 2%;
   display: flex;
   justify-content: center;
@@ -141,13 +143,13 @@
 }
 
 .menu {
-  top: 20%;
+  /* top: 20%; */
   list-style: none;
   margin: 0;
   padding: 0;
 
   width: 240px;
-  height: 60%;
+  height: 100%;
   overflow: scroll;
 
   background: transparent;
@@ -194,4 +196,41 @@
 
 .menu .pjItem button:active {
   background-color: rgba(248, 249, 249, 0.1);
+}
+
+@media (max-width: 850px) {
+  .title {
+    font-size: 20px;
+    padding-top: 0px;
+    top: 12%;
+  }
+
+  .infoBox {
+    width: 240px;
+    right: 2%;
+    backdrop-filter: blur(30px);
+  }
+
+  .infoBox h1 {
+    font-size: 24px;
+  }
+
+  .infoBox p {
+    padding: 0px 20px;
+    font-size: 14px;
+  }
+
+  .menuContainer {
+    min-width: 120px;
+  }
+
+  .menu {
+    backdrop-filter: blur(30px);
+  }
+
+  .menu .pjItem button {
+    padding: 10px 0px;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+  }
 }
