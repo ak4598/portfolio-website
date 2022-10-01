@@ -8,13 +8,21 @@ import { GitHub } from "../../assets/SocialMediaLogos";
 
 const Workspace: NextPage = () => {
   const infoRef = useRef<HTMLDivElement | null>(null);
+  const menuContainerRef = useRef<HTMLDivElement | null>(null);
   const [background, setBackground] = useState<string | boolean>(false);
-
-  // try useEffect on infoBox
 
   const [project, setProject] = useState<any>(false);
 
   const changeBackground = (e: any) => {
+    if (null !== menuContainerRef.current) {
+      menuContainerRef.current.style.width = "20%";
+    }
+
+    if (null !== infoRef.current) {
+      infoRef.current.style.opacity = "1";
+      infoRef.current.style.transform = "translateX(0%)";
+    }
+
     setBackground(workspace.find((i) => i.title === e.target.id)!.thumbnail);
     setProject(workspace.find((i) => i.title === e.target.id));
   };
@@ -29,46 +37,49 @@ const Workspace: NextPage = () => {
             quality={100}
           />
         )}
-        {project && (
-          <div className={styles.infoBox} ref={infoRef}>
-            <h1>{project.title}</h1>
-            <p>{project.description}</p>
-            <div className={styles.techStack}>
-              {project.skills.map((skill: string) => (
-                <Image
-                  key={project.skills.indexOf(skill)}
-                  src={skill}
-                  width={50}
-                  height={50}
-                  quality={100}
-                />
-              ))}
-            </div>
-            {project.github !== "" && (
-              <div className={styles.github}>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image src={GitHub} width={36} height={36} quality={100} />
-                </a>
+
+        <div className={styles.infoBox} ref={infoRef}>
+          {project && (
+            <div>
+              <h1>{project.title}</h1>
+              <p>{project.description}</p>
+              <div className={styles.techStack}>
+                {project.skills.map((skill: string) => (
+                  <Image
+                    key={project.skills.indexOf(skill)}
+                    src={skill}
+                    width={50}
+                    height={50}
+                    quality={100}
+                  />
+                ))}
               </div>
-            )}
-          </div>
-        )}
+              {project.github !== "" && (
+                <div className={styles.github}>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src={GitHub} width={36} height={36} quality={100} />
+                  </a>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
-        <ul className={styles.menu}>
-          {workspace.map((p) => (
-            <li key={p.title} className={styles.pjItem}>
-              <button onClick={changeBackground} id={p.title}>
-                {p.title}
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        {/* <button className={styles.show}></button> */}
+        <div className={styles.menuContainer} ref={menuContainerRef}>
+          <ul className={styles.menu}>
+            {workspace.map((p) => (
+              <li key={p.title} className={styles.pjItem}>
+                <button onClick={changeBackground} id={p.title}>
+                  {p.title}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
