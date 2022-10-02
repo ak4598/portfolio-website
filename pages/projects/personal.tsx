@@ -14,11 +14,16 @@ const Personal: NextPage = () => {
   const titleContainerRef = useRef<HTMLDivElement | null>(null);
   const backRef = useRef<HTMLButtonElement | null>(null);
 
-  const [curr, setCurr] = useState<any>(false);
+  const [curr, setCurr] = useState<any>({
+    selected: { title: null },
+    card: null,
+    background: null,
+  });
 
   const reset = (e: any) => {
     setCurr({
       ...curr,
+      selected: { title: null },
       card: null,
     });
 
@@ -46,6 +51,7 @@ const Personal: NextPage = () => {
 
     if (undefined !== project) {
       setCurr({
+        selected: project,
         card: (
           <div className={styles.infoBox} key={project.title + "card"}>
             <div>
@@ -135,7 +141,18 @@ const Personal: NextPage = () => {
           <ul className={styles.menu}>
             {personal.map((p) => (
               <li key={p.title} className={styles.pjItem}>
-                <button onClick={changeBackground} id={p.title}>
+                <button
+                  onClick={changeBackground}
+                  id={p.title}
+                  style={
+                    curr.selected.title === p.title
+                      ? {
+                          background:
+                            "linear-gradient(145deg,rgba(32, 100, 194, 0.2) 0%,rgba(218, 248, 255, 0.2) 100%)",
+                        }
+                      : {}
+                  }
+                >
                   {p.title}
                 </button>
               </li>
