@@ -283,4 +283,8 @@
     font-size: 14px;
     backdrop-filter: blur(10px);
   }
+
+  .back {
+    font-size: 14px;
+  }
 }
