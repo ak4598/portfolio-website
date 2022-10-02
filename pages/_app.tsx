@@ -28,13 +28,7 @@ function Loading(): any {
     };
   });
 
-  return (
-    loading && (
-      <div className="spinner-wrapper">
-        <div className="spinner"></div>
-      </div>
-    )
-  );
+  return loading && <></>;
 }
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
