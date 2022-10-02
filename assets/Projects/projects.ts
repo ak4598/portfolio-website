@@ -22,7 +22,7 @@ const personal: project[] = [
     skills: [lang.Python.src],
   },
   {
-    title: "Personal Website",
+    title: "Portfolio Website",
     description:
       "A website to show that A.I. development is not the only thing I know. Learning web development is just out of my curiosity. It is definitely not a contingency for me to escape from the extremely demanding A.I. industry. Trust me.",
     thumbnail: pj.PortfolioWebsite.src,
