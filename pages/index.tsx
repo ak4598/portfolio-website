@@ -15,7 +15,6 @@ const Home: NextPage = () => {
         blurDataURL={background.src}
         quality={100}
       />
-      <div className={styles.mask}></div>
 
       <div className={styles.titleOverlay}>
         <div className={styles.title}>Andy Kwan</div>

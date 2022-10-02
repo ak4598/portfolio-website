@@ -1,17 +1,3 @@
-.image {
-  object-fit: cover;
-
-  min-height: min(100%, 1024px);
-  min-width: min(100%, 1024px);
-
-  width: 100%;
-  height: 100%;
-
-  position: absolute;
-  top: 0;
-  /* bottom: 0; */
-}
-
 .top {
   position: absolute;
   top: 0;
@@ -19,24 +5,20 @@
   height: 100%;
 }
 
-.mask {
-  background: linear-gradient(
-    145deg,
-    rgba(218, 248, 255, 1) 0%,
-    rgba(152, 209, 240, 1) 45%,
-    rgba(69, 134, 208, 1) 83%,
-    rgba(32, 100, 194, 1) 100%
-  );
-  opacity: 40%;
-  z-index: 1;
-  display: block;
-
+.top::after {
+  content: "";
+  position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
 
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(218, 248, 255, 0.4) 0%,
+    rgba(152, 209, 240, 0.4) 45%,
+    rgba(69, 134, 208, 0.4) 83%,
+    rgba(32, 100, 194, 0.4) 100%
+  );
 }
 
 .mask404 {
