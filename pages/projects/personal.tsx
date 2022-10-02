@@ -9,41 +9,45 @@ import useMediaQuery from "../../utils/useMediaQuery";
 const Personal: NextPage = () => {
   const isBreakpoint = useMediaQuery(850);
 
-  const infoRef = useRef<HTMLDivElement | null>(null);
   const menuContainerRef = useRef<HTMLDivElement | null>(null);
-  const [background, setBackground] = useState<string | boolean>(false);
+  const backgroundRef = useRef<HTMLDivElement | null>(null);
+  const titleContainerRef = useRef<HTMLDivElement | null>(null);
+  const backRef = useRef<HTMLButtonElement | null>(null);
 
-  const [project, setProject] = useState<any>(false);
+  const [curr, setCurr] = useState<any>(false);
+
+  const reset = (e: any) => {
+    setCurr({
+      ...curr,
+      card: null,
+    });
+
+    if (null !== backgroundRef.current) {
+      backgroundRef.current.style.opacity = "0";
+    }
+
+    if (null !== menuContainerRef.current) {
+      menuContainerRef.current.style.width = "100%";
+    }
+
+    if (null !== titleContainerRef.current) {
+      titleContainerRef.current.style.opacity = "1";
+      titleContainerRef.current.style.transform = "translateY(0%)";
+    }
+
+    if (null !== backRef.current) {
+      backRef.current.style.opacity = "0";
+      backRef.current.style.transform = "translateX(-100%)";
+    }
+  };
 
   const changeBackground = (e: any) => {
-    if (null !== menuContainerRef.current) {
-      menuContainerRef.current.style.width = "20%";
-    }
+    const project = personal.find((i) => i.title === e.target.id);
 
-    if (null !== infoRef.current) {
-      infoRef.current.style.opacity = "1";
-      infoRef.current.style.transform = "translateX(0%)";
-    }
-
-    setBackground(personal.find((i) => i.title === e.target.id)!.thumbnail);
-    setProject(personal.find((i) => i.title === e.target.id));
-  };
-  return (
-    <div>
-      <div className={styles.background}>
-        {project && (
-          <Image
-            src={project.thumbnail as string}
-            blurDataURL={project.thumbnail as string}
-            placeholder="blur"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-          />
-        )}
-
-        <div className={styles.infoBox} ref={infoRef}>
-          {project && (
+    if (undefined !== project) {
+      setCurr({
+        card: (
+          <div className={styles.infoBox} key={project.title + "card"}>
             <div>
               <h1>{project.title}</h1>
               <p>{project.description}</p>
@@ -73,14 +77,60 @@ const Personal: NextPage = () => {
                 </div>
               )}
             </div>
-          )}
+          </div>
+        ),
+        background: (
+          <div
+            className={styles.backgroundContainer}
+            ref={backgroundRef}
+            key={project.title + "bg"}
+          >
+            <Image
+              src={project.thumbnail as string}
+              blurDataURL={project.thumbnail as string}
+              placeholder="blur"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </div>
+        ),
+      });
+    }
+
+    if (null !== menuContainerRef.current) {
+      menuContainerRef.current.style.width = "20%";
+    }
+
+    if (null !== titleContainerRef.current) {
+      titleContainerRef.current.style.opacity = "0";
+      titleContainerRef.current.style.transform = "translateY(-100%)";
+    }
+
+    if (null !== backgroundRef.current) {
+      backgroundRef.current.style.opacity = "1";
+    }
+
+    if (null !== backRef.current) {
+      backRef.current.style.opacity = "1";
+      backRef.current.style.transform = "translateX(0%)";
+    }
+  };
+
+  return (
+    <div>
+      <div className={styles.background}>
+        {curr.background}
+        {curr.card}
+
+        <div className={styles.title} ref={titleContainerRef}>
+          I build side projects when I am bored🥱
         </div>
 
-        {!project && (
-          <div className={styles.title}>
-            I build side projects when I am bored🥱
-          </div>
-        )}
+        <button className={styles.back} ref={backRef} onClick={reset}>
+          Back
+        </button>
+
         <div className={styles.menuContainer} ref={menuContainerRef}>
           <ul className={styles.menu}>
             {personal.map((p) => (
