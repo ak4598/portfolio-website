@@ -355,7 +355,7 @@
   }
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-height: 400px) {
   .content {
     font-size: 14px;
   }
