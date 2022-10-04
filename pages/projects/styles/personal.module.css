@@ -39,27 +39,6 @@
   transition: all 0.5s;
 }
 
-.container {
-  display: flex;
-
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  width: 100%;
-  height: 60%;
-
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-  z-index: 2;
-  flex-wrap: wrap;
-}
-
-.container::-webkit-scrollbar {
-  display: none;
-}
-
 .backgroundContainer {
   transition: all 0.5s;
   animation: fadeIn 0.5s ease-in-out;
