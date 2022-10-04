@@ -13,8 +13,8 @@ export const authOptions = {
     //@ts-ignore
     async signIn({ user }) {
       const isAllowedToSignIn =
-        user.email === (process.env.GITHUB_EMAIL as string) &&
-        user.id === (process.env.GITHUB_ID as string);
+        user.email === (process.env.GITHUB_MY_EMAIL as string) &&
+        user.id === (process.env.GITHUB_MY_ID as string);
       console.log(isAllowedToSignIn);
       if (isAllowedToSignIn) {
         return true;
