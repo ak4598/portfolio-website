@@ -21,3 +21,20 @@
   background: #f8f9f9;
   position: absolute;
 }
+
+.title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+  text-align: center;
+  color: #f8f9f9;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 200%;
+  width: 100%;
+  padding-top: 150px;
+  padding-bottom: 20px;
+}

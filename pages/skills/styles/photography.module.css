@@ -174,3 +174,9 @@
     display: initial;
   }
 }
+
+@media (orientation: landscape) and (max-height: 400px) {
+  .scene {
+    min-height: 200vh;
+  }
+}

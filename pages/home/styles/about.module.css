@@ -354,3 +354,9 @@
     top: 80%;
   }
 }
+
+@media (orientation: landscape) {
+  .content {
+    font-size: 14px;
+  }
+}

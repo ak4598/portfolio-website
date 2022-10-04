@@ -203,3 +203,9 @@
     height: 200px;
   }
 }
+
+@media (orientation: landscape) and (max-height: 400px) {
+  .box {
+    min-height: 200vh;
+  }
+}

@@ -94,3 +94,9 @@
 .content ul li a:hover::before {
   transform: skewX(45deg) translateX(-130%);
 }
+
+/* @media (orientation: landscape) and (max-height: 400px){
+  .background {
+    min-height: 200vh;
+  }
+} */

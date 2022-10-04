@@ -288,3 +288,9 @@
     font-size: 14px;
   }
 }
+
+@media (orientation: landscape) and (max-height: 400px) {
+  .background {
+    min-height: 200vh;
+  }
+}
