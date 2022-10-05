@@ -4,7 +4,6 @@ const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = useState(false);
 
   const updateTarget = useCallback((event: any) => {
-    console.log(event.matches);
     if (event.matches) {
       setTargetReached(true);
     } else {

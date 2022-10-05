@@ -3,6 +3,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  min-height: 900px;
 
   background: linear-gradient(
     145deg,
@@ -59,6 +60,7 @@
   background: white;
   width: 480px;
   height: 70%;
+
   top: 15%;
   left: 5%;
 
@@ -70,6 +72,7 @@
   backdrop-filter: blur(100px);
 
   animation: enter 0.5s ease-in-out;
+  transition: all 0.5s;
 }
 
 @keyframes enter {
@@ -85,7 +88,7 @@
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
+    opacity: 0.8;
   }
   100% {
     opacity: 1;
@@ -96,8 +99,6 @@
   text-align: center;
   font-size: 48px;
   line-height: 100%;
-
-  transition: all 0.5s;
 }
 
 .infoBox p {
@@ -105,8 +106,6 @@
   font-size: 24px;
   line-height: 120%;
   font-weight: lighter;
-
-  transition: all 0.5s;
 }
 
 .infoBox .techStack {
@@ -136,6 +135,7 @@
   width: 100%;
   min-width: 320px;
   height: 50%;
+
   padding: 0 2%;
   display: flex;
   justify-content: center;
@@ -220,6 +220,10 @@
 }
 
 @media (max-width: 850px) {
+  .background {
+    min-height: 0px;
+  }
+
   .title {
     font-size: 20px;
     padding-top: 100px;
