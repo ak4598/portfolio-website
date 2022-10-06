@@ -149,6 +149,7 @@ const Workspace: NextPage = () => {
                       ? {
                           background:
                             "linear-gradient(145deg,rgba(32, 100, 194, 0.2) 0%,rgba(218, 248, 255, 0.2) 100%)",
+                          cursor: "auto",
                         }
                       : {}
                   }
