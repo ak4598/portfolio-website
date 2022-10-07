@@ -30,6 +30,8 @@ const Carousel = forwardRef((props: any, ref) => (
   <CarouselTmpl {...props} forwardRef={ref} />
 ));
 
+Carousel.displayName = "Carousel";
+
 const Cookery: NextPage = () => {
   const [goToSlide, setGoToSlide] = useState<number>(0);
 
@@ -68,13 +70,15 @@ const Cookery: NextPage = () => {
         Just a home chef that needs to serve his family everyday👨🏻‍🍳
       </div>
       <div className={styles.container}>
-        <Carousel
-          slides={slides}
-          goToSlide={goToSlide}
-          offsetRadius={2}
-          showNavigation={false}
-          animationConfig={config.gentle}
-        />
+        <div className={styles.carousel}>
+          <Carousel
+            slides={slides}
+            goToSlide={goToSlide}
+            offsetRadius={1}
+            showNavigation={false}
+            animationConfig={config.gentle}
+          />
+        </div>
       </div>
     </div>
   );
