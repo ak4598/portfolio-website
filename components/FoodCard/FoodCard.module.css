@@ -35,6 +35,10 @@
   top: 10px;
 }
 
+.card:hover .description h1 {
+  transform: translateY(-15px);
+}
+
 .card .description {
   top: 50px;
   width: 100%;
@@ -58,6 +62,7 @@
   padding: 10px;
   line-height: 100%;
   font-size: 48px;
+  transition: all 0.5s;
 }
 
 .buttonContainer {
@@ -91,7 +96,6 @@
   border-right: 1px solid rgba(248, 249, 249, 0.1);
   border-left: 1px solid rgba(248, 249, 249, 0.1);
   box-shadow: 0 5px 45px rgba(0, 0, 0, 0.05);
-  /* border-radius: 5px; */
 
   cursor: pointer;
 }
