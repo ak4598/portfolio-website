@@ -7,14 +7,14 @@ import styles from "../styles/cookery.module.css";
 import FoodCard from "../../../components/FoodCard/FoodCard";
 
 import img from "../../../photos/Cookery/3-Cup Chicken Wings.jpg";
-import img2 from "../../../photos/Cookery/Boeuf Bourgignon.jpg";
+import img2 from "../../../photos/Cookery/Boeuf Bourguignon.jpg";
 import img3 from "../../../photos/Cookery/Carbonara.jpg";
 import img4 from "../../../photos/Cookery/Creamy Salmon Tagliatelle.jpg";
 import img5 from "../../../photos/Cookery/Kaisen Donburi.jpg";
 import img6 from "../../../photos/Cookery/Katsudon.jpg";
 import img7 from "../../../photos/Cookery/Lemon Chicken.jpg";
 import img8 from "../../../photos/Cookery/Mussels in Lemon Garlic-Butter Sauce.jpg";
-import img9 from "../../../photos/Cookery/Pan Fried  Yellow Croaker.jpg";
+import img9 from "../../../photos/Cookery/Pan Fried Yellow Croaker.jpg";
 import img10 from "../../../photos/Cookery/Red Prawn and Scallop Risotto.jpeg";
 import img11 from "../../../photos/Cookery/Tamago Sando.jpg";
 

@@ -14,7 +14,7 @@ const Post: React.FC<Props> = ({ id }) => {
   useEffect(() => {
     setLoading(true);
 
-    fetch(`/api/images/get-image?id=${id}`)
+    fetch(`/api/images/get-country-image?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPost(data);
