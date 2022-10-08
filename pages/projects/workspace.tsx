@@ -57,18 +57,9 @@ const TechStack: React.FC<Props> = ({ project }) => {
   );
 };
 
-type BgProps = {
-  project: project;
-  _ref: any;
-};
-
-const Background: React.FC<BgProps> = ({ project, _ref }) => {
+const Background: React.FC<Props> = ({ project }) => {
   return (
-    <div
-      className={styles.backgroundContainer}
-      ref={_ref}
-      key={project.title + "bg"}
-    >
+    <div className={styles.backgroundContainer} key={project.title + "bg"}>
       <Image
         src={project.thumbnail as string}
         blurDataURL={project.thumbnail as string}
@@ -85,8 +76,6 @@ const Workspace: NextPage = () => {
   const randomIndex = Math.floor(Math.random() * workspace.length);
   const initialProject = workspace[randomIndex];
 
-  const backgroundRef = useRef<HTMLDivElement | null>(null);
-
   const [curr, setCurr] = useState<project>(initialProject);
 
   const changeBackground = (e: any) => {
@@ -94,10 +83,6 @@ const Workspace: NextPage = () => {
 
     if (undefined !== project) {
       setCurr(project);
-    }
-
-    if (null !== backgroundRef.current) {
-      backgroundRef.current.style.opacity = "1";
     }
   };
 
@@ -112,7 +97,7 @@ const Workspace: NextPage = () => {
 
   return (
     <div className={styles.background}>
-      <Background project={curr} _ref={backgroundRef} />
+      <Background project={curr} />
       <TechStack project={curr} />
       <InfoCard project={curr} />
 
