@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./FoodCard.module.css";
 import NotFoundImg from "../../assets/images/not_found.png";
@@ -10,6 +11,8 @@ type Props = {
 const FoodCard: React.FC<Props> = ({ id }) => {
   const [post, setPost] = useState<any>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
+
+  const recipeLink = `/skills/cookery/${id}`;
 
   useEffect(() => {
     setLoading(true);
@@ -55,7 +58,9 @@ const FoodCard: React.FC<Props> = ({ id }) => {
           <h1>{post.name}</h1>
         </div>
         <div className={styles.buttonContainer}>
-          <button>Recipe</button>
+          <Link href={recipeLink}>
+            <button>Recipe</button>
+          </Link>
         </div>
       </div>
     </div>

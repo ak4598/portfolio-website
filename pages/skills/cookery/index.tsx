@@ -41,8 +41,8 @@ const Cookery: NextPage = () => {
       <div className={styles.gridContainer}>
         <div className={styles.grid}>
           {posts.map((post: any) => (
-            <div className={styles.gridItem}>
-              <FoodCard key={post._id} id={post._id} />
+            <div key={post._id} className={styles.gridItem}>
+              <FoodCard id={post._id} />
             </div>
           ))}
         </div>
