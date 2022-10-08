@@ -38,17 +38,13 @@ const Upload = () => {
       }
     } else if (e.target.id === "cookery") {
       if (null !== cookeryRef.current?.files) {
-        try {
-          reader.readAsDataURL(cookeryRef.current?.files[0] as Blob);
-          reader.onload = () => {
-            setPostDataPhotography({
-              ...postDataPhotography,
-              image: reader.result as string,
-            });
-          };
-        } catch (error: any) {
-          alert("Please choose a file!");
-        }
+        reader.readAsDataURL(cookeryRef.current?.files[0] as Blob);
+        reader.onload = () => {
+          setPostDataCookery({
+            ...postDataCookery,
+            image: reader.result as string,
+          });
+        };
       }
     }
   };
@@ -206,7 +202,6 @@ const Upload = () => {
                   })
                 }
               />
-
               <input
                 type="file"
                 id="cookery"

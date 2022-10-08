@@ -17,6 +17,6 @@ const FoodSchema = new Schema({
   difficulty: { type: Number, required: true },
 });
 
-const FoodModel = models.Country || model("Food", FoodSchema);
+const FoodModel = models.Food || model("Food", FoodSchema);
 
 export { countryModel, FoodModel };
