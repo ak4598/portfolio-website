@@ -5,12 +5,6 @@
   height: 100%;
   min-height: 900px;
 
-  background: linear-gradient(
-    145deg,
-    rgba(32, 100, 194, 1) 0%,
-    rgba(218, 248, 255, 1) 100%
-  );
-  top: 0;
   overflow: scroll;
 
   -ms-overflow-style: none; /* IE and Edge */
@@ -19,6 +13,14 @@
 
 .background::-webkit-scrollbar {
   display: none;
+}
+
+.slider {
+  position: absolute;
+  left: 20%;
+  bottom: 5%;
+  width: 60%;
+  height: 15%;
 }
 
 .title {
@@ -45,6 +47,10 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
+.internalTechStack {
+  display: none;
+}
+
 .infoBox {
   position: absolute;
 
@@ -58,15 +64,16 @@
 
   background: white;
   width: 480px;
-  height: 70%;
+  height: 50%;
+  min-height: 450px;
 
-  top: 15%;
+  top: 20%;
   right: 5%;
 
   background: transparent;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
+  border: 1px solid rgba(248, 249, 249, 0.2);
+  border-right: 1px solid rgba(248, 249, 249, 0.1);
+  border-left: 1px solid rgba(248, 249, 249, 0.1);
   box-shadow: 0 5px 45px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(100px);
 
@@ -77,6 +84,17 @@
 @keyframes enter {
   0% {
     transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes enterLeft {
+  0% {
+    transform: translateX(-50%);
     opacity: 0;
   }
   100% {
@@ -107,16 +125,6 @@
   font-weight: lighter;
 }
 
-.infoBox .techStack {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 5px;
-  padding: 10%;
-}
-
 .infoBox .github {
   position: absolute;
   right: 5%;
@@ -126,6 +134,62 @@
   transform: translateX(-10px);
 
   cursor: pointer;
+}
+
+.techStack {
+  background: transparent;
+  border: 1px solid rgba(248, 249, 249, 0.2);
+  border-right: 1px solid rgba(248, 249, 249, 0.1);
+  border-left: 1px solid rgba(248, 249, 249, 0.1);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(100px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: absolute;
+  left: 5%;
+  top: 25%;
+  width: 320px;
+  height: 40%;
+  min-height: 360px;
+
+  gap: 10px;
+
+  animation: enterLeft 0.5s ease-in-out;
+  transition: all 0.5s;
+}
+
+.techStack .stack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 20px;
+  gap: 10px;
+}
+
+.icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.githubIcon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.techStack h1 {
+  text-align: center;
+  color: #f8f9f9;
+  font-size: 30px;
+
+  line-height: 100%;
+  font-weight: lighter;
 }
 
 .menuContainer {
@@ -228,9 +292,41 @@
     padding-top: 100px;
   }
 
+  .techStack {
+    display: none;
+  }
+
+  .internalTechStack {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    display: flex;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .githubIcon {
+    width: 20px;
+    height: 20px;
+  }
+
   .infoBox {
     width: 240px;
     right: 2%;
+
+    top: 15%;
+    width: 70%;
+    right: 15%;
+    height: 60%;
+    min-height: 0px;
+
     backdrop-filter: blur(30px);
   }
 
@@ -265,5 +361,13 @@
 @media (orientation: landscape) and (max-height: 400px) {
   .background {
     min-height: 200vh;
+  }
+
+  .techStack {
+    display: none;
+  }
+
+  .internalTechStack {
+    display: flex;
   }
 }

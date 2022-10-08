@@ -19,7 +19,7 @@ const personal: project[] = [
       "An end-to-end pipeline which aims to streamline the process from training to hyperparameter tunning to model evaluation. The intention of this project is to reduced the time needed to join a competition and help the user to focus on understanding the datasets.",
     thumbnail: pj.KagglePipeline.src,
     github: "https://github.com/ak4598/kaggle-pipeline",
-    skills: [lang.Python.src],
+    skills: [lang.Python.src, lib.Sklearn],
   },
   {
     title: "Portfolio Website",
@@ -87,4 +87,5 @@ const workspace: project[] = [
   },
 ];
 
+export type { project };
 export { personal, workspace };
