@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./FoodCard.module.css";
-import NotFoundImg from "../../../assets/images/not_found.png";
+import NotFoundImg from "../../assets/images/not_found.png";
 
 type Props = {
   id: string;
@@ -23,7 +23,21 @@ const FoodCard: React.FC<Props> = ({ id }) => {
   }, [id]);
 
   if (isLoading || post === null) {
-    return <></>;
+    return (
+      <div className={styles.card}>
+        <div className={styles.imageContainer}>
+          <Image
+            className={styles.image}
+            src={NotFoundImg.src}
+            blurDataURL={NotFoundImg.src}
+            placeholder="blur"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
+      </div>
+    );
   }
 
   return (

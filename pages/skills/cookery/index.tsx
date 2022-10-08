@@ -23,7 +23,13 @@ const Cookery: NextPage = () => {
   }, []);
 
   if (isLoading || posts === null) {
-    return <></>;
+    return (
+      <div className={styles.background}>
+        <div className={styles.title}>
+          Just a home chef that needs to serve his family everyday👨🏻‍🍳
+        </div>
+      </div>
+    );
   }
 
   return (
