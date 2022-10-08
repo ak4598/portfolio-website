@@ -8,4 +8,15 @@ const countrySchema = new Schema({
 
 const countryModel = models.Country || model("Country", countrySchema);
 
-export { countryModel };
+const FoodSchema = new Schema({
+  cuisine: { type: String, required: true },
+  name: { type: String, required: true },
+  image: { type: String, required: true },
+  steps: { type: [String], required: true },
+  time: { type: Number, required: true },
+  difficulty: { type: Number, required: true },
+});
+
+const FoodModel = models.Country || model("Food", FoodSchema);
+
+export { countryModel, FoodModel };

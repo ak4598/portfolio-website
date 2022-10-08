@@ -3,13 +3,24 @@ import styles from "./styles/admin.module.css";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Upload = () => {
-  const formRef = useRef<HTMLFormElement | null>(null);
+  const formRefPhotography = useRef<HTMLFormElement | null>(null);
+  const formRefCookery = useRef<HTMLFormElement | null>(null);
+
   const photographyRef = useRef<HTMLInputElement | null>(null);
   const cookeryRef = useRef<HTMLInputElement | null>(null);
-  const [postData, setPostData] = useState({
+  const [postDataPhotography, setPostDataPhotography] = useState({
     country: "",
     caption: "",
     image: "",
+  });
+
+  const [postDataCookery, setPostDataCookery] = useState({
+    cuisine: "",
+    name: "",
+    image: "",
+    steps: [""],
+    time: 0,
+    difficulty: 0,
   });
 
   const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +30,10 @@ const Upload = () => {
       if (null !== photographyRef.current?.files) {
         reader.readAsDataURL(photographyRef.current?.files[0] as Blob);
         reader.onload = () => {
-          setPostData({ ...postData, image: reader.result as string });
+          setPostDataPhotography({
+            ...postDataPhotography,
+            image: reader.result as string,
+          });
         };
       }
     } else if (e.target.id === "cookery") {
@@ -27,7 +41,10 @@ const Upload = () => {
         try {
           reader.readAsDataURL(cookeryRef.current?.files[0] as Blob);
           reader.onload = () => {
-            setPostData({ ...postData, image: reader.result as string });
+            setPostDataPhotography({
+              ...postDataPhotography,
+              image: reader.result as string,
+            });
           };
         } catch (error: any) {
           alert("Please choose a file!");
@@ -36,28 +53,56 @@ const Upload = () => {
     }
   };
 
-  const handleAuth = async () => {};
-
-  const handleSubmit = async (e: React.SyntheticEvent) => {
+  const handleSubmitPhotography = async (e: React.SyntheticEvent) => {
     e.preventDefault();
 
     const response = await fetch("/api/images/add-country-image", {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-      body: JSON.stringify(postData),
+      body: JSON.stringify(postDataPhotography),
       method: "POST",
     });
 
     if (response.status === 201) {
       // clear form
-      setPostData({
+      setPostDataPhotography({
         country: "",
         caption: "",
         image: "",
       });
-      if (null !== formRef.current) {
-        formRef.current.reset();
+      if (null !== formRefPhotography.current) {
+        formRefPhotography.current.reset();
+      }
+
+      alert("Uploaded");
+    } else {
+      alert("Cannot upload!");
+    }
+  };
+  const handleSubmitCookery = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    const response = await fetch("/api/images/add-food-image", {
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(postDataCookery),
+      method: "POST",
+    });
+
+    if (response.status === 201) {
+      // clear form
+      setPostDataCookery({
+        cuisine: "",
+        name: "",
+        image: "",
+        steps: [""],
+        time: 0,
+        difficulty: 0,
+      });
+      if (null !== formRefCookery.current) {
+        formRefCookery.current.reset();
       }
 
       alert("Uploaded");
@@ -75,21 +120,27 @@ const Upload = () => {
           <div>
             Photography
             <form
-              ref={formRef}
+              ref={formRefPhotography}
               autoComplete="off"
               noValidate
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmitPhotography}
             >
               <input
                 placeholder="country"
                 onChange={(e) =>
-                  setPostData({ ...postData, country: e.target.value })
+                  setPostDataPhotography({
+                    ...postDataPhotography,
+                    country: e.target.value,
+                  })
                 }
               />
               <input
                 placeholder="caption"
                 onChange={(e) =>
-                  setPostData({ ...postData, caption: e.target.value })
+                  setPostDataPhotography({
+                    ...postDataPhotography,
+                    caption: e.target.value,
+                  })
                 }
               />
               <input
@@ -104,9 +155,58 @@ const Upload = () => {
           </div>
           <div>
             Cookery
-            <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-              <input />
-              <input />
+            <form
+              ref={formRefCookery}
+              autoComplete="off"
+              noValidate
+              onSubmit={handleSubmitCookery}
+            >
+              <input
+                placeholder="cuisine"
+                onChange={(e) =>
+                  setPostDataCookery({
+                    ...postDataCookery,
+                    cuisine: e.target.value,
+                  })
+                }
+              />
+              <input
+                placeholder="name"
+                onChange={(e) =>
+                  setPostDataCookery({
+                    ...postDataCookery,
+                    name: e.target.value,
+                  })
+                }
+              />
+              <input
+                placeholder="steps"
+                onChange={(e) =>
+                  setPostDataCookery({
+                    ...postDataCookery,
+                    steps: e.target.value.split("|"),
+                  })
+                }
+              />
+              <input
+                placeholder="time"
+                onChange={(e) =>
+                  setPostDataCookery({
+                    ...postDataCookery,
+                    time: e.target.value as unknown as number,
+                  })
+                }
+              />
+              <input
+                placeholder="difficulty"
+                onChange={(e) =>
+                  setPostDataCookery({
+                    ...postDataCookery,
+                    difficulty: e.target.value as unknown as number,
+                  })
+                }
+              />
+
               <input
                 type="file"
                 id="cookery"

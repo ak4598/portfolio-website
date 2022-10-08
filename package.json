@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "3d-react-carousal": "^5.0.0",
     "@react-three/fiber": "^8.6.0",
     "@tweenjs/tween.js": "18.3.0",
     "mongoose": "^6.6.0",
@@ -18,7 +17,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-globe.gl": "^2.22.3",
-    "react-spring-3d-carousel": "^1.2.1",
     "three": "^0.143.0"
   },
   "devDependencies": {

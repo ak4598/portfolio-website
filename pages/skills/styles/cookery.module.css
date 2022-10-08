@@ -4,24 +4,17 @@
   width: 100%;
   height: 100%;
   min-height: 900px;
-  background: #020303;
+  background: linear-gradient(145deg, #232526 0%, #414345 100%);
 
   top: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.background span:nth-child(1) {
-  width: 100%;
-  height: 50%;
-  background: #020303;
-  position: absolute;
-}
-.background span:nth-child(2) {
-  width: 100%;
-  height: 50%;
-  bottom: 0;
-  background: #f8f9f9;
-  position: absolute;
+.background::-webkit-scrollbar {
+  display: none;
 }
 
 .title {
@@ -62,4 +55,24 @@
   width: 600px;
   height: 400px;
   margin: 50px;
+}
+
+.gridContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  width: 1600px;
+  height: 100%;
+
+  justify-items: center;
+  align-items: center;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-column-gap: 10px;
+  grid-row-gap: 10px; */
 }
