@@ -282,7 +282,7 @@
   transition: all 0.5s;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
   .background {
     min-height: 0px;
   }
@@ -325,7 +325,8 @@
     width: 70%;
     right: 15%;
     height: 60%;
-    min-height: 0px;
+    min-width: 280px;
+    min-height: 480px;
 
     backdrop-filter: blur(30px);
   }
@@ -337,6 +338,11 @@
   .infoBox p {
     padding: 0px 20px;
     font-size: 14px;
+  }
+
+  .slider {
+    left: 10%;
+    width: 80%;
   }
 
   .menuContainer {
@@ -369,5 +375,10 @@
 
   .internalTechStack {
     display: flex;
+  }
+
+  .slider {
+    left: 10%;
+    width: 80%;
   }
 }
