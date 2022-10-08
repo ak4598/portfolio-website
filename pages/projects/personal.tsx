@@ -106,6 +106,7 @@ const Personal: NextPage = () => {
       title={project.title}
       image={project.thumbnail as string}
       onClick={changeBackground}
+      key={project.title}
     />
   ));
 
