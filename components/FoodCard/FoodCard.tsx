@@ -4,13 +4,10 @@ import styles from "./FoodCard.module.css";
 import NotFoundImg from "../../../assets/images/not_found.png";
 
 type Props = {
-  cuisine: string;
-  name: string;
-  image: string;
   id: string;
 };
 
-const FoodCard: React.FC<Props> = ({ cuisine, name, image, id }) => {
+const FoodCard: React.FC<Props> = ({ id }) => {
   const [post, setPost] = useState<any>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
 
