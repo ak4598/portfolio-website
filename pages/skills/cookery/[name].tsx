@@ -16,14 +16,12 @@ const Recipe: NextPage = () => {
     if (router.query.name !== undefined) {
       fetch(`/api/images/get-food-image?id=${router.query.name}`)
         .then((res) => {
-          console.log(res);
           if (res.status === 404) {
             return null;
           }
           return res.json();
         })
         .then((data) => {
-          console.log(data);
           setPost(data);
           setLoading(false);
         });
@@ -31,23 +29,41 @@ const Recipe: NextPage = () => {
   }, [router.query.name]);
 
   if (isLoading) {
-    return (
-      <div>
-        <div className={styles.background}></div>
-      </div>
-    );
+    return <div className={styles.background}></div>;
   }
   if (!isLoading && post === null) {
     return <Error />;
   }
 
   return (
-    <div>
-      <div className={styles.background}></div>
-      {/* <div className={styles.title}>{router.query.name}</div>
-      <div className={styles.image}>
-        <Image src={post.image} layout="fill" objectFit="cover" />
-      </div> */}
+    <div className={styles.background}>
+      <div className={styles.banner}>
+        <div className={styles.image}>
+          <div className={styles.imageContainer}>
+            <Image src={post.image} layout="fill" objectFit="cover" />
+            <div className={styles.nameContainer}>
+              <p>{post.cuisine}</p>
+              <h1>{post.name}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.details1}>
+        <div className={styles.difficulty}>
+          <h1>Difficulty</h1>
+        </div>
+        <div className={styles.time}>
+          <h1>Time</h1>
+        </div>
+      </div>
+      <div className={styles.details2}>
+        <div className={styles.ingredients}>
+          <h1>Ingredients</h1>
+        </div>
+        <div className={styles.steps}>
+          <h1>Steps</h1>
+        </div>
+      </div>
     </div>
   );
 };

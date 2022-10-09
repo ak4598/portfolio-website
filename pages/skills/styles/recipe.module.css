@@ -7,21 +7,14 @@
   background: linear-gradient(145deg, #232526 0%, #414345 100%);
 
   top: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.background span:nth-child(1) {
-  width: 100%;
-  height: 50%;
-  background: #020303;
-  position: absolute;
-}
-.background span:nth-child(2) {
-  width: 100%;
-  height: 50%;
-  bottom: 0;
-  background: #f8f9f9;
-  position: absolute;
+.background::-webkit-scrollbar {
+  display: none;
 }
 
 .title {
@@ -41,9 +34,104 @@
   padding-bottom: 20px;
 }
 
-.image {
-  width: 600px;
-  height: 400px;
+.banner {
+  width: 100%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner .image {
+  height: 100%;
+  width: 100%;
   position: relative;
-  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.banner .image h1 {
+  padding: 20px;
+  margin: 0;
+  color: #f8f9f9;
+  font-size: 1000%;
+}
+
+.banner .image p {
+  padding: 20px;
+  margin: 0;
+  color: #f8f9f9;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: 500%;
+}
+
+.nameContainer {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  opacity: 0.8;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.banner .image .imageContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.details1 {
+  width: 100%;
+  height: 30%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.details2 {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.details1 h1,
+.details2 h1 {
+  padding: 40px;
+  margin: 0;
+  color: #f8f9f9;
+  font-size: 48px;
+}
+
+.details1 .difficulty {
+  height: 100%;
+  width: 50%;
+}
+
+.details1 .time {
+  height: 100%;
+  width: 50%;
+}
+
+.details2 .ingredients {
+  text-align: right;
+  height: 100%;
+  width: 40%;
+}
+
+.details2 .steps {
+  height: 100%;
+  width: 60%;
 }
