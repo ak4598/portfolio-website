@@ -25,6 +25,8 @@ import Dockers from "./dockerS.svg";
 
 import Menu from "./menu.svg";
 import Close from "./close.svg";
+import Cook from "./cook.svg";
+import Clock from "./clock.svg";
 
 export {
   Docker,
@@ -52,4 +54,6 @@ export {
   Dockers,
   Menu,
   Close,
+  Cook,
+  Clock,
 };

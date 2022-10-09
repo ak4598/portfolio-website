@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "../styles/recipe.module.css";
 import Error from "../../404";
+import { Cook, Clock } from "../../../assets/OtherLogos";
 
 const Recipe: NextPage = () => {
   const router = useRouter();
@@ -51,19 +52,27 @@ const Recipe: NextPage = () => {
       <div className={styles.details1}>
         <div className={styles.difficulty}>
           <h1>Difficulty</h1>
+          <Image src={Cook.src} width={100} height={100} />
+          {/* <Image src={Cook.src} width={100} height={100} />
+          <Image src={Cook.src} width={100} height={100} />
+          <Image src={Cook.src} width={100} height={100} />
+          <Image src={Cook.src} width={100} height={100} /> */}
         </div>
         <div className={styles.time}>
-          <h1>Time</h1>
+          <div>
+            <Image src={Clock.src} width={100} height={100} />
+          </div>
+          <h1>{post.time} mins</h1>
         </div>
       </div>
-      <div className={styles.details2}>
+      {/* <div className={styles.details2}>
         <div className={styles.ingredients}>
           <h1>Ingredients</h1>
         </div>
         <div className={styles.steps}>
           <h1>Steps</h1>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
