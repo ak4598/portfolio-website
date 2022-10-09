@@ -53,6 +53,7 @@ const Recipe: NextPage = () => {
       </div>
       <div className={styles.details1}>
         <div className={styles.difficulty}>
+          <div className={styles.icon}></div>
           {[...Array(post.difficulty)].map((id) => (
             <div key={id} className={styles.icon}>
               <Image src={Cook.src} layout="fill" />
@@ -63,6 +64,7 @@ const Recipe: NextPage = () => {
               <Image src={Cookf.src} layout="fill" />
             </div>
           ))}
+          <div className={styles.icon}></div>
         </div>
         <div className={styles.time}>
           <div className={styles.icon}>
@@ -70,6 +72,9 @@ const Recipe: NextPage = () => {
           </div>
           <h1>{post.time} mins</h1>
         </div>
+      </div>
+      <div className={styles.details2}>
+        <h1>Coming Soon...</h1>
       </div>
       {/* <div className={styles.details2}>
         <div className={styles.ingredients}>

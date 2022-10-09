@@ -57,7 +57,7 @@
   padding: 20px;
   margin: 0;
   color: #f8f9f9;
-  font-size: 1000%;
+  font-size: 160px;
 }
 
 .banner .image p {
@@ -66,7 +66,7 @@
   color: #f8f9f9;
   font-weight: lighter;
   text-transform: uppercase;
-  font-size: 500%;
+  font-size: 80px;
 }
 
 .nameContainer {
@@ -147,4 +147,65 @@
 .details2 .steps {
   height: 100%;
   width: 60%;
+}
+
+@media (max-width: 1200px) {
+  .banner .image h1 {
+    font-size: 120px;
+  }
+
+  .banner .image p {
+    font-size: 60px;
+  }
+
+  .details1 h1,
+  .details2 h1 {
+    padding: 30px;
+    font-size: 36px;
+  }
+
+  .icon {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 850px) {
+  .background {
+    min-height: 450px;
+  }
+  .banner .image h1 {
+    font-size: 80px;
+  }
+
+  .banner .image p {
+    font-size: 40px;
+  }
+
+  .details1 h1,
+  .details2 h1 {
+    padding: 20px;
+    font-size: 24px;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 560px) {
+  .banner .image h1 {
+    font-size: 60px;
+  }
+
+  .banner .image p {
+    font-size: 30px;
+  }
+
+  .details1 h1,
+  .details2 h1 {
+    padding: 10px;
+    font-size: 18px;
+  }
 }
