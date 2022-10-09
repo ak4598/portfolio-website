@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "../styles/recipe.module.css";
 import Error from "../../404";
-import { Cook, Clock } from "../../../assets/OtherLogos";
+import { Cook, Cookf, Clock } from "../../../assets/OtherLogos";
 
 const Recipe: NextPage = () => {
   const router = useRouter();
@@ -29,6 +29,8 @@ const Recipe: NextPage = () => {
     }
   }, [router.query.name]);
 
+  console.log([Array(5).keys()]);
+
   if (isLoading) {
     return <div className={styles.background}></div>;
   }
@@ -51,16 +53,20 @@ const Recipe: NextPage = () => {
       </div>
       <div className={styles.details1}>
         <div className={styles.difficulty}>
-          <h1>Difficulty</h1>
-          <Image src={Cook.src} width={100} height={100} />
-          {/* <Image src={Cook.src} width={100} height={100} />
-          <Image src={Cook.src} width={100} height={100} />
-          <Image src={Cook.src} width={100} height={100} />
-          <Image src={Cook.src} width={100} height={100} /> */}
+          {[...Array(post.difficulty)].map((id) => (
+            <div key={id} className={styles.icon}>
+              <Image src={Cook.src} layout="fill" />
+            </div>
+          ))}
+          {[...Array(5 - post.difficulty)].map((id) => (
+            <div key={id} className={styles.icon}>
+              <Image src={Cookf.src} layout="fill" />
+            </div>
+          ))}
         </div>
         <div className={styles.time}>
-          <div>
-            <Image src={Clock.src} width={100} height={100} />
+          <div className={styles.icon}>
+            <Image src={Clock.src} layout="fill" />
           </div>
           <h1>{post.time} mins</h1>
         </div>

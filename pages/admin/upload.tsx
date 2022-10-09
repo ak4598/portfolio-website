@@ -21,6 +21,7 @@ const Upload = () => {
     steps: [""],
     time: 0,
     difficulty: 0,
+    ingredients: [""],
   });
 
   const handleImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,6 +97,7 @@ const Upload = () => {
         steps: [""],
         time: 0,
         difficulty: 0,
+        ingredients: [""],
       });
       if (null !== formRefCookery.current) {
         formRefCookery.current.reset();
@@ -199,6 +201,15 @@ const Upload = () => {
                   setPostDataCookery({
                     ...postDataCookery,
                     difficulty: e.target.value as unknown as number,
+                  })
+                }
+              />
+              <input
+                placeholder="ingredients"
+                onChange={(e) =>
+                  setPostDataCookery({
+                    ...postDataCookery,
+                    ingredients: e.target.value.split("|"),
                   })
                 }
               />

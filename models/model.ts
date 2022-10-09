@@ -15,6 +15,7 @@ const FoodSchema = new Schema({
   steps: { type: [String], required: true },
   time: { type: Number, required: true },
   difficulty: { type: Number, required: true },
+  ingredients: { type: [String], required: true },
 });
 
 const FoodModel = models.Food || model("Food", FoodSchema);

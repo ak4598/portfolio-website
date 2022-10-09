@@ -132,6 +132,12 @@
   align-items: center;
 }
 
+.icon {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
 .details2 .ingredients {
   text-align: right;
   height: 100%;

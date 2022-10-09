@@ -12,7 +12,8 @@ export default async function addImage(
     res.status(404).json({ message: error.message });
   }
 
-  const { cuisine, name, image, steps, time, difficulty } = req.body;
+  const { cuisine, name, image, steps, time, difficulty, ingredients } =
+    req.body;
 
   const newImage = new FoodModel({
     cuisine,
@@ -21,6 +22,7 @@ export default async function addImage(
     steps,
     time,
     difficulty,
+    ingredients,
   });
 
   try {
