@@ -23,6 +23,33 @@
   display: none;
 }
 
+.tmp {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+.arrowLeft {
+  border: solid #f8f9f9;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 10px;
+  margin: 20px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.arrowRight {
+  border: solid #f8f9f9;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 10px;
+  margin: 20px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
 @media (max-width: 900px) {
   .container {
     display: flex;
