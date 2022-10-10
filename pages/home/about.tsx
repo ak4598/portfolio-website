@@ -87,7 +87,7 @@ const About: NextPage = () => {
             id={styles.intro1}
           >
             He is currently a{" "}
-            <span style={{ color: "ForestGreen" }}>consultant</span> at{" "}
+            <span style={{ color: "ForestGreen" }}>Consultant</span> at{" "}
             <span style={{ color: "ForestGreen" }}>Deloitte FinTech Lab</span>👨🏻‍💻
           </div>
           <div
@@ -146,8 +146,8 @@ const About: NextPage = () => {
             in July 2022👨🏻‍🎓
             <br />
             <br />
-            Look at his smile, he is so happy because he can finally say good
-            bye to all the assignments and examinations🤣
+            Look at his smile, he was so happy because he could finally say
+            goodbye to all the assignments and examinations🤣
           </div>
           <div
             className={`${styles.content} ${
@@ -157,13 +157,13 @@ const About: NextPage = () => {
             }`}
             id={styles.intro4}
           >
-            Btw, his majors are indeed{" "}
+            Btw, his majors were indeed{" "}
             <span style={{ color: "SeaGreen" }}>Economics and Finance</span>.💵
             <br />
             <br />
             But declaring a minor in{" "}
             <span style={{ color: "SteelBlue" }}>Computer Science</span> was the
-            best decision he had made throughout his university life.😎
+            best decision he has made throughout his university life.😎
           </div>
         </div>
         <div
@@ -219,8 +219,8 @@ const About: NextPage = () => {
             }`}
             id={styles.intro6}
           >
-            Hiking and travelling are perhaps his only 2 outdoors hobbies. He
-            like them because he can take a lot of pictures and then turn them
+            Hiking and travelling are perhaps his only 2 outdoor hobbies. He
+            likes them because he can take a lot of pictures and then turn them
             into{" "}
             <span style={{ color: "LightSalmon" }}>unrealistic images</span>
             🤓

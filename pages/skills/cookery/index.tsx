@@ -26,7 +26,7 @@ const Cookery: NextPage = () => {
     return (
       <div className={styles.background}>
         <div className={styles.title}>
-          Just a home chef that needs to serve his family everyday👨🏻‍🍳
+          Just a home chef that needs to serve his family every day👨🏻‍🍳
         </div>
       </div>
     );
@@ -35,7 +35,7 @@ const Cookery: NextPage = () => {
   return (
     <div className={styles.background}>
       <div className={styles.title}>
-        Just a home chef that needs to serve his family everyday👨🏻‍🍳
+        Just a home chef that needs to serve his family every day👨🏻‍🍳
       </div>
 
       <div className={styles.gridContainer}>
