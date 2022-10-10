@@ -105,7 +105,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .details1 h1,
@@ -147,6 +147,22 @@
 .details2 .steps {
   height: 100%;
   width: 60%;
+}
+
+.back {
+  color: #f8f9f9;
+  font-weight: lighter;
+  font-size: 20px;
+  font-family: "League Spartan";
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+
+  padding: 20px;
+
+  opacity: 1;
+
+  transition: all 0.5s;
 }
 
 @media (max-width: 1200px) {

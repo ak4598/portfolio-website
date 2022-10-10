@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../styles/recipe.module.css";
 import Error from "../../404";
@@ -75,6 +76,10 @@ const Recipe: NextPage = () => {
       </div>
       <div className={styles.details2}>
         <h1>Coming Soon...</h1>
+
+        <Link href="/skills/cookery">
+          <button className={styles.back}>Back</button>
+        </Link>
       </div>
       {/* <div className={styles.details2}>
         <div className={styles.ingredients}>
