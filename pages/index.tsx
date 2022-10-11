@@ -15,7 +15,6 @@ const Home: NextPage = () => {
         blurDataURL={background.src}
         quality={100}
         priority={true}
-        loading="eager"
       />
 
       <div className={styles.titleOverlay}>
