@@ -62,6 +62,7 @@ const About: NextPage = () => {
             layout="fill"
             objectFit="cover"
             quality={100}
+            priority={true}
           />
           <div
             className={`${styles.title} ${
@@ -117,6 +118,7 @@ const About: NextPage = () => {
             layout="fill"
             objectFit="cover"
             quality={100}
+            priority={true}
           />
           <div
             className={`${styles.title} ${
@@ -180,6 +182,7 @@ const About: NextPage = () => {
             layout="fill"
             objectFit="cover"
             quality={100}
+            priority={true}
           />
           <div
             className={`${styles.title} ${
@@ -243,6 +246,7 @@ const About: NextPage = () => {
             layout="fill"
             objectFit="cover"
             quality={100}
+            priority={true}
           />
           {scrollY < windowSize.height * (breakPoints[3] - 1) ? (
             <div className={`${styles.title}`} id={styles.title4}>

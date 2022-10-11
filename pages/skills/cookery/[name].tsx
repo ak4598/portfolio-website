@@ -44,7 +44,13 @@ const Recipe: NextPage = () => {
       <div className={styles.banner}>
         <div className={styles.image}>
           <div className={styles.imageContainer}>
-            <Image src={post.image} layout="fill" objectFit="cover" />
+            <Image
+              src={post.image}
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+              priority={true}
+            />
             <div className={styles.nameContainer}>
               <p>{post.cuisine}</p>
               <h1>{post.name}</h1>
