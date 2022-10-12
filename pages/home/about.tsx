@@ -64,8 +64,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
-            placeholder="blur"
-            blurDataURL={black.src}
+            // placeholder="blur"
+            // blurDataURL={black.src}
           />
           <div
             className={`${styles.title} ${
@@ -122,8 +122,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
-            placeholder="blur"
-            blurDataURL={black.src}
+            // placeholder="blur"
+            // blurDataURL={black.src}
           />
           <div
             className={`${styles.title} ${
@@ -188,8 +188,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
-            placeholder="blur"
-            blurDataURL={black.src}
+            // placeholder="blur"
+            // blurDataURL={black.src}
           />
           <div
             className={`${styles.title} ${
@@ -254,8 +254,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
-            placeholder="blur"
-            blurDataURL={black.src}
+            // placeholder="blur"
+            // blurDataURL={black.src}
           />
           {scrollY < windowSize.height * (breakPoints[3] - 1) ? (
             <div className={`${styles.title}`} id={styles.title4}>

@@ -13,8 +13,8 @@ const Home: NextPage = () => {
         className={styles.image}
         objectFit="cover"
         src={background.src}
-        placeholder="blur"
-        blurDataURL={black.src}
+        // placeholder="blur"
+        // blurDataURL={black.src}
         quality={100}
         priority={true}
       />

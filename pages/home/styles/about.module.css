@@ -1,5 +1,6 @@
 .container {
   height: 900%; /* no. bg * height% of each bg + 100% */
+  background: #030202;
 }
 
 .hidden {
