@@ -43,6 +43,7 @@
   text-transform: uppercase;
   padding: 20px 50px;
   color: #f8f9f9;
+  cursor: default;
 }
 
 .navbar li ul {
