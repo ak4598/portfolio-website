@@ -1,4 +1,4 @@
-import background from "./background.webp";
+import background from "./background.jpg";
 import earth from "./earth.jpg";
 import about1 from "./about1.jpg";
 import about2 from "./about2.jpg";
