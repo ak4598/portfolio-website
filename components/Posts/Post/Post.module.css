@@ -27,3 +27,12 @@
   padding: 0 20px;
   font-weight: lighter;
 }
+
+.loadingContainer {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -26,16 +26,8 @@ const Post: React.FC<Props> = ({ id }) => {
   if (isLoading || post === null)
     return (
       <div className={styles.card}>
-        <div className={styles.image}>
-          <Image
-            src={Loading.src}
-            // blurDataURL={NotFoundImg.src}
-            // placeholder="blur"
-            width={540}
-            height={675}
-            objectFit="cover"
-            quality={100}
-          />
+        <div className={styles.loadingContainer}>
+          <Image src={Loading.src} width={200} height={200} quality={100} />
         </div>
         <p>Loading...</p>
       </div>
