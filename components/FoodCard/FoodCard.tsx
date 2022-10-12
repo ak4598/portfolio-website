@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./FoodCard.module.css";
 import NotFoundImg from "../../assets/images/not_found.png";
+import { Loading } from "../../assets/OtherLogos/index";
 
 type Props = {
   id: string;
@@ -31,9 +32,9 @@ const FoodCard: React.FC<Props> = ({ id }) => {
         <div className={styles.imageContainer}>
           <Image
             className={styles.image}
-            src={NotFoundImg.src}
-            blurDataURL={NotFoundImg.src}
-            placeholder="blur"
+            src={Loading.src}
+            // blurDataURL={NotFoundImg.src}
+            // placeholder="blur"
             layout="fill"
             objectFit="cover"
             quality={100}

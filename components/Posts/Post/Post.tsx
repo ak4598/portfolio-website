@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Post.module.css";
 import NotFoundImg from "../../../assets/images/not_found.png";
+import { Loading } from "../../../assets/OtherLogos/index";
 
 type Props = {
   id: string;
@@ -27,9 +28,9 @@ const Post: React.FC<Props> = ({ id }) => {
       <div className={styles.card}>
         <div className={styles.image}>
           <Image
-            src={NotFoundImg.src}
-            blurDataURL={NotFoundImg.src}
-            placeholder="blur"
+            src={Loading.src}
+            // blurDataURL={NotFoundImg.src}
+            // placeholder="blur"
             width={540}
             height={675}
             objectFit="cover"
