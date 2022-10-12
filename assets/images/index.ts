@@ -4,5 +4,6 @@ import about1 from "./20210828-DSC00392.jpg";
 import about2 from "./about2.jpg";
 import about3 from "./about3.jpg";
 import about4 from "./about4.jpg";
+import black from "./black.jpg";
 
-export { background, earth, about1, about2, about3, about4 };
+export { background, earth, about1, about2, about3, about4, black };
