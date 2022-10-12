@@ -13,6 +13,7 @@ const About: NextPage = () => {
   const bg3 = useRef<HTMLDivElement | null>(null);
   const bg4 = useRef<HTMLDivElement | null>(null);
 
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [scrollY, setScrollY] = useState<number>(0);
   const [windowSize, setWindowSize] = useState<{ [name: string]: number }>({
     width: 0,

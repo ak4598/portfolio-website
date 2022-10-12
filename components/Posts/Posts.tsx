@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Post from "./Post/Post";
 import styles from "./Posts.module.css";
 import shuffle from "../../utils/shuffle";
-
-import Loading from "../../components/Loading/Loading";
+import Image from "next/image";
+import { Loading } from "../../assets/OtherLogos/index";
 
 type Props = {
   country: string;
@@ -28,7 +28,7 @@ const Posts: React.FC<Props> = ({ country }) => {
   if (isLoading || posts === null)
     return (
       <div className={styles.title}>
-        <Loading loaderSize={100} />
+        <Image src={Loading.src} width={200} height={200} priority={true} />
       </div>
     );
 

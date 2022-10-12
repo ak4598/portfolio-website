@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import styles from "../styles/cookery.module.css";
 import FoodCard from "../../../components/FoodCard/FoodCard";
-import Loading from "../../../components/Loading/Loading";
+// import Loading from "../../../components/Loading/Loading";
+import Image from "next/image";
+import { Loading } from "../../../assets/OtherLogos";
 
 import shuffle from "../../../utils/shuffle";
 
@@ -29,7 +31,7 @@ const Cookery: NextPage = () => {
           Just a home chef that needs to serve his family every day👨🏻‍🍳
         </div>
         <div className={styles.loading}>
-          <Loading loaderSize={100} />
+          <Image src={Loading.src} width={200} height={200} priority={true} />
         </div>
       </div>
     );

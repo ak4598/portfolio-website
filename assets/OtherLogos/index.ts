@@ -28,6 +28,7 @@ import Close from "./close.svg";
 import Cook from "./cook.svg";
 import Cookf from "./cookf.svg";
 import Clock from "./clock.svg";
+import Loading from "./loading.svg";
 
 export {
   Docker,
@@ -58,4 +59,5 @@ export {
   Cook,
   Cookf,
   Clock,
+  Loading,
 };
