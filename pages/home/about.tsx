@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState, useRef } from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { about1, about2, about3, about4 } from "../../assets/images";
+import { about1, about2, about3, about4, black } from "../../assets/images";
 import styles from "./styles/about.module.css";
 
 const About: NextPage = () => {
@@ -64,6 +64,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
+            placeholder="blur"
+            blurDataURL={black.src}
           />
           <div
             className={`${styles.title} ${
@@ -120,6 +122,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
+            placeholder="blur"
+            blurDataURL={black.src}
           />
           <div
             className={`${styles.title} ${
@@ -184,6 +188,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
+            placeholder="blur"
+            blurDataURL={black.src}
           />
           <div
             className={`${styles.title} ${
@@ -248,6 +254,8 @@ const About: NextPage = () => {
             objectFit="cover"
             quality={100}
             priority={true}
+            placeholder="blur"
+            blurDataURL={black.src}
           />
           {scrollY < windowSize.height * (breakPoints[3] - 1) ? (
             <div className={`${styles.title}`} id={styles.title4}>
