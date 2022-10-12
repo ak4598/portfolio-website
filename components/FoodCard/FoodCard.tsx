@@ -29,12 +29,10 @@ const FoodCard: React.FC<Props> = ({ id }) => {
   if (isLoading || post === null) {
     return (
       <div className={styles.card}>
-        <div className={styles.imageContainer}>
+        <div className={styles.loadingContainer}>
           <Image
-            className={styles.image}
             src={Loading.src}
-            // blurDataURL={NotFoundImg.src}
-            // placeholder="blur"
+            className={styles.loading}
             layout="fill"
             objectFit="cover"
             quality={100}
