@@ -13,7 +13,6 @@ body,
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  background: #030202;
 }
 
 body::-webkit-scrollbar {
