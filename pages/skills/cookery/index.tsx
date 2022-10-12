@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import type { NextPage } from "next";
-import Image from "next/image";
 import styles from "../styles/cookery.module.css";
-
 import FoodCard from "../../../components/FoodCard/FoodCard";
+import Loading from "../../../components/Loading/Loading";
+
 import shuffle from "../../../utils/shuffle";
 
 const Cookery: NextPage = () => {
@@ -27,6 +27,9 @@ const Cookery: NextPage = () => {
       <div className={styles.background}>
         <div className={styles.title}>
           Just a home chef that needs to serve his family every day👨🏻‍🍳
+        </div>
+        <div className={styles.loading}>
+          <Loading loaderSize={100} />
         </div>
       </div>
     );
