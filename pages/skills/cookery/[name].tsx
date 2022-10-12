@@ -61,13 +61,13 @@ const Recipe: NextPage = () => {
       <div className={styles.details1}>
         <div className={styles.difficulty}>
           <div className={styles.icon}></div>
-          {[...Array(post.difficulty)].map((id) => (
-            <div key={id} className={styles.icon}>
+          {[...Array(post.difficulty)].map((id, idx) => (
+            <div key={idx} className={styles.icon}>
               <Image src={Cook.src} layout="fill" />
             </div>
           ))}
-          {[...Array(5 - post.difficulty)].map((id) => (
-            <div key={id} className={styles.icon}>
+          {[...Array(5 - post.difficulty)].map((id, idx) => (
+            <div key={idx} className={styles.icon}>
               <Image src={Cookf.src} layout="fill" />
             </div>
           ))}

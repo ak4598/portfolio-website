@@ -3,6 +3,8 @@ import Post from "./Post/Post";
 import styles from "./Posts.module.css";
 import shuffle from "../../utils/shuffle";
 
+import Loading from "../../components/Loading/Loading";
+
 type Props = {
   country: string;
 };
@@ -24,7 +26,12 @@ const Posts: React.FC<Props> = ({ country }) => {
   }, [country]);
 
   if (isLoading || posts === null)
-    return <div className={styles.title}>Loading...</div>;
+    return (
+      <div className={styles.title}>
+        <Loading loaderSize={100} />
+      </div>
+    );
+
   if (!isLoading) {
     if (posts.length === 0) {
       return (
