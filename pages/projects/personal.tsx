@@ -8,7 +8,6 @@ import { GitHub } from "../../assets/SocialMediaLogos";
 import Slider from "../../components/Slider/Slider";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import type { project } from "../../assets/Projects/projects";
-import { black } from "../../assets/images";
 
 type Props = {
   project: project;
@@ -63,8 +62,8 @@ const Background: React.FC<Props> = ({ project }) => {
     <div className={styles.backgroundContainer} key={project.title + "bg"}>
       <Image
         src={project.thumbnail as string}
-        blurDataURL={black.src}
-        // placeholder="blur"
+        blurDataURL={project.thumbnail as string}
+        placeholder="blur"
         layout="fill"
         objectFit="cover"
         quality={100}
