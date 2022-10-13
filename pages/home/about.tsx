@@ -304,7 +304,7 @@ const About: NextPage = () => {
           >
             If you{" "}
             <span style={{ color: "SteelBlue" }}>don{"'"}t wanna connect</span>{" "}
-            with me, thanks for your time🥲
+            with me, thanks for your time😢
           </div>
         </div>
       </div>

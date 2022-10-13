@@ -56,7 +56,8 @@
 
   width: 135px;
   display: none;
-  background: rgba(248, 249, 249, 0.1);
+  /* background: rgba(248, 249, 249, 0.1); */
+  background: rgba(3, 2, 2, 0.8);
   left: 40px;
 }
 
@@ -144,6 +145,7 @@
 
   .navbar li ul button {
     padding: 10px 20px;
+    /* padding: 10px 30px; */
     background: transparent;
     font-family: "League Spartan";
     color: #f8f9f9;
