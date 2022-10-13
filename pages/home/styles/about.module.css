@@ -359,7 +359,7 @@
 @media (orientation: landscape) and (max-height: 400px) {
   .content {
     font-size: 14px;
-    padding: 2% 3%;
+    padding: 1.5% 3%;
   }
 }
 
