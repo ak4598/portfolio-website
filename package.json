@@ -17,6 +17,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-globe.gl": "^2.22.3",
+    "react-intersection-observer": "^9.4.0",
     "three": "^0.143.0"
   },
   "devDependencies": {

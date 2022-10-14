@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,6 +40,11 @@ const Recipe: NextPage = () => {
   const router = useRouter();
   const [post, setPost] = useState<any>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [hasRecipe, setHasRecipe] = useState<boolean>(false);
+
+  const { ref: ingredientsRef, inView: ingredientsVisible } = useInView();
+  const { ref: stepsRef, inView: stepsVisible } = useInView();
+  const { ref: backRef, inView: backVisible } = useInView();
 
   useEffect(() => {
     setLoading(true);
@@ -54,6 +60,7 @@ const Recipe: NextPage = () => {
         .then((data) => {
           setPost(data);
           setLoading(false);
+          setHasRecipe(data.ingredients[0] !== "" && data.steps[0] !== "");
         });
     }
   }, [router.query.name]);
@@ -107,7 +114,7 @@ const Recipe: NextPage = () => {
         </div>
       </div>
       <div className={styles.details2}>
-        {post.ingredients.length === 0 && (
+        {!hasRecipe && (
           <div className={styles.box}>
             <h1>Coming Soon...</h1>
             <Link href="/skills/cookery">
@@ -115,9 +122,14 @@ const Recipe: NextPage = () => {
             </Link>
           </div>
         )}
-        {!(post.ingredients.length === 0) && (
+        {hasRecipe && (
           <div className={styles.box}>
-            <div className={styles.section}>
+            <div
+              className={`${styles.section} ${
+                ingredientsVisible ? styles.show : ""
+              }`}
+              ref={ingredientsRef}
+            >
               <h1>Ingredients</h1>
               <div className={styles.ingredients}>
                 {post.ingredients.map((ingredient: string) => (
@@ -125,7 +137,10 @@ const Recipe: NextPage = () => {
                 ))}
               </div>
             </div>
-            <div className={styles.section}>
+            <div
+              className={`${styles.section} ${stepsVisible ? styles.show : ""}`}
+              ref={stepsRef}
+            >
               <h1>Steps</h1>
               <div className={styles.steps}>
                 {post.steps.map((step: string, idx: number) => (
@@ -133,7 +148,10 @@ const Recipe: NextPage = () => {
                 ))}
               </div>
             </div>
-            <div className={styles.backContainer}>
+            <div
+              className={`${styles.section} ${backVisible ? styles.show : ""}`}
+              ref={backRef}
+            >
               <Link href="/skills/cookery">
                 <button className={styles.back}>Back</button>
               </Link>
