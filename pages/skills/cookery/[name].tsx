@@ -7,6 +7,34 @@ import styles from "../styles/recipe.module.css";
 import Error from "../../404";
 import { Cook, Cookf, Clock } from "../../../assets/OtherLogos";
 
+const Ingredient: React.FC<{ ingredient: string }> = ({ ingredient }) => {
+  return (
+    <div>
+      <h2>{ingredient.split(",")[0]}</h2>
+      <p>{ingredient.split(",")[1]}</p>
+    </div>
+  );
+};
+
+const Step: React.FC<{ idx: number; step: string }> = ({ idx, step }) => {
+  return (
+    <div className={styles.step}>
+      <div className={styles.number}>
+        {idx + 1 < 10 ? <h2>0{idx + 1}</h2> : <h2>{idx + 1}</h2>}
+      </div>
+      <div className={styles.description}>
+        <p>
+          {step.split("<br />").map((i, idx) => (
+            <span key={idx}>
+              {i} <br />
+            </span>
+          ))}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const Recipe: NextPage = () => {
   const router = useRouter();
   const [post, setPost] = useState<any>(null);
@@ -29,8 +57,6 @@ const Recipe: NextPage = () => {
         });
     }
   }, [router.query.name]);
-
-  console.log([Array(5).keys()]);
 
   if (isLoading) {
     return <div className={styles.background}></div>;
@@ -81,20 +107,40 @@ const Recipe: NextPage = () => {
         </div>
       </div>
       <div className={styles.details2}>
-        <h1>Coming Soon...</h1>
-
-        <Link href="/skills/cookery">
-          <button className={styles.back}>Back</button>
-        </Link>
+        {post.ingredients.length === 0 && (
+          <div className={styles.box}>
+            <h1>Coming Soon...</h1>
+            <Link href="/skills/cookery">
+              <button className={styles.back}>Back</button>
+            </Link>
+          </div>
+        )}
+        {!(post.ingredients.length === 0) && (
+          <div className={styles.box}>
+            <div className={styles.section}>
+              <h1>Ingredients</h1>
+              <div className={styles.ingredients}>
+                {post.ingredients.map((ingredient: string) => (
+                  <Ingredient key={ingredient} ingredient={ingredient} />
+                ))}
+              </div>
+            </div>
+            <div className={styles.section}>
+              <h1>Steps</h1>
+              <div className={styles.steps}>
+                {post.steps.map((step: string, idx: number) => (
+                  <Step key={step} idx={idx} step={step} />
+                ))}
+              </div>
+            </div>
+            <div className={styles.backContainer}>
+              <Link href="/skills/cookery">
+                <button className={styles.back}>Back</button>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
-      {/* <div className={styles.details2}>
-        <div className={styles.ingredients}>
-          <h1>Ingredients</h1>
-        </div>
-        <div className={styles.steps}>
-          <h1>Steps</h1>
-        </div>
-      </div> */}
     </div>
   );
 };
