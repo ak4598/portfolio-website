@@ -59,9 +59,11 @@ const Cookery: React.FC<Props> = ({ posts }) => {
   );
 };
 
+export default Cookery;
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
   // Fetch data from external API
-  console.log(context.req.headers.host);
+
   const host = context.req.headers.host;
   const res = await fetch(`http://${host}/api/images/get-food-images`);
   const data = await res.json();
@@ -70,5 +72,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // Pass data to the page via props
   return { props: { posts } };
 };
-
-export default Cookery;
