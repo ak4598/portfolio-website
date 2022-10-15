@@ -9,7 +9,7 @@ import Error from "../../404";
 import { Cook, Cookf, Clock } from "../../../assets/OtherLogos";
 
 const Ingredient: React.FC<{ ingredient: string }> = ({ ingredient }) => {
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
     <div
@@ -24,7 +24,7 @@ const Ingredient: React.FC<{ ingredient: string }> = ({ ingredient }) => {
 };
 
 const Step: React.FC<{ idx: number; step: string }> = ({ idx, step }) => {
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
     <div className={styles.step} ref={ref}>
@@ -56,11 +56,21 @@ const Recipe: NextPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [hasRecipe, setHasRecipe] = useState<boolean>(false);
 
-  const { ref: difficultyRef, inView: difficultyVisible } = useInView();
-  const { ref: timeRef, inView: timeVisible } = useInView();
-  const { ref: ingredientsRef, inView: ingredientsVisible } = useInView();
-  const { ref: stepsRef, inView: stepsVisible } = useInView();
-  const { ref: backRef, inView: backVisible } = useInView();
+  const { ref: difficultyRef, inView: difficultyVisible } = useInView({
+    triggerOnce: true,
+  });
+  const { ref: timeRef, inView: timeVisible } = useInView({
+    triggerOnce: true,
+  });
+  const { ref: ingredientsRef, inView: ingredientsVisible } = useInView({
+    triggerOnce: true,
+  });
+  const { ref: stepsRef, inView: stepsVisible } = useInView({
+    triggerOnce: true,
+  });
+  const { ref: backRef, inView: backVisible } = useInView({
+    triggerOnce: true,
+  });
 
   useEffect(() => {
     setLoading(true);
