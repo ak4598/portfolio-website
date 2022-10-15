@@ -132,7 +132,9 @@
   justify-content: center;
   align-items: center;
 
-  animation: enterLeft 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateX(-5%);
+  transition: 0.5s all;
 }
 
 .details1 .time {
@@ -142,7 +144,10 @@
   justify-content: center;
   align-items: center;
 
-  animation: enter 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateX(5%);
+
+  transition: 0.5s all;
 }
 
 .box {
@@ -158,7 +163,6 @@
 
 .section {
   width: 100%;
-  opacity: 0;
 
   margin: 40px 0px;
 
@@ -170,8 +174,10 @@
   transition: all 0.5s;
 }
 
-.show {
-  opacity: 1;
+.section h1 {
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: all 0.5s;
 }
 
 .ingredients {
@@ -185,19 +191,23 @@
   color: #f8f9f9;
 }
 
-.ingredients div {
+.ingredient {
   padding: 10px 30px;
   margin: 30px;
+
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: all 0.5s;
 }
 
-.ingredients div h2 {
+.ingredient h2 {
   font-size: 24px;
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
-.ingredients div p {
+.ingredient p {
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -221,6 +231,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: all 0.5s;
 }
 
 .description {
@@ -228,6 +242,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  opacity: 0;
+  transform: translateX(10%);
+  transition: all 0.5s;
 }
 
 .step h2 {
@@ -242,28 +260,6 @@
   /* padding: 10px 60px; */
 }
 
-@keyframes enter {
-  0% {
-    transform: translateX(5%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-
-@keyframes enterLeft {
-  0% {
-    transform: translateX(-5%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-
 .icon {
   width: 100px;
   height: 100px;
@@ -276,7 +272,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-bottom: 20px;
 }
 
 .back {
@@ -289,7 +285,9 @@
   border: 0;
   padding: 10px;
 
-  opacity: 1;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 0.5s;
 }
 
 .back:hover {
