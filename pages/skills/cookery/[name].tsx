@@ -108,39 +108,52 @@ const Recipe: NextPage = () => {
         </div>
       </div>
       <div className={styles.details1}>
-        <div
-          className={styles.difficulty}
-          ref={difficultyRef}
-          style={
-            difficultyVisible
-              ? { opacity: "1", transform: "translateX(0%)" }
-              : {}
-          }
-        >
+        <div className={styles.difficulty} ref={difficultyRef}>
           <div className={styles.icon}></div>
           {[...Array(post.difficulty)].map((id, idx) => (
-            <div key={idx} className={styles.icon}>
+            <div
+              key={idx}
+              className={styles.icon}
+              style={
+                difficultyVisible
+                  ? { opacity: "1", transform: "translateX(0%)" }
+                  : {}
+              }
+            >
               <Image src={Cook.src} layout="fill" />
             </div>
           ))}
           {[...Array(5 - post.difficulty)].map((id, idx) => (
-            <div key={idx} className={styles.icon}>
+            <div
+              key={idx}
+              className={styles.icon}
+              style={
+                difficultyVisible
+                  ? { opacity: "1", transform: "translateX(0%)" }
+                  : {}
+              }
+            >
               <Image src={Cookf.src} layout="fill" />
             </div>
           ))}
           <div className={styles.icon}></div>
         </div>
-        <div
-          className={styles.time}
-          ref={timeRef}
-          style={
-            timeVisible ? { opacity: "1", transform: "translateX(0%)" } : {}
-          }
-        >
-          <div className={styles.icon}>
+        <div className={styles.time} ref={timeRef}>
+          <div
+            className={styles.icon}
+            style={
+              timeVisible ? { opacity: "1", transform: "translateX(0%)" } : {}
+            }
+          >
             <Image src={Clock.src} layout="fill" />
           </div>
-          <h1>{post.time} mins</h1>
+          <h1
+            style={
+              timeVisible ? { opacity: "1", transform: "translateX(0%)" } : {}
+            }
+          >
+            {post.time} mins
+          </h1>
         </div>
       </div>
       <div className={styles.details2}>

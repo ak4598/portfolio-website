@@ -131,10 +131,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+.details1 .difficulty .icon {
   opacity: 0;
   transform: translateX(-5%);
   transition: 0.5s all;
+}
+
+.details1 .difficulty .icon:nth-child(3) {
+  transition-delay: 50ms;
+}
+
+.details1 .difficulty .icon:nth-child(4) {
+  transition-delay: 100ms;
+}
+
+.details1 .difficulty .icon:nth-child(5) {
+  transition-delay: 150ms;
+}
+
+.details1 .difficulty .icon:nth-child(6) {
+  transition-delay: 200ms;
 }
 
 .details1 .time {
@@ -143,7 +161,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+.details1 .time .icon {
+  opacity: 0;
+  transform: translateX(5%);
+
+  transition: 0.5s all;
+}
+
+.details1 .time h1 {
   opacity: 0;
   transform: translateX(5%);
 
