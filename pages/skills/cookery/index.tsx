@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import type { NextPage } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import styles from "../styles/cookery.module.css";
 import FoodCard from "../../../components/FoodCard/FoodCard";
 
@@ -8,33 +8,37 @@ import { Loading } from "../../../assets/OtherLogos";
 
 import shuffle from "../../../utils/shuffle";
 
-const Cookery: NextPage = () => {
-  const [posts, setPosts] = useState<any>(null);
-  const [isLoading, setLoading] = useState<boolean>(false);
-  useEffect(() => {
-    setLoading(true);
+type Props = {
+  posts: any;
+};
 
-    fetch("/api/images/get-food-images")
-      .then((res) => res.json())
-      .then((id) => {
-        shuffle(id);
-        setPosts(id);
-        setLoading(false);
-      });
-  }, []);
+const Cookery: React.FC<Props> = ({ posts }) => {
+  // const [posts, setPosts] = useState<any>(null);
+  // const [isLoading, setLoading] = useState<boolean>(false);
+  // useEffect(() => {
+  //   setLoading(true);
 
-  if (isLoading || posts === null) {
-    return (
-      <div className={styles.background}>
-        <div className={styles.title}>
-          Just a home chef that needs to serve his family every day👨🏻‍🍳
-        </div>
-        <div className={styles.loading}>
-          <Image src={Loading.src} width={200} height={200} priority={true} />
-        </div>
-      </div>
-    );
-  }
+  //   fetch("/api/images/get-food-images")
+  //     .then((res) => res.json())
+  //     .then((id) => {
+  //       shuffle(id);
+  //       setPosts(id);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  // if (isLoading || posts === null) {
+  //   return (
+  //     <div className={styles.background}>
+  //       <div className={styles.title}>
+  //         Just a home chef that needs to serve his family every day👨🏻‍🍳
+  //       </div>
+  //       <div className={styles.loading}>
+  //         <Image src={Loading.src} width={200} height={200} priority={true} />
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={styles.background}>
@@ -53,6 +57,18 @@ const Cookery: NextPage = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // Fetch data from external API
+  console.log(context.req.cookies["next-auth.callback-url"]);
+  const host = context.req.cookies["next-auth.callback-url"];
+  const res = await fetch(`${host}/api/images/get-food-images`);
+  const data = await res.json();
+  const posts = shuffle(data);
+
+  // Pass data to the page via props
+  return { props: { posts } };
 };
 
 export default Cookery;
