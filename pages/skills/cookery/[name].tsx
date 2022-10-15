@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../styles/recipe.module.css";
 import Error from "../../404";
-import { Cook, Cookf, Clock } from "../../../assets/OtherLogos";
+import { Cook, Cookf, Clock, Loading } from "../../../assets/OtherLogos";
 
 const Ingredient: React.FC<{ ingredient: string }> = ({ ingredient }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
@@ -96,7 +96,13 @@ const Recipe: NextPage = () => {
   }, [router.query.name]);
 
   if (isLoading) {
-    return <div className={styles.background}></div>;
+    return (
+      <div className={styles.background}>
+        <div className={styles.loading}>
+          <Image src={Loading.src} width={200} height={200} priority={true} />
+        </div>
+      </div>
+    );
   }
   if (!isLoading && post === null) {
     return <Error />;
