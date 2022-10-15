@@ -61,9 +61,9 @@ const Cookery: React.FC<Props> = ({ posts }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   // Fetch data from external API
-  console.log(context.req.cookies["next-auth.callback-url"]);
-  const host = context.req.cookies["next-auth.callback-url"];
-  const res = await fetch(`${host}/api/images/get-food-images`);
+  console.log(context.req.headers.host);
+  const host = context.req.headers.host;
+  const res = await fetch(`http://${host}/api/images/get-food-images`);
   const data = await res.json();
   const posts = shuffle(data);
 
