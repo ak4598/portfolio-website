@@ -53,6 +53,7 @@
 }
 
 .card .description {
+  cursor: default;
   top: 50px;
   width: 100%;
   position: absolute;
