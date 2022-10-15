@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import styles from "../styles/cookery.module.css";
 import FoodCard from "../../../components/FoodCard/FoodCard";
@@ -10,7 +9,6 @@ import { Loading } from "../../../assets/OtherLogos";
 import shuffle from "../../../utils/shuffle";
 
 const Cookery: NextPage = () => {
-  const router = useRouter();
   const [posts, setPosts] = useState<any>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   useEffect(() => {
@@ -23,7 +21,7 @@ const Cookery: NextPage = () => {
         setPosts(id);
         setLoading(false);
       });
-  }, [router.route]);
+  }, []);
 
   if (isLoading || posts === null) {
     return (
