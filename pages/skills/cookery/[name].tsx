@@ -56,6 +56,10 @@ const Recipe: NextPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [hasRecipe, setHasRecipe] = useState<boolean>(false);
 
+  const { ref: comingSoonRef, inView: comingSoonVisible } = useInView({
+    triggerOnce: true,
+  });
+
   const { ref: difficultyRef, inView: difficultyVisible } = useInView({
     triggerOnce: true,
   });
@@ -169,10 +173,31 @@ const Recipe: NextPage = () => {
       <div className={styles.details2}>
         {!hasRecipe && (
           <div className={styles.box}>
-            <h1>Coming Soon...</h1>
-            <Link href="/skills/cookery">
-              <button className={styles.back}>Back</button>
-            </Link>
+            <h1
+              className={styles.comingSoon}
+              ref={comingSoonRef}
+              style={
+                comingSoonVisible
+                  ? { opacity: "1", transform: "translateX(0%)" }
+                  : {}
+              }
+            >
+              Coming Soon...
+            </h1>
+            <div className={`${styles.backContainer}`} ref={backRef}>
+              <Link href="/skills/cookery">
+                <button
+                  className={styles.back}
+                  style={
+                    backVisible
+                      ? { opacity: "1", transform: "translateX(0%)" }
+                      : {}
+                  }
+                >
+                  Back
+                </button>
+              </Link>
+            </div>
           </div>
         )}
         {hasRecipe && (

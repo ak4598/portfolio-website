@@ -95,6 +95,12 @@
   position: relative;
 }
 
+.comingSoon {
+  opacity: 0;
+  transform: translateX(-5%);
+  transition: 0.5s all;
+}
+
 .details1 {
   width: 100%;
   height: 20%;
