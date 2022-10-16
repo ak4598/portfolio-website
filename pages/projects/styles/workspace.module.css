@@ -195,7 +195,7 @@
 
 @media (max-width: 900px) {
   .background {
-    min-height: 0px;
+    min-height: 600px;
   }
 
   .techStack {
