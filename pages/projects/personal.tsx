@@ -63,8 +63,6 @@ const Background: React.FC<Props> = ({ project }) => {
     <div className={styles.backgroundContainer} key={project.title + "bg"}>
       <Image
         src={project.thumbnail as string}
-        // blurDataURL={black.src}
-        // placeholder="blur"
         layout="fill"
         objectFit="cover"
         quality={100}

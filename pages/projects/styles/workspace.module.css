@@ -174,77 +174,6 @@
   font-weight: lighter;
 }
 
-.menuContainer {
-  position: relative;
-  left: 0;
-  width: 100%;
-  min-width: 320px;
-  height: 50%;
-
-  padding: 0 2%;
-  display: flex;
-  justify-content: center;
-
-  align-items: center;
-
-  transition: all 0.5s;
-}
-
-.menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  width: 240px;
-  height: 100%;
-  overflow: scroll;
-
-  background: transparent;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
-  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(100px);
-
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  transition: all 0.5s;
-}
-
-.menu::-webkit-scrollbar {
-  display: none;
-}
-
-.menu .pjItem {
-  margin: 5%;
-}
-
-.menu .pjItem button {
-  width: 100%;
-  color: #f8f9f9;
-  font-weight: lighter;
-  font-size: 24px;
-  font-family: "League Spartan";
-  line-height: 120%;
-  cursor: pointer;
-  padding: 20px 0px;
-  background: transparent;
-  border: 1px solid rgba(248, 249, 249, 0.4);
-  border-right: 1px solid rgba(248, 249, 249, 0.2);
-  border-left: 1px solid rgba(248, 249, 249, 0.2);
-  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(100px);
-}
-
-.menu .pjItem button:hover {
-  background: rgba(248, 249, 249, 0.05);
-}
-
-.menu .pjItem button:active {
-  background: rgba(248, 249, 249, 0.1);
-}
-
 .back {
   position: absolute;
   color: #f8f9f9;
@@ -320,20 +249,6 @@
   .slider {
     left: 10%;
     width: 80%;
-  }
-
-  .menuContainer {
-    min-width: 120px;
-  }
-
-  .menu {
-    backdrop-filter: blur(30px);
-  }
-
-  .menu .pjItem button {
-    padding: 10px 0px;
-    font-size: 16px;
-    backdrop-filter: blur(10px);
   }
 
   .back {
