@@ -16,7 +16,7 @@ const pages = [
   },
   {
     name: "Projects",
-    sections: ["Personal", "Workspace "],
+    sections: ["Personal", "Workplace "],
   },
 ];
 

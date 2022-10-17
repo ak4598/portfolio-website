@@ -1,14 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
-import styles from "./styles/workspace.module.css";
+import styles from "./styles/workplace.module.css";
 import { workspace } from "../../assets/Projects/projects";
 import { GitHub } from "../../assets/SocialMediaLogos";
 
 import Slider from "../../components/Slider/Slider";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import type { project } from "../../assets/Projects/projects";
-import { black } from "../../assets/images";
 
 type Props = {
   project: project;
@@ -72,7 +71,7 @@ const Background: React.FC<Props> = ({ project }) => {
   );
 };
 
-const Workspace: NextPage = () => {
+const Workplace: NextPage = () => {
   const randomIndex = Math.floor(Math.random() * workspace.length);
   const initialProject = workspace[randomIndex];
 
@@ -108,4 +107,4 @@ const Workspace: NextPage = () => {
   );
 };
 
-export default Workspace;
+export default Workplace;
