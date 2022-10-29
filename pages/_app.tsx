@@ -6,6 +6,8 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import NavBar from "../components/NavBar/NavBar";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+
 function Loading(): any {
   const router = useRouter();
 
@@ -33,6 +35,7 @@ function Loading(): any {
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [showChild, setShowChild] = useState(false);
+  const queryClient = new QueryClient();
 
   useEffect(() => {
     setShowChild(true);
@@ -46,7 +49,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     return <></>;
   } else {
     return (
-      <>
+      <QueryClientProvider client={queryClient}>
         <Loading />
         <SessionProvider session={session}>
           <Head>
@@ -55,7 +58,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           <NavBar />
           <Component {...pageProps} />
         </SessionProvider>
-      </>
+      </QueryClientProvider>
     );
   }
 }

@@ -3,6 +3,8 @@ import type { NextPage, GetServerSideProps } from "next";
 import styles from "../styles/cookery.module.css";
 import FoodCard from "../../../components/FoodCard/FoodCard";
 
+import { useQuery } from "react-query";
+
 import Image from "next/image";
 import { Loading } from "../../../assets/OtherLogos";
 
@@ -15,18 +17,30 @@ type Props = {
 // const Cookery: React.FC<Props> = ({ posts }) => {
 const Cookery: NextPage = () => {
   const [posts, setPosts] = useState<any>(null);
-  const [isLoading, setLoading] = useState<boolean>(false);
-  useEffect(() => {
-    setLoading(true);
+  // const [isLoading, setLoading] = useState<boolean>(false);
 
+  const fetchData = async () => {
     fetch("/api/images/get-food-images")
       .then((res) => res.json())
       .then((id) => {
         shuffle(id);
         setPosts(id);
-        setLoading(false);
+        // setLoading(false);
       });
-  }, []);
+  };
+
+  const { isError, isSuccess, isLoading, data, error } = useQuery(
+    ["posts"],
+    fetchData,
+    { staleTime: 60000 }
+  );
+
+  console.log();
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetchData();
+  // }, []);
 
   if (isLoading || posts === null) {
     return (
