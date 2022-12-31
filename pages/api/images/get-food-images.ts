@@ -13,8 +13,7 @@ export default async function getCountry(
   }
 
   try {
-    // const imagesId = await FoodModel.find({}, "_id");
-    const imagesId = await FoodModel.find({});
+    const imagesId = await FoodModel.find({}, "_id");
 
     res.status(200).json(imagesId);
   } catch (error: any) {

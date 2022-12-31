@@ -2,52 +2,45 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./FoodCard.module.css";
-
+import NotFoundImg from "../../assets/images/not_found.png";
 import { Loading } from "../../assets/OtherLogos/index";
 
 type Props = {
-  cuisine: string;
-  difficulty: number;
-  image: string;
-  ingredients: string[];
-  name: string[];
-  steps: string[];
-  time: number;
-  _id: string;
+  id: string;
 };
 
-const FoodCard: React.FC<Props> = (post) => {
-  // const [post, setPost] = useState<any>(null);
-  // const [isLoading, setLoading] = useState<boolean>(false);
+const FoodCard: React.FC<Props> = ({ id }) => {
+  const [post, setPost] = useState<any>(null);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
-  const recipeLink = `/skills/cookery/${post._id}`;
+  const recipeLink = `/skills/cookery/${id}`;
 
-  // useEffect(() => {
-  //   setLoading(true);
+  useEffect(() => {
+    setLoading(true);
 
-  //   fetch(`/api/images/get-food-image?id=${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setPost(data);
-  //       setLoading(false);
-  //     });
-  // }, [id]);
+    fetch(`/api/images/get-food-image?id=${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPost(data);
+        setLoading(false);
+      });
+  }, [id]);
 
-  // if (isLoading || post === null) {
-  //   return (
-  //     <div className={styles.card}>
-  //       <div className={styles.loadingContainer}>
-  //         <Image
-  //           src={Loading.src}
-  //           className={styles.loading}
-  //           layout="fill"
-  //           objectFit="cover"
-  //           quality={100}
-  //         />
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (isLoading || post === null) {
+    return (
+      <div className={styles.card}>
+        <div className={styles.loadingContainer}>
+          <Image
+            src={Loading.src}
+            className={styles.loading}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.card}>
