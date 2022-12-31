@@ -8,6 +8,9 @@ import NavBar from "../components/NavBar/NavBar";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import { store } from "../store/store";
+import { Provider } from "react-redux";
+
 function Loading(): any {
   const router = useRouter();
 
@@ -49,16 +52,18 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     return <></>;
   } else {
     return (
-      <QueryClientProvider client={queryClient}>
-        <Loading />
-        <SessionProvider session={session}>
-          <Head>
-            <title>Andy Kwan</title>
-          </Head>
-          <NavBar />
-          <Component {...pageProps} />
-        </SessionProvider>
-      </QueryClientProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <Loading />
+          <SessionProvider session={session}>
+            <Head>
+              <title>Andy Kwan</title>
+            </Head>
+            <NavBar />
+            <Component {...pageProps} />
+          </SessionProvider>
+        </QueryClientProvider>
+      </Provider>
     );
   }
 }
