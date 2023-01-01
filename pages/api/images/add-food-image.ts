@@ -6,30 +6,34 @@ export default async function addImage(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  try {
-    await connectMongo();
-  } catch (error: any) {
-    res.status(404).json({ message: error.message });
-  }
+  if (process.env.ENV === "localhost") {
+    try {
+      await connectMongo();
+    } catch (error: any) {
+      res.status(404).json({ message: error.message });
+    }
 
-  const { cuisine, name, image, steps, time, difficulty, ingredients } =
-    req.body;
+    const { cuisine, name, image, steps, time, difficulty, ingredients } =
+      req.body;
 
-  const newImage = new FoodModel({
-    cuisine,
-    name,
-    image,
-    steps,
-    time,
-    difficulty,
-    ingredients,
-  });
+    const newImage = new FoodModel({
+      cuisine,
+      name,
+      image,
+      steps,
+      time,
+      difficulty,
+      ingredients,
+    });
 
-  try {
-    await newImage.save(newImage);
-    res.status(201).json(newImage);
-  } catch (error: any) {
-    res.status(409).json({ message: error });
+    try {
+      await newImage.save(newImage);
+      res.status(201).json(newImage);
+    } catch (error: any) {
+      res.status(409).json({ message: error });
+    }
+  } else {
+    res.status(403);
   }
 }
 

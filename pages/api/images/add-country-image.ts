@@ -6,25 +6,29 @@ export default async function addImage(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  try {
-    await connectMongo();
-  } catch (error: any) {
-    res.status(404).json({ message: error.message });
-  }
+  if (process.env.ENV === "localhost") {
+    try {
+      await connectMongo();
+    } catch (error: any) {
+      res.status(404).json({ message: error.message });
+    }
 
-  const { country, caption, image } = req.body;
+    const { country, caption, image } = req.body;
 
-  const newImage = new countryModel({
-    country,
-    caption,
-    image,
-  });
+    const newImage = new countryModel({
+      country,
+      caption,
+      image,
+    });
 
-  try {
-    await newImage.save(newImage);
-    res.status(201).json(newImage);
-  } catch (error: any) {
-    res.status(409).json({ message: error });
+    try {
+      await newImage.save(newImage);
+      res.status(201).json(newImage);
+    } catch (error: any) {
+      res.status(409).json({ message: error });
+    }
+  } else {
+    res.status(403);
   }
 }
 
