@@ -8,8 +8,9 @@ import NavBar from "../components/NavBar/NavBar";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { store } from "../store/store";
+import { store, persistor } from "../store/store";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 function Loading(): any {
   const router = useRouter();
@@ -53,16 +54,18 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   } else {
     return (
       <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <Loading />
-          <SessionProvider session={session}>
-            <Head>
-              <title>Andy Kwan</title>
-            </Head>
-            <NavBar />
-            <Component {...pageProps} />
-          </SessionProvider>
-        </QueryClientProvider>
+        <PersistGate loading={<Loading />} persistor={persistor}>
+          <QueryClientProvider client={queryClient}>
+            <Loading />
+            <SessionProvider session={session}>
+              <Head>
+                <title>Andy Kwan</title>
+              </Head>
+              <NavBar />
+              <Component {...pageProps} />
+            </SessionProvider>
+          </QueryClientProvider>
+        </PersistGate>
       </Provider>
     );
   }
