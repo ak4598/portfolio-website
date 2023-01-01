@@ -12,7 +12,11 @@ type Props = {
   id: string;
 };
 
+// const FoodCard: React.FC<any> = (post) => {
 const FoodCard: React.FC<Props> = ({ id }) => {
+  // const [post, setPost] = useState<any>(null);
+  // const [isLoading, setLoading] = useState<boolean>(false);
+
   const dispatch = useDispatch();
   const cookery = useSelector((state: RootState) => state.cookery);
 
@@ -32,6 +36,20 @@ const FoodCard: React.FC<Props> = ({ id }) => {
     fetchData();
   }
 
+  // console.log(post);
+
+  // useEffect(() => {
+  //   setLoading(true);
+
+  //   fetch(`/api/images/get-food-image?id=${id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setPost(data);
+  //       setLoading(false);
+  //     });
+  // }, [id]);
+
+  // if (isLoading || post === null) {
   if (post?.name === null) {
     return (
       <div className={styles.card}>
@@ -53,7 +71,8 @@ const FoodCard: React.FC<Props> = ({ id }) => {
       <div className={styles.imageContainer}>
         <Image
           className={styles.image}
-          src={post?.image as string}
+          //@ts-ignore
+          src={post?.image}
           layout="fill"
           objectFit="cover"
           quality={100}
