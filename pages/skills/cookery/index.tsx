@@ -2,47 +2,53 @@ import React, { useEffect, useState } from "react";
 import type { NextPage, GetServerSideProps } from "next";
 import styles from "../styles/cookery.module.css";
 import FoodCard from "../../../components/FoodCard/FoodCard";
-
 import { useQuery } from "react-query";
-
 import Image from "next/image";
 import { Loading } from "../../../assets/OtherLogos";
-
 import shuffle from "../../../utils/shuffle";
 
-type Props = {
-  posts: any;
-};
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { setIds } from "../../../store/slices/cookerySlice";
+
+// type Props = {
+//   posts: any;
+// };
 
 // const Cookery: React.FC<Props> = ({ posts }) => {
 const Cookery: NextPage = () => {
-  const [posts, setPosts] = useState<any>(null);
-  // const [isLoading, setLoading] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const cookery = useSelector((state: RootState) => state.cookery);
+
+  // const [posts, setPosts] = useState<any>(null);
 
   const fetchData = async () => {
     fetch("/api/images/get-food-images")
       .then((res) => res.json())
-      .then((id) => {
-        shuffle(id);
-        setPosts(id);
-        // setLoading(false);
+      .then((ids) => {
+        // shuffle(id);
+        // setPosts(id);
+
+        dispatch(setIds({ ids: ids }));
+        // console.warn(cookery);
+        // ids.map((id: any) => dispatch(appendId(id)));
       });
   };
 
-  const { isError, isSuccess, isLoading, data, error } = useQuery(
-    ["posts"],
-    fetchData,
-    { staleTime: 60000 }
-  );
+  // const { isError, isSuccess, isLoading, data, error } = useQuery(
+  //   ["posts"],
+  //   fetchData,
+  //   { staleTime: 60000 }
+  // );
 
-  console.log();
+  if (cookery.length === 0) {
+    fetchData();
+  }
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetchData();
-  // }, []);
+  const posts = [...cookery];
 
-  if (isLoading || posts === null) {
+  // if (isLoading || posts === null) {
+  if (posts.length === 0) {
     return (
       <div className={styles.background}>
         <div className={styles.title}>
