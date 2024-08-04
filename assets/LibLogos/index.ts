@@ -12,6 +12,8 @@ import Tailwind from "./tailwindcss.svg";
 import HuggingFace from "./huggingface.svg";
 import Spacy from "./spacy.svg";
 import Nltk from "./nltk.svg";
+import XGBoost from "./xgboost.png";
+import SHAP from "./shap.webp";
 
 export {
   NumPy,
@@ -28,4 +30,6 @@ export {
   HuggingFace,
   Spacy,
   Nltk,
+  XGBoost,
+  SHAP,
 };

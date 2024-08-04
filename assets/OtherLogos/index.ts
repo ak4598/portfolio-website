@@ -30,6 +30,22 @@ import Cookf from "./cookf.svg";
 import Clock from "./clock.svg";
 import Loading from "./loading.svg";
 
+import Bitbucket from "./bitbucket.svg";
+import Jira from "./jira.svg";
+import Confluence from "./confluence.svg";
+import Jenkins from "./jenkins.svg";
+import Maven from "./maven.png";
+import Ant from "./ant.svg";
+import Nexus from "./nexus.png";
+import ClearCase from "./clearcase.png";
+import WebSphere from "./websphere.png";
+
+import OpenAI from "./openai.svg";
+import Qwen2 from "./qwen2.png";
+import Ollama from "./ollama.png";
+import Milvus from "./milvus.svg";
+import AWS from "./aws.svg";
+
 export {
   Docker,
   Linux,
@@ -60,4 +76,18 @@ export {
   Cookf,
   Clock,
   Loading,
+  Bitbucket,
+  Jira,
+  Confluence,
+  Jenkins,
+  Maven,
+  Ant,
+  Nexus,
+  WebSphere,
+  ClearCase,
+  OpenAI,
+  Qwen2,
+  Ollama,
+  Milvus,
+  AWS,
 };
